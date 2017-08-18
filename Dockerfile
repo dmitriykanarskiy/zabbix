@@ -75,12 +75,13 @@ RUN apt-get ${APT_FLAGS_COMMON} update && \
             libssh2-1-dev \
             unixodbc-dev \
             libxml2-dev \
-            subversion 1>/dev/null && \
-    cd /etc/appdir/ && \
+            subversion 1>/dev/null
+WORKDIR /etc/appdir/
+RUN cd /etc/appdir/ && \
     perl Makefile.PL INSTALLSITESCRIPT=/usr/lib/zabbix/alertscripts && \
     make install && \
     rm -rf /etc/appdir/ && \
-    cd /tmp/ && \
+RUN cd /tmp/ && \
     svn --quiet export ${ZBX_SOURCES} zabbix-${ZBX_VERSION} && \
     cd /tmp/zabbix-${ZBX_VERSION} && \
     zabbix_revision=`svn info ${ZBX_SOURCES} |grep "Last Changed Rev"|awk '{print $4;}'` && \
