@@ -4,11 +4,11 @@ LABEL maintainer "Dmytro Kanarskyi <dmitriy.kanarskiy@gmail.com>"
 ARG APT_FLAGS_COMMON="-qq -y"
 ARG APT_FLAGS_PERSISTANT="${APT_FLAGS_COMMON} --no-install-recommends"
 ARG APT_FLAGS_DEV="${APT_FLAGS_COMMON} --no-install-recommends"
-RUN \
-    apt-get ${APT_FLAGS_COMMON} update && \
+RUN uname -a
+RUN apt-get ${APT_FLAGS_COMMON} update && \
     apt-get ${APT_FLAGS_PERSISTANT} install \
             libwww-perl \
-            libjson-xs-perl >/dev/null && \
+            libjson-xs-perl 1>/dev/null && \
     apt-get ${APT_FLAGS_COMMON} autoremove && \
     apt-get ${APT_FLAGS_COMMON} clean && \
     rm -rf /var/lib/apt/lists/* && \
