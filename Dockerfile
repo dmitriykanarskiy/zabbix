@@ -52,7 +52,7 @@ RUN locale-gen $LC_ALL && \
     apt-get ${APT_FLAGS_COMMON} clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY ./zabbix-notify-master/* /etc/appdir/
+ADD zabbix-notify-master /etc/appdir/
 
 ARG MAJOR_VERSION=3.2
 ARG ZBX_VERSION=${MAJOR_VERSION}.6
