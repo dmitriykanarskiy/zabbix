@@ -80,7 +80,7 @@ WORKDIR /etc/appdir/
 RUN cd /etc/appdir/ && \
     perl Makefile.PL INSTALLSITESCRIPT=/usr/lib/zabbix/alertscripts && \
     make install && \
-    rm -rf /etc/appdir/ && \
+    rm -rf /etc/appdir/
 RUN cd /tmp/ && \
     svn --quiet export ${ZBX_SOURCES} zabbix-${ZBX_VERSION} && \
     cd /tmp/zabbix-${ZBX_VERSION} && \
