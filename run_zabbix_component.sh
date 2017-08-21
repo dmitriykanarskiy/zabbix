@@ -1,4593 +1,912 @@
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
-  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
-  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
-
-
-
-  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-77c3b874f32e71b14cded5a120f42f5c7288fa52e0a37f2d5919fbd8bcfca63c.css" media="all" rel="stylesheet" />
-  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-6518de102c0fb5eefed8021d369596311a18c644778f5d8d1fa7238c4b3870ba.css" media="all" rel="stylesheet" />
-  
-  
-  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/site-71b74cbb2894f6d4629c1a7afffb4692f35cc4213935f1c82967c254daaa14d1.css" media="all" rel="stylesheet" />
-  
-
-  <meta name="viewport" content="width=device-width">
-  
-  <title>zabbix-docker/run_zabbix_component.sh at 3.2 · dmitriykanarskiy/zabbix-docker · GitHub</title>
-  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
-  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
-  <meta property="fb:app_id" content="1401488693436528">
-
-    
-    <meta content="https://avatars3.githubusercontent.com/u/16577449?v=4&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="dmitriykanarskiy/zabbix-docker" property="og:title" /><meta content="https://github.com/dmitriykanarskiy/zabbix-docker" property="og:url" /><meta content="zabbix-docker - Official Zabbix Dockerfiles (under development, not ready for production)" property="og:description" />
-
-  <link rel="assets" href="https://assets-cdn.github.com/">
-  
-  <meta name="pjax-timeout" content="1000">
-  
-  <meta name="request-id" content="4C51:12E47:24E2E1:3D2F1F:599843C4" data-pjax-transient>
-  
-
-  <meta name="selected-link" value="repo_source" data-pjax-transient>
-
-  <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
-<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
-    <meta name="google-analytics" content="UA-3769691-2">
-
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="https://collector.githubapp.com/github-external/browser_event" name="octolytics-event-url" /><meta content="4C51:12E47:24E2E1:3D2F1F:599843C4" name="octolytics-dimension-request_id" /><meta content="iad" name="octolytics-dimension-region_edge" /><meta content="iad" name="octolytics-dimension-region_render" />
-<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
-
-
-
-
-  <meta class="js-ga-set" name="dimension1" content="Logged Out">
-
-
-  
-
-      <meta name="hostname" content="github.com">
-  <meta name="user-login" content="">
-
-      <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="OWI5N2VjMDZmMjgyMGRlNGNkYWEwYzM1MzQzMDJkY2YwY2UxNGEyMjc1ODg0MGRjOWExMjNmNTRmNTkyN2M5MXx7InJlbW90ZV9hZGRyZXNzIjoiMzcuNTIuMjQ2Ljk4IiwicmVxdWVzdF9pZCI6IjRDNTE6MTJFNDc6MjRFMkUxOjNEMkYxRjo1OTk4NDNDNCIsInRpbWVzdGFtcCI6MTUwMzE1MTA0NSwiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
-
-
-  <meta name="html-safe-nonce" content="d78269d65e291f835ae2345b2c1961ea51993635">
-
-  <meta http-equiv="x-pjax-version" content="f086c7c90a434df01369ca38165e0cd6">
-  
-
-      <link href="https://github.com/dmitriykanarskiy/zabbix-docker/commits/3.2.atom" rel="alternate" title="Recent Commits to zabbix-docker:3.2" type="application/atom+xml">
-
-  <meta name="description" content="zabbix-docker - Official Zabbix Dockerfiles (under development, not ready for production)">
-  <meta name="go-import" content="github.com/dmitriykanarskiy/zabbix-docker git https://github.com/dmitriykanarskiy/zabbix-docker.git">
-
-  <meta content="16577449" name="octolytics-dimension-user_id" /><meta content="dmitriykanarskiy" name="octolytics-dimension-user_login" /><meta content="100796993" name="octolytics-dimension-repository_id" /><meta content="dmitriykanarskiy/zabbix-docker" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="true" name="octolytics-dimension-repository_is_fork" /><meta content="64825667" name="octolytics-dimension-repository_parent_id" /><meta content="zabbix/zabbix-docker" name="octolytics-dimension-repository_parent_nwo" /><meta content="64825667" name="octolytics-dimension-repository_network_root_id" /><meta content="zabbix/zabbix-docker" name="octolytics-dimension-repository_network_root_nwo" /><meta content="false" name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" />
-
-
-    <link rel="canonical" href="https://github.com/dmitriykanarskiy/zabbix-docker/blob/3.2/server-mysql/ubuntu/run_zabbix_component.sh" data-pjax-transient>
-
-
-  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
-
-  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
-
-  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
-  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
-
-<meta name="theme-color" content="#1e2327">
-
-
-
-  </head>
-
-  <body class="logged-out env-production page-blob">
-    
-
-  <div class="position-relative js-header-wrapper ">
-    <a href="#start-of-content" tabindex="1" class="px-2 py-4 show-on-focus js-skip-to-content">Skip to content</a>
-    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
-
-    
-    
-    
-
-
-
-        <div class="header header-logged-out position-relative f4 py-3" role="banner">
-  <div class="container-lg px-3 clearfix">
-    <div class="d-flex flex-justify-between">
-      <div class="d-flex">
-        <a class="header-logo-invertocat my-0" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
-          <svg aria-hidden="true" class="octicon octicon-mark-github" height="32" version="1.1" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-        </a>
-
-        <div class="header-sitemenu clearfix">
-            <nav>
-              <ul class="d-flex list-style-none">
-                  <li class="ml-2">
-                    <a href="/features" class="js-selected-navigation-item header-navlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:features" data-selected-links="/features /features">
-                      Features
-</a>                  </li>
-                  <li class="ml-4">
-                    <a href="/business" class="js-selected-navigation-item header-navlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:business" data-selected-links="/business /business/security /business/customers /business">
-                      Business
-</a>                  </li>
-
-                  <li class="ml-4">
-                    <a href="/explore" class="js-selected-navigation-item header-navlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship /showcases /explore">
-                      Explore
-</a>                  </li>
-
-                  <li class="ml-4">
-                        <a href="/marketplace" class="js-selected-navigation-item header-navlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:marketplace" data-selected-links=" /marketplace">
-                          Marketplace
-</a>                  </li>
-                  <li class="ml-4">
-                    <a href="/pricing" class="js-selected-navigation-item header-navlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:pricing" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing">
-                      Pricing
-</a>                  </li>
-              </ul>
-            </nav>
-        </div>
-      </div>
-
-      <div class="d-flex">
-          <div class="mt-1 mr-3">
-            <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
-  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/dmitriykanarskiy/zabbix-docker/search" class="js-site-search-form" data-scoped-search-url="/dmitriykanarskiy/zabbix-docker/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-    <label class="form-control header-search-wrapper js-chromeless-input-container">
-        <a href="/dmitriykanarskiy/zabbix-docker/blob/3.2/server-mysql/ubuntu/run_zabbix_component.sh" class="header-search-scope no-underline">This repository</a>
-      <input type="text"
-        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
-        data-hotkey="s"
-        name="q"
-        value=""
-        placeholder="Search"
-        aria-label="Search this repository"
-        data-unscoped-placeholder="Search GitHub"
-        data-scoped-placeholder="Search"
-        autocapitalize="off">
-        <input type="hidden" class="js-site-search-type-field" name="type" >
-    </label>
-</form></div>
-
-          </div>
-
-        <span class="d-inline-block">
-            <div class="header-navlink px-0 py-2 m-0">
-              <a class="text-bold text-white no-underline" href="/login?return_to=%2Fdmitriykanarskiy%2Fzabbix-docker%2Fblob%2F3.2%2Fserver-mysql%2Fubuntu%2Frun_zabbix_component.sh" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
-                <span class="text-gray">or</span>
-                <a class="text-bold text-white no-underline" href="/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
-            </div>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  </div>
-
-  <div id="start-of-content" class="show-on-focus"></div>
-
-    <div id="js-flash-container">
-</div>
-
-
-
-  <div role="main">
-        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
-    <div id="js-repo-pjax-container" data-pjax-container>
-      
-
-
-
-
-
-    <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
-      <div class="container repohead-details-container">
-
-        <ul class="pagehead-actions">
-  <li>
-      <a href="/login?return_to=%2Fdmitriykanarskiy%2Fzabbix-docker"
-    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
-    aria-label="You must be signed in to watch a repository" rel="nofollow">
-    <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
-    Watch
-  </a>
-  <a class="social-count" href="/dmitriykanarskiy/zabbix-docker/watchers"
-     aria-label="1 user is watching this repository">
-    1
-  </a>
-
-  </li>
-
-  <li>
-      <a href="/login?return_to=%2Fdmitriykanarskiy%2Fzabbix-docker"
-    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
-    aria-label="You must be signed in to star a repository" rel="nofollow">
-    <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
-    Star
-  </a>
-
-    <a class="social-count js-social-count" href="/dmitriykanarskiy/zabbix-docker/stargazers"
-      aria-label="0 users starred this repository">
-      0
-    </a>
-
-  </li>
-
-  <li>
-      <a href="/login?return_to=%2Fdmitriykanarskiy%2Fzabbix-docker"
-        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
-        aria-label="You must be signed in to fork a repository" rel="nofollow">
-        <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-        Fork
-      </a>
-
-    <a href="/dmitriykanarskiy/zabbix-docker/network" class="social-count"
-       aria-label="73 users forked this repository">
-      73
-    </a>
-  </li>
-</ul>
-
-        <h1 class="public ">
-  <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-  <span class="author" itemprop="author"><a href="/dmitriykanarskiy" class="url fn" rel="author">dmitriykanarskiy</a></span><!--
---><span class="path-divider">/</span><!--
---><strong itemprop="name"><a href="/dmitriykanarskiy/zabbix-docker" data-pjax="#js-repo-pjax-container">zabbix-docker</a></strong>
-
-    <span class="fork-flag">
-      <span class="text">forked from <a href="/zabbix/zabbix-docker">zabbix/zabbix-docker</a></span>
-    </span>
-</h1>
-
-      </div>
-      <div class="container">
-        
-<nav class="reponav js-repo-nav js-sidenav-container-pjax"
-     itemscope
-     itemtype="http://schema.org/BreadcrumbList"
-     role="navigation"
-     data-pjax="#js-repo-pjax-container">
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/dmitriykanarskiy/zabbix-docker" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /dmitriykanarskiy/zabbix-docker" itemprop="url">
-      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
-      <span itemprop="name">Code</span>
-      <meta itemprop="position" content="1">
-</a>  </span>
-
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/dmitriykanarskiy/zabbix-docker/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /dmitriykanarskiy/zabbix-docker/pulls" itemprop="url">
-      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-      <span itemprop="name">Pull requests</span>
-      <span class="Counter">0</span>
-      <meta itemprop="position" content="3">
-</a>  </span>
-
-    <a href="/dmitriykanarskiy/zabbix-docker/projects" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /dmitriykanarskiy/zabbix-docker/projects">
-      <svg aria-hidden="true" class="octicon octicon-project" height="16" version="1.1" viewBox="0 0 15 16" width="15"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
-      Projects
-      <span class="Counter" >0</span>
-</a>
-
-
-    <div class="reponav-dropdown js-menu-container">
-      <button type="button" class="btn-link reponav-item reponav-dropdown js-menu-target " data-no-toggle aria-expanded="false" aria-haspopup="true">
-        Insights
-        <svg aria-hidden="true" class="octicon octicon-triangle-down v-align-middle text-gray" height="11" version="1.1" viewBox="0 0 12 16" width="8"><path fill-rule="evenodd" d="M0 5l6 6 6-6z"/></svg>
-      </button>
-      <div class="dropdown-menu-content js-menu-content">
-        <div class="dropdown-menu dropdown-menu-sw">
-          <a class="dropdown-item" href="/dmitriykanarskiy/zabbix-docker/pulse" data-skip-pjax>
-            <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"/></svg>
-            Pulse
-          </a>
-          <a class="dropdown-item" href="/dmitriykanarskiy/zabbix-docker/graphs" data-skip-pjax>
-            <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
-            Graphs
-          </a>
-        </div>
-      </div>
-    </div>
-</nav>
-
-      </div>
-    </div>
-
-<div class="container new-discussion-timeline experiment-repo-nav">
-  <div class="repository-content">
-
-    
-  <a href="/dmitriykanarskiy/zabbix-docker/blob/69f77c3b828f03791192beb885c297671b634833/server-mysql/ubuntu/run_zabbix_component.sh" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
-
-  <!-- blob contrib key: blob_contributors:v21:392bc7e03e2cd09e5e8157781b8f7c91 -->
-
-  <div class="file-navigation js-zeroclipboard-container">
-    
-<div class="select-menu branch-select-menu js-menu-container js-select-menu float-left">
-  <button class=" btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
-    
-    type="button" aria-label="Switch branches or tags" aria-expanded="false" aria-haspopup="true">
-      <i>Branch:</i>
-      <span class="js-select-button css-truncate-target">3.2</span>
-  </button>
-
-  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax>
-
-    <div class="select-menu-modal">
-      <div class="select-menu-header">
-        <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
-        <span class="select-menu-title">Switch branches/tags</span>
-      </div>
-
-      <div class="select-menu-filters">
-        <div class="select-menu-text-filter">
-          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
-        </div>
-        <div class="select-menu-tabs">
-          <ul>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
-            </li>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
-
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/dmitriykanarskiy/zabbix-docker/blob/3.0/server-mysql/ubuntu/run_zabbix_component.sh"
-               data-name="3.0"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                3.0
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/dmitriykanarskiy/zabbix-docker/blob/3.2/server-mysql/ubuntu/run_zabbix_component.sh"
-               data-name="3.2"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                3.2
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/dmitriykanarskiy/zabbix-docker/blob/master/server-mysql/ubuntu/run_zabbix_component.sh"
-               data-name="master"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                master
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/dmitriykanarskiy/zabbix-docker/blob/trunk/server-mysql/ubuntu/run_zabbix_component.sh"
-               data-name="trunk"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                trunk
-              </span>
-            </a>
-        </div>
-
-          <div class="select-menu-no-results">Nothing to show</div>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.6/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.6"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.6">
-                3.2.6
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.5/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.5"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.5">
-                3.2.5
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.4/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.4"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.4">
-                3.2.4
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.3/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.3"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.3">
-                3.2.3
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.2/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.2"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.2">
-                3.2.2
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.1/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.1"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.1">
-                3.2.1
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.0/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.0"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.0">
-                3.2.0
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.0rc2/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.0rc2"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.0rc2">
-                3.2.0rc2
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.0rc1/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.0rc1"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.0rc1">
-                3.2.0rc1
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.2.0beta2/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.2.0beta2"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.2.0beta2">
-                3.2.0beta2
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.0.9/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.0.9"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.0.9">
-                3.0.9
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.0.8/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.0.8"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.0.8">
-                3.0.8
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.0.7/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.0.7"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.0.7">
-                3.0.7
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.0.6/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.0.6"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.0.6">
-                3.0.6
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.0.5/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.0.5"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.0.5">
-                3.0.5
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-              href="/dmitriykanarskiy/zabbix-docker/tree/3.0.4/server-mysql/ubuntu/run_zabbix_component.sh"
-              data-name="3.0.4"
-              data-skip-pjax="true"
-              rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target" title="3.0.4">
-                3.0.4
-              </span>
-            </a>
-        </div>
-
-        <div class="select-menu-no-results">Nothing to show</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-    <div class="BtnGroup float-right">
-      <a href="/dmitriykanarskiy/zabbix-docker/find/3.2"
-            class="js-pjax-capture-input btn btn-sm BtnGroup-item"
-            data-pjax
-            data-hotkey="t">
-        Find file
-      </a>
-      <button aria-label="Copy file path to clipboard" class="js-zeroclipboard btn btn-sm BtnGroup-item tooltipped tooltipped-s" data-copied-hint="Copied!" type="button">Copy path</button>
-    </div>
-    <div class="breadcrumb js-zeroclipboard-target">
-      <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/dmitriykanarskiy/zabbix-docker"><span>zabbix-docker</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/dmitriykanarskiy/zabbix-docker/tree/3.2/server-mysql"><span>server-mysql</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/dmitriykanarskiy/zabbix-docker/tree/3.2/server-mysql/ubuntu"><span>ubuntu</span></a></span><span class="separator">/</span><strong class="final-path">run_zabbix_component.sh</strong>
-    </div>
-  </div>
-
-
-  
-  <div class="commit-tease">
-      <span class="float-right">
-        <a class="commit-tease-sha" href="/dmitriykanarskiy/zabbix-docker/commit/be96e101dd519607703a0f0c2cfae8dcefd296a5" data-pjax>
-          be96e10
-        </a>
-        <relative-time datetime="2017-05-22T09:34:39Z">May 22, 2017</relative-time>
-      </span>
-      <div>
-        <img alt="" class="avatar" data-canonical-src="https://1.gravatar.com/avatar/face912117e9d080b5804edc78da1832?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=x&amp;s=140" height="20" src="https://camo.githubusercontent.com/4f17f16a0c62c0631de7fc19f18547bf0972b148/68747470733a2f2f312e67726176617461722e636f6d2f6176617461722f66616365393132313137653964303830623538303465646337386461313833323f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d7826733d313430" width="20" />
-        <span class="user-mention">Alexey Pustovalov</span>
-          <a href="/dmitriykanarskiy/zabbix-docker/commit/be96e101dd519607703a0f0c2cfae8dcefd296a5" class="message" data-pjax="true" title="TZ env variable renamed to PHP_TZ to avoid confusing with system-wide envs">TZ env variable renamed to PHP_TZ to avoid confusing with system-wide…</a>
-      </div>
-
-    <div class="commit-tease-contributors">
-      <button type="button" class="btn-link muted-link contributors-toggle" data-facebox="#blob_contributors_box">
-        <strong>1</strong>
-         contributor
-      </button>
-      
-    </div>
-
-    <div id="blob_contributors_box" style="display:none">
-      <h2 class="facebox-header" data-facebox-id="facebox-header">Users who have contributed to this file</h2>
-      <ul class="facebox-user-list" data-facebox-id="facebox-description">
-          <li class="facebox-user-list-item">
-            <img alt="@dotneft" height="24" src="https://avatars1.githubusercontent.com/u/10911965?v=4&amp;s=48" width="24" />
-            <a href="/dotneft">dotneft</a>
-          </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="file">
-    <div class="file-header">
-  <div class="file-actions">
-
-    <div class="BtnGroup">
-      <a href="/dmitriykanarskiy/zabbix-docker/raw/3.2/server-mysql/ubuntu/run_zabbix_component.sh" class="btn btn-sm BtnGroup-item" id="raw-url">Raw</a>
-        <a href="/dmitriykanarskiy/zabbix-docker/blame/3.2/server-mysql/ubuntu/run_zabbix_component.sh" class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b">Blame</a>
-      <a href="/dmitriykanarskiy/zabbix-docker/commits/3.2/server-mysql/ubuntu/run_zabbix_component.sh" class="btn btn-sm BtnGroup-item" rel="nofollow">History</a>
-    </div>
-
-
-        <button type="button" class="btn-octicon disabled tooltipped tooltipped-nw"
-          aria-label="You must be signed in to make or propose changes">
-          <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
-        </button>
-        <button type="button" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
-          aria-label="You must be signed in to make or propose changes">
-          <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
-        </button>
-  </div>
-
-  <div class="file-info">
-      <span class="file-mode" title="File mode">executable file</span>
-      <span class="file-info-divider"></span>
-      913 lines (734 sloc)
-      <span class="file-info-divider"></span>
-    33.9 KB
-  </div>
-</div>
-
-    
-
-  <div itemprop="text" class="blob-wrapper data type-shell">
-      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
-      <tr>
-        <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#!</span>/bin/bash</span></td>
-      </tr>
-      <tr>
-        <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="LC2" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">set</span> +e</td>
-      </tr>
-      <tr>
-        <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="LC4" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Script trace mode</span></td>
-      </tr>
-      <tr>
-        <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DEBUG_MODE}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">set</span> -o xtrace</td>
-      </tr>
-      <tr>
-        <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="LC9" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Type of Zabbix component</span></td>
-      </tr>
-      <tr>
-        <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Possible values: [server, proxy, agent, web, dev]</span></td>
-      </tr>
-      <tr>
-        <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code blob-code-inner js-file-line">zbx_type=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$1</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Type of Zabbix database</span></td>
-      </tr>
-      <tr>
-        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Possible values: [mysql, postgresql]</span></td>
-      </tr>
-      <tr>
-        <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code blob-code-inner js-file-line">zbx_db_type=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$2</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Type of web-server. Valid only with zbx_type = web</span></td>
-      </tr>
-      <tr>
-        <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Possible values: [apache, nginx]</span></td>
-      </tr>
-      <tr>
-        <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="LC18" class="blob-code blob-code-inner js-file-line">zbx_opt_type=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$3</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="LC19" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Default Zabbix installation name</span></td>
-      </tr>
-      <tr>
-        <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Used only by Zabbix web-interface</span></td>
-      </tr>
-      <tr>
-        <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="LC22" class="blob-code blob-code-inner js-file-line">ZBX_SERVER_NAME=<span class="pl-smi">${ZBX_SERVER_NAME<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>Zabbix docker<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Default Zabbix server host</span></td>
-      </tr>
-      <tr>
-        <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="LC24" class="blob-code blob-code-inner js-file-line">ZBX_SERVER_HOST=<span class="pl-smi">${ZBX_SERVER_HOST<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix-server<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Default Zabbix server port number</span></td>
-      </tr>
-      <tr>
-        <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="LC26" class="blob-code blob-code-inner js-file-line">ZBX_SERVER_PORT=<span class="pl-smi">${ZBX_SERVER_PORT<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>10051<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="LC27" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Default timezone for web interface</span></td>
-      </tr>
-      <tr>
-        <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code blob-code-inner js-file-line">PHP_TZ=<span class="pl-smi">${PHP_TZ<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>Europe/Riga<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
-        <td id="LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Default directories</span></td>
-      </tr>
-      <tr>
-        <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> User &#39;zabbix&#39; home directory</span></td>
-      </tr>
-      <tr>
-        <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code blob-code-inner js-file-line">ZABBIX_USER_HOME_DIR=<span class="pl-s"><span class="pl-pds">&quot;</span>/var/lib/zabbix<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Configuration files directory</span></td>
-      </tr>
-      <tr>
-        <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code blob-code-inner js-file-line">ZABBIX_ETC_DIR=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/zabbix<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Web interface www-root directory</span></td>
-      </tr>
-      <tr>
-        <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
-        <td id="LC37" class="blob-code blob-code-inner js-file-line">ZBX_FRONTEND_PATH=<span class="pl-s"><span class="pl-pds">&quot;</span>/usr/share/zabbix<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
-        <td id="LC38" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_system</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> web_server=<span class="pl-smi">$2</span></td>
-      </tr>
-      <tr>
-        <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing the system<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">!=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>dev<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span></td>
-      </tr>
-      <tr>
-        <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
-        <td id="LC49" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code blob-code-inner js-file-line"><span class="pl-en">update_config_var</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> config_path=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> var_name=<span class="pl-smi">$2</span></td>
-      </tr>
-      <tr>
-        <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> var_value=<span class="pl-smi">$3</span></td>
-      </tr>
-      <tr>
-        <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> is_multiple=<span class="pl-smi">$4</span></td>
-      </tr>
-      <tr>
-        <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">!</span> <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$config_path</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Configuration file &#39;<span class="pl-smi">$config_path</span>&#39; does not exist<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span></td>
-      </tr>
-      <tr>
-        <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> -n <span class="pl-s"><span class="pl-pds">&quot;</span>** Updating &#39;<span class="pl-smi">$config_path</span>&#39; parameter <span class="pl-cce">\&quot;</span><span class="pl-smi">$var_name</span><span class="pl-cce">\&quot;</span>: &#39;<span class="pl-smi">$var_value</span>&#39;... <span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Remove configuration parameter definition in case of unset parameter value</span></td>
-      </tr>
-      <tr>
-        <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-z</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$var_value</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code blob-code-inner js-file-line">        sed -i -e <span class="pl-s"><span class="pl-pds">&quot;</span>/<span class="pl-smi">$var_name</span>=/d<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$config_path</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>removed<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
-        <td id="LC67" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span></td>
-      </tr>
-      <tr>
-        <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Remove value from configuration parameter in case of double quoted parameter value</span></td>
-      </tr>
-      <tr>
-        <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$var_value</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&quot;&quot;<span class="pl-pds">&#39;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code blob-code-inner js-file-line">        sed -i -e <span class="pl-s"><span class="pl-pds">&quot;</span>/^<span class="pl-smi">$var_name</span>=/s/=.*/=/<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$config_path</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>undefined<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span></td>
-      </tr>
-      <tr>
-        <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Use full path to a file for TLS related configuration parameters</span></td>
-      </tr>
-      <tr>
-        <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [[ <span class="pl-smi">$var_name</span> <span class="pl-k">=~</span> ^TLS.<span class="pl-k">*</span>File$ ]]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code blob-code-inner js-file-line">        var_value=<span class="pl-smi">$ZABBIX_USER_HOME_DIR</span>/enc/<span class="pl-smi">$var_value</span></td>
-      </tr>
-      <tr>
-        <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
-        <td id="LC80" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
-        <td id="LC82" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Escaping &quot;/&quot; character in parameter value</span></td>
-      </tr>
-      <tr>
-        <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code blob-code-inner js-file-line">    var_value=<span class="pl-smi">${var_value<span class="pl-k">//</span><span class="pl-cce">\/</span><span class="pl-k">/</span><span class="pl-cce">\\</span><span class="pl-k">/</span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
-        <td id="LC84" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-s"><span class="pl-pds">$(</span>grep -E <span class="pl-s"><span class="pl-pds">&quot;</span>^<span class="pl-smi">$var_name</span>=<span class="pl-pds">&quot;</span></span> <span class="pl-smi">$config_path</span><span class="pl-pds">)</span></span><span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$is_multiple</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">!=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
-        <td id="LC86" class="blob-code blob-code-inner js-file-line">        sed -i -e <span class="pl-s"><span class="pl-pds">&quot;</span>/^<span class="pl-smi">$var_name</span>=/s/=.*/=<span class="pl-smi">$var_value</span>/<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$config_path</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>updated<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">elif</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-s"><span class="pl-pds">$(</span>grep -Ec <span class="pl-s"><span class="pl-pds">&quot;</span>^# <span class="pl-smi">$var_name</span>=<span class="pl-pds">&quot;</span></span> <span class="pl-smi">$config_path</span><span class="pl-pds">)</span></span><span class="pl-pds">&quot;</span></span> <span class="pl-k">-gt</span> 1 ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code blob-code-inner js-file-line">        sed -i -e  <span class="pl-s"><span class="pl-pds">&quot;</span>/^[#;] <span class="pl-smi">$var_name</span>=$/i<span class="pl-cce">\\</span><span class="pl-smi">$var_name</span>=<span class="pl-smi">$var_value</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$config_path</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
-        <td id="LC90" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>added first occurrence<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
-        <td id="LC91" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
-        <td id="LC92" class="blob-code blob-code-inner js-file-line">        sed -i -e <span class="pl-s"><span class="pl-pds">&quot;</span>/^[#;] <span class="pl-smi">$var_name</span>=/s/.*/&amp;\n<span class="pl-smi">$var_name</span>=<span class="pl-smi">$var_value</span>/<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$config_path</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
-        <td id="LC93" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>added<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
-        <td id="LC94" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
-        <td id="LC95" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
-        <td id="LC96" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
-        <td id="LC97" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
-        <td id="LC98" class="blob-code blob-code-inner js-file-line"><span class="pl-en">update_config_multiple_var</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
-        <td id="LC99" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> config_path=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
-        <td id="LC100" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> var_name=<span class="pl-smi">$2</span></td>
-      </tr>
-      <tr>
-        <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
-        <td id="LC101" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> var_value=<span class="pl-smi">$3</span></td>
-      </tr>
-      <tr>
-        <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
-        <td id="LC102" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
-        <td id="LC103" class="blob-code blob-code-inner js-file-line">    var_value=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${var_value<span class="pl-k">%</span><span class="pl-cce">\&quot;</span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
-        <td id="LC104" class="blob-code blob-code-inner js-file-line">    var_value=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${var_value<span class="pl-k">#</span><span class="pl-cce">\&quot;</span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
-        <td id="LC105" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
-        <td id="LC106" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> IFS=,</td>
-      </tr>
-      <tr>
-        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
-        <td id="LC107" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> OPT_LIST=(<span class="pl-smi">$var_value</span>)</td>
-      </tr>
-      <tr>
-        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
-        <td id="LC108" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
-        <td id="LC109" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">for</span> <span class="pl-smi">value</span> <span class="pl-k">in</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${OPT_LIST[@]}</span><span class="pl-pds">&quot;</span></span><span class="pl-k">;</span> <span class="pl-k">do</span></td>
-      </tr>
-      <tr>
-        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
-        <td id="LC110" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$config_path</span> <span class="pl-smi">$var_name</span> <span class="pl-smi">$value</span> <span class="pl-c1">true</span></td>
-      </tr>
-      <tr>
-        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
-        <td id="LC111" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">done</span></td>
-      </tr>
-      <tr>
-        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
-        <td id="LC112" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
-        <td id="LC113" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
-        <td id="LC114" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Check prerequisites for MySQL database</span></td>
-      </tr>
-      <tr>
-        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
-        <td id="LC115" class="blob-code blob-code-inner js-file-line"><span class="pl-en">check_variables_mysql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
-        <td id="LC116" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
-        <td id="LC117" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
-        <td id="LC118" class="blob-code blob-code-inner js-file-line">    DB_SERVER_HOST=<span class="pl-smi">${DB_SERVER_HOST<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>mysql-server<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
-        <td id="LC119" class="blob-code blob-code-inner js-file-line">    DB_SERVER_PORT=<span class="pl-smi">${DB_SERVER_PORT<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>3306<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
-        <td id="LC120" class="blob-code blob-code-inner js-file-line">    USE_DB_ROOT_USER=false</td>
-      </tr>
-      <tr>
-        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
-        <td id="LC121" class="blob-code blob-code-inner js-file-line">    CREATE_ZBX_DB_USER=false</td>
-      </tr>
-      <tr>
-        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
-        <td id="LC122" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
-        <td id="LC123" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">!</span> <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_USER}</span><span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_RANDOM_ROOT_PASSWORD}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
-        <td id="LC124" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Impossible to use MySQL server because of unknown Zabbix user and random &#39;root&#39; password<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
-        <td id="LC125" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">exit</span> 1</td>
-      </tr>
-      <tr>
-        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
-        <td id="LC126" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
-        <td id="LC127" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
-        <td id="LC128" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">!</span> <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_USER}</span><span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-k">!</span> <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_ROOT_PASSWORD}</span><span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_ALLOW_EMPTY_PASSWORD}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">!=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
-        <td id="LC129" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>*** Impossible to use MySQL server because &#39;root&#39; password is not defined and not empty<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
-        <td id="LC130" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">exit</span> 1</td>
-      </tr>
-      <tr>
-        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
-        <td id="LC131" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
-        <td id="LC132" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
-        <td id="LC133" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_ALLOW_EMPTY_PASSWORD}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">||</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_ROOT_PASSWORD}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
-        <td id="LC134" class="blob-code blob-code-inner js-file-line">        USE_DB_ROOT_USER=true</td>
-      </tr>
-      <tr>
-        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
-        <td id="LC135" class="blob-code blob-code-inner js-file-line">        DB_SERVER_ROOT_USER=<span class="pl-s"><span class="pl-pds">&quot;</span>root<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
-        <td id="LC136" class="blob-code blob-code-inner js-file-line">        DB_SERVER_ROOT_PASS=<span class="pl-smi">${MYSQL_ROOT_PASSWORD<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
-        <td id="LC137" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
-        <td id="LC138" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
-        <td id="LC139" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_USER}</span><span class="pl-pds">&quot;</span></span> ] <span class="pl-k">||</span> CREATE_ZBX_DB_USER=true</td>
-      </tr>
-      <tr>
-        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
-        <td id="LC140" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
-        <td id="LC141" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> If root password is not specified use provided credentials</span></td>
-      </tr>
-      <tr>
-        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
-        <td id="LC142" class="blob-code blob-code-inner js-file-line">    DB_SERVER_ROOT_USER=<span class="pl-smi">${DB_SERVER_ROOT_USER<span class="pl-k">:-</span><span class="pl-smi">${MYSQL_USER}</span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
-        <td id="LC143" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${MYSQL_ALLOW_EMPTY_PASSWORD}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">||</span> DB_SERVER_ROOT_PASS=<span class="pl-smi">${DB_SERVER_ROOT_PASS<span class="pl-k">:-</span><span class="pl-smi">${MYSQL_PASSWORD}</span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
-        <td id="LC144" class="blob-code blob-code-inner js-file-line">    DB_SERVER_ZBX_USER=<span class="pl-smi">${MYSQL_USER<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
-        <td id="LC145" class="blob-code blob-code-inner js-file-line">    DB_SERVER_ZBX_PASS=<span class="pl-smi">${MYSQL_PASSWORD<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
-        <td id="LC146" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
-        <td id="LC147" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
-        <td id="LC148" class="blob-code blob-code-inner js-file-line">        DB_SERVER_DBNAME=<span class="pl-smi">${MYSQL_DATABASE<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix_proxy<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
-        <td id="LC149" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
-        <td id="LC150" class="blob-code blob-code-inner js-file-line">        DB_SERVER_DBNAME=<span class="pl-smi">${MYSQL_DATABASE<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
-        <td id="LC151" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
-        <td id="LC152" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
-        <td id="LC153" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
-        <td id="LC154" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Check prerequisites for PostgreSQL database</span></td>
-      </tr>
-      <tr>
-        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
-        <td id="LC155" class="blob-code blob-code-inner js-file-line"><span class="pl-en">check_variables_postgresql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
-        <td id="LC156" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
-        <td id="LC157" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
-        <td id="LC158" class="blob-code blob-code-inner js-file-line">    DB_SERVER_HOST=<span class="pl-smi">${DB_SERVER_HOST<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>postgres-server<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
-        <td id="LC159" class="blob-code blob-code-inner js-file-line">    DB_SERVER_PORT=<span class="pl-smi">${DB_SERVER_PORT<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>5432<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
-        <td id="LC160" class="blob-code blob-code-inner js-file-line">    CREATE_ZBX_DB_USER=<span class="pl-smi">${CREATE_ZBX_DB_USER<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>false<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
-        <td id="LC161" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L162" class="blob-num js-line-number" data-line-number="162"></td>
-        <td id="LC162" class="blob-code blob-code-inner js-file-line">    DB_SERVER_ROOT_USER=<span class="pl-smi">${POSTGRES_USER<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>postgres<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L163" class="blob-num js-line-number" data-line-number="163"></td>
-        <td id="LC163" class="blob-code blob-code-inner js-file-line">    DB_SERVER_ROOT_PASS=<span class="pl-smi">${POSTGRES_PASSWORD<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L164" class="blob-num js-line-number" data-line-number="164"></td>
-        <td id="LC164" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L165" class="blob-num js-line-number" data-line-number="165"></td>
-        <td id="LC165" class="blob-code blob-code-inner js-file-line">    DB_SERVER_ZBX_USER=<span class="pl-smi">${POSTGRES_USER<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L166" class="blob-num js-line-number" data-line-number="166"></td>
-        <td id="LC166" class="blob-code blob-code-inner js-file-line">    DB_SERVER_ZBX_PASS=<span class="pl-smi">${POSTGRES_PASSWORD<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L167" class="blob-num js-line-number" data-line-number="167"></td>
-        <td id="LC167" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L168" class="blob-num js-line-number" data-line-number="168"></td>
-        <td id="LC168" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L169" class="blob-num js-line-number" data-line-number="169"></td>
-        <td id="LC169" class="blob-code blob-code-inner js-file-line">        DB_SERVER_DBNAME=<span class="pl-smi">${POSTGRES_DB<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix_proxy<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L170" class="blob-num js-line-number" data-line-number="170"></td>
-        <td id="LC170" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L171" class="blob-num js-line-number" data-line-number="171"></td>
-        <td id="LC171" class="blob-code blob-code-inner js-file-line">        DB_SERVER_DBNAME=<span class="pl-smi">${POSTGRES_DB<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L172" class="blob-num js-line-number" data-line-number="172"></td>
-        <td id="LC172" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L173" class="blob-num js-line-number" data-line-number="173"></td>
-        <td id="LC173" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L174" class="blob-num js-line-number" data-line-number="174"></td>
-        <td id="LC174" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L175" class="blob-num js-line-number" data-line-number="175"></td>
-        <td id="LC175" class="blob-code blob-code-inner js-file-line"><span class="pl-en">check_db_connect_mysql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L176" class="blob-num js-line-number" data-line-number="176"></td>
-        <td id="LC176" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>********************<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L177" class="blob-num js-line-number" data-line-number="177"></td>
-        <td id="LC177" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_HOST: <span class="pl-smi">${DB_SERVER_HOST}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L178" class="blob-num js-line-number" data-line-number="178"></td>
-        <td id="LC178" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_PORT: <span class="pl-smi">${DB_SERVER_PORT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L179" class="blob-num js-line-number" data-line-number="179"></td>
-        <td id="LC179" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_DBNAME: <span class="pl-smi">${DB_SERVER_DBNAME}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L180" class="blob-num js-line-number" data-line-number="180"></td>
-        <td id="LC180" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${USE_DB_ROOT_USER}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L181" class="blob-num js-line-number" data-line-number="181"></td>
-        <td id="LC181" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ROOT_USER: <span class="pl-smi">${DB_SERVER_ROOT_USER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L182" class="blob-num js-line-number" data-line-number="182"></td>
-        <td id="LC182" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ROOT_PASS: <span class="pl-smi">${DB_SERVER_ROOT_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L183" class="blob-num js-line-number" data-line-number="183"></td>
-        <td id="LC183" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L184" class="blob-num js-line-number" data-line-number="184"></td>
-        <td id="LC184" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ZBX_USER: <span class="pl-smi">${DB_SERVER_ZBX_USER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L185" class="blob-num js-line-number" data-line-number="185"></td>
-        <td id="LC185" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ZBX_PASS: <span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L186" class="blob-num js-line-number" data-line-number="186"></td>
-        <td id="LC186" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>********************<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L187" class="blob-num js-line-number" data-line-number="187"></td>
-        <td id="LC187" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L188" class="blob-num js-line-number" data-line-number="188"></td>
-        <td id="LC188" class="blob-code blob-code-inner js-file-line">    WAIT_TIMEOUT=5</td>
-      </tr>
-      <tr>
-        <td id="L189" class="blob-num js-line-number" data-line-number="189"></td>
-        <td id="LC189" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L190" class="blob-num js-line-number" data-line-number="190"></td>
-        <td id="LC190" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">while</span> [ <span class="pl-k">!</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-s"><span class="pl-pds">$(</span>mysqladmin ping -h <span class="pl-smi">${DB_SERVER_HOST}</span> -P <span class="pl-smi">${DB_SERVER_PORT}</span> -u <span class="pl-smi">${DB_SERVER_ROOT_USER}</span> \</span></span></td>
-      </tr>
-      <tr>
-        <td id="L191" class="blob-num js-line-number" data-line-number="191"></td>
-        <td id="LC191" class="blob-code blob-code-inner js-file-line"><span class="pl-s"><span class="pl-s">                --password=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ROOT_PASS}</span><span class="pl-pds">&quot;</span></span> --silent --connect_timeout=10<span class="pl-pds">)</span></span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">do</span></td>
-      </tr>
-      <tr>
-        <td id="L192" class="blob-num js-line-number" data-line-number="192"></td>
-        <td id="LC192" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** MySQL server is not available. Waiting <span class="pl-smi">$WAIT_TIMEOUT</span> seconds...<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L193" class="blob-num js-line-number" data-line-number="193"></td>
-        <td id="LC193" class="blob-code blob-code-inner js-file-line">        sleep <span class="pl-smi">$WAIT_TIMEOUT</span></td>
-      </tr>
-      <tr>
-        <td id="L194" class="blob-num js-line-number" data-line-number="194"></td>
-        <td id="LC194" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">done</span></td>
-      </tr>
-      <tr>
-        <td id="L195" class="blob-num js-line-number" data-line-number="195"></td>
-        <td id="LC195" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L196" class="blob-num js-line-number" data-line-number="196"></td>
-        <td id="LC196" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L197" class="blob-num js-line-number" data-line-number="197"></td>
-        <td id="LC197" class="blob-code blob-code-inner js-file-line"><span class="pl-en">check_db_connect_postgresql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L198" class="blob-num js-line-number" data-line-number="198"></td>
-        <td id="LC198" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>********************<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L199" class="blob-num js-line-number" data-line-number="199"></td>
-        <td id="LC199" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_HOST: <span class="pl-smi">${DB_SERVER_HOST}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L200" class="blob-num js-line-number" data-line-number="200"></td>
-        <td id="LC200" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_PORT: <span class="pl-smi">${DB_SERVER_PORT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L201" class="blob-num js-line-number" data-line-number="201"></td>
-        <td id="LC201" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_DBNAME: <span class="pl-smi">${DB_SERVER_DBNAME}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L202" class="blob-num js-line-number" data-line-number="202"></td>
-        <td id="LC202" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${USE_DB_ROOT_USER}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L203" class="blob-num js-line-number" data-line-number="203"></td>
-        <td id="LC203" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ROOT_USER: <span class="pl-smi">${DB_SERVER_ROOT_USER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L204" class="blob-num js-line-number" data-line-number="204"></td>
-        <td id="LC204" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ROOT_PASS: <span class="pl-smi">${DB_SERVER_ROOT_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L205" class="blob-num js-line-number" data-line-number="205"></td>
-        <td id="LC205" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L206" class="blob-num js-line-number" data-line-number="206"></td>
-        <td id="LC206" class="blob-code blob-code-inner js-file-line">        DB_SERVER_ROOT_USER=<span class="pl-smi">${DB_SERVER_ZBX_USER}</span></td>
-      </tr>
-      <tr>
-        <td id="L207" class="blob-num js-line-number" data-line-number="207"></td>
-        <td id="LC207" class="blob-code blob-code-inner js-file-line">        DB_SERVER_ROOT_PASS=<span class="pl-smi">${DB_SERVER_ZBX_PASS}</span></td>
-      </tr>
-      <tr>
-        <td id="L208" class="blob-num js-line-number" data-line-number="208"></td>
-        <td id="LC208" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L209" class="blob-num js-line-number" data-line-number="209"></td>
-        <td id="LC209" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ZBX_USER: <span class="pl-smi">${DB_SERVER_ZBX_USER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L210" class="blob-num js-line-number" data-line-number="210"></td>
-        <td id="LC210" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>* DB_SERVER_ZBX_PASS: <span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L211" class="blob-num js-line-number" data-line-number="211"></td>
-        <td id="LC211" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>********************<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L212" class="blob-num js-line-number" data-line-number="212"></td>
-        <td id="LC212" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L213" class="blob-num js-line-number" data-line-number="213"></td>
-        <td id="LC213" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L214" class="blob-num js-line-number" data-line-number="214"></td>
-        <td id="LC214" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">export</span> PGPASSWORD=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L215" class="blob-num js-line-number" data-line-number="215"></td>
-        <td id="LC215" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L216" class="blob-num js-line-number" data-line-number="216"></td>
-        <td id="LC216" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L217" class="blob-num js-line-number" data-line-number="217"></td>
-        <td id="LC217" class="blob-code blob-code-inner js-file-line">    WAIT_TIMEOUT=5</td>
-      </tr>
-      <tr>
-        <td id="L218" class="blob-num js-line-number" data-line-number="218"></td>
-        <td id="LC218" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L219" class="blob-num js-line-number" data-line-number="219"></td>
-        <td id="LC219" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">while</span> [ <span class="pl-k">!</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-s"><span class="pl-pds">$(</span>psql -h <span class="pl-smi">${DB_SERVER_HOST}</span> -p <span class="pl-smi">${DB_SERVER_PORT}</span> -U <span class="pl-smi">${DB_SERVER_ROOT_USER}</span> -l -q <span class="pl-k">2&gt;</span>/dev/null<span class="pl-pds">)</span></span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">do</span></td>
-      </tr>
-      <tr>
-        <td id="L220" class="blob-num js-line-number" data-line-number="220"></td>
-        <td id="LC220" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** PostgreSQL server is not available. Waiting <span class="pl-smi">$WAIT_TIMEOUT</span> seconds...<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L221" class="blob-num js-line-number" data-line-number="221"></td>
-        <td id="LC221" class="blob-code blob-code-inner js-file-line">        sleep <span class="pl-smi">$WAIT_TIMEOUT</span></td>
-      </tr>
-      <tr>
-        <td id="L222" class="blob-num js-line-number" data-line-number="222"></td>
-        <td id="LC222" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">done</span></td>
-      </tr>
-      <tr>
-        <td id="L223" class="blob-num js-line-number" data-line-number="223"></td>
-        <td id="LC223" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L224" class="blob-num js-line-number" data-line-number="224"></td>
-        <td id="LC224" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">unset</span> PGPASSWORD</td>
-      </tr>
-      <tr>
-        <td id="L225" class="blob-num js-line-number" data-line-number="225"></td>
-        <td id="LC225" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L226" class="blob-num js-line-number" data-line-number="226"></td>
-        <td id="LC226" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L227" class="blob-num js-line-number" data-line-number="227"></td>
-        <td id="LC227" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L228" class="blob-num js-line-number" data-line-number="228"></td>
-        <td id="LC228" class="blob-code blob-code-inner js-file-line"><span class="pl-en">mysql_query</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L229" class="blob-num js-line-number" data-line-number="229"></td>
-        <td id="LC229" class="blob-code blob-code-inner js-file-line">    query=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L230" class="blob-num js-line-number" data-line-number="230"></td>
-        <td id="LC230" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> result=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L231" class="blob-num js-line-number" data-line-number="231"></td>
-        <td id="LC231" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L232" class="blob-num js-line-number" data-line-number="232"></td>
-        <td id="LC232" class="blob-code blob-code-inner js-file-line">    result=<span class="pl-s"><span class="pl-pds">$(</span>mysql --silent --skip-column-names -h <span class="pl-smi">${DB_SERVER_HOST}</span> -P <span class="pl-smi">${DB_SERVER_PORT}</span> \</span></td>
-      </tr>
-      <tr>
-        <td id="L233" class="blob-num js-line-number" data-line-number="233"></td>
-        <td id="LC233" class="blob-code blob-code-inner js-file-line"><span class="pl-s">             -u <span class="pl-smi">${DB_SERVER_ROOT_USER}</span> --password=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ROOT_PASS}</span><span class="pl-pds">&quot;</span></span> -e <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$query</span><span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L234" class="blob-num js-line-number" data-line-number="234"></td>
-        <td id="LC234" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L235" class="blob-num js-line-number" data-line-number="235"></td>
-        <td id="LC235" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-smi">$result</span></td>
-      </tr>
-      <tr>
-        <td id="L236" class="blob-num js-line-number" data-line-number="236"></td>
-        <td id="LC236" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L237" class="blob-num js-line-number" data-line-number="237"></td>
-        <td id="LC237" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L238" class="blob-num js-line-number" data-line-number="238"></td>
-        <td id="LC238" class="blob-code blob-code-inner js-file-line"><span class="pl-en">psql_query</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L239" class="blob-num js-line-number" data-line-number="239"></td>
-        <td id="LC239" class="blob-code blob-code-inner js-file-line">    query=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L240" class="blob-num js-line-number" data-line-number="240"></td>
-        <td id="LC240" class="blob-code blob-code-inner js-file-line">    db=<span class="pl-smi">$2</span></td>
-      </tr>
-      <tr>
-        <td id="L241" class="blob-num js-line-number" data-line-number="241"></td>
-        <td id="LC241" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L242" class="blob-num js-line-number" data-line-number="242"></td>
-        <td id="LC242" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> result=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L243" class="blob-num js-line-number" data-line-number="243"></td>
-        <td id="LC243" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L244" class="blob-num js-line-number" data-line-number="244"></td>
-        <td id="LC244" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L245" class="blob-num js-line-number" data-line-number="245"></td>
-        <td id="LC245" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">export</span> PGPASSWORD=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L246" class="blob-num js-line-number" data-line-number="246"></td>
-        <td id="LC246" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L247" class="blob-num js-line-number" data-line-number="247"></td>
-        <td id="LC247" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L248" class="blob-num js-line-number" data-line-number="248"></td>
-        <td id="LC248" class="blob-code blob-code-inner js-file-line">    result=<span class="pl-s"><span class="pl-pds">$(</span>psql -A -q -t  -h <span class="pl-smi">${DB_SERVER_HOST}</span> -p <span class="pl-smi">${DB_SERVER_PORT}</span> \</span></td>
-      </tr>
-      <tr>
-        <td id="L249" class="blob-num js-line-number" data-line-number="249"></td>
-        <td id="LC249" class="blob-code blob-code-inner js-file-line"><span class="pl-s">             -U <span class="pl-smi">${DB_SERVER_ROOT_USER}</span> -c <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$query</span><span class="pl-pds">&quot;</span></span> <span class="pl-smi">$db</span> <span class="pl-k">2&gt;</span>/dev/null<span class="pl-pds">)</span></span><span class="pl-k">;</span></td>
-      </tr>
-      <tr>
-        <td id="L250" class="blob-num js-line-number" data-line-number="250"></td>
-        <td id="LC250" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L251" class="blob-num js-line-number" data-line-number="251"></td>
-        <td id="LC251" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">unset</span> PGPASSWORD</td>
-      </tr>
-      <tr>
-        <td id="L252" class="blob-num js-line-number" data-line-number="252"></td>
-        <td id="LC252" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L253" class="blob-num js-line-number" data-line-number="253"></td>
-        <td id="LC253" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-smi">$result</span></td>
-      </tr>
-      <tr>
-        <td id="L254" class="blob-num js-line-number" data-line-number="254"></td>
-        <td id="LC254" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L255" class="blob-num js-line-number" data-line-number="255"></td>
-        <td id="LC255" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L256" class="blob-num js-line-number" data-line-number="256"></td>
-        <td id="LC256" class="blob-code blob-code-inner js-file-line"><span class="pl-en">create_db_user_mysql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L257" class="blob-num js-line-number" data-line-number="257"></td>
-        <td id="LC257" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${CREATE_ZBX_DB_USER}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">||</span> <span class="pl-k">return</span></td>
-      </tr>
-      <tr>
-        <td id="L258" class="blob-num js-line-number" data-line-number="258"></td>
-        <td id="LC258" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L259" class="blob-num js-line-number" data-line-number="259"></td>
-        <td id="LC259" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Creating &#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39; user in MySQL database<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L260" class="blob-num js-line-number" data-line-number="260"></td>
-        <td id="LC260" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L261" class="blob-num js-line-number" data-line-number="261"></td>
-        <td id="LC261" class="blob-code blob-code-inner js-file-line">    USER_EXISTS=<span class="pl-s"><span class="pl-pds">$(</span>mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT 1 FROM mysql.user WHERE user = &#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39; AND host = &#39;%&#39;<span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L262" class="blob-num js-line-number" data-line-number="262"></td>
-        <td id="LC262" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L263" class="blob-num js-line-number" data-line-number="263"></td>
-        <td id="LC263" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-z</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$USER_EXISTS</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L264" class="blob-num js-line-number" data-line-number="264"></td>
-        <td id="LC264" class="blob-code blob-code-inner js-file-line">        mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>CREATE USER &#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39;@&#39;%&#39; IDENTIFIED BY &#39;<span class="pl-smi">${DB_SERVER_ZBX_PASS}</span>&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L265" class="blob-num js-line-number" data-line-number="265"></td>
-        <td id="LC265" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L266" class="blob-num js-line-number" data-line-number="266"></td>
-        <td id="LC266" class="blob-code blob-code-inner js-file-line">        mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SET PASSWORD FOR &#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39;@&#39;%&#39; = PASSWORD(&#39;<span class="pl-smi">${DB_SERVER_ZBX_PASS}</span>&#39;);<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L267" class="blob-num js-line-number" data-line-number="267"></td>
-        <td id="LC267" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L268" class="blob-num js-line-number" data-line-number="268"></td>
-        <td id="LC268" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L269" class="blob-num js-line-number" data-line-number="269"></td>
-        <td id="LC269" class="blob-code blob-code-inner js-file-line">    mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>GRANT ALL PRIVILEGES ON <span class="pl-smi">$DB_SERVER_DBNAME</span>. * TO &#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39;@&#39;%&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L270" class="blob-num js-line-number" data-line-number="270"></td>
-        <td id="LC270" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L271" class="blob-num js-line-number" data-line-number="271"></td>
-        <td id="LC271" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L272" class="blob-num js-line-number" data-line-number="272"></td>
-        <td id="LC272" class="blob-code blob-code-inner js-file-line"><span class="pl-en">create_db_user_postgresql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L273" class="blob-num js-line-number" data-line-number="273"></td>
-        <td id="LC273" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${CREATE_ZBX_DB_USER}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">||</span> <span class="pl-k">return</span></td>
-      </tr>
-      <tr>
-        <td id="L274" class="blob-num js-line-number" data-line-number="274"></td>
-        <td id="LC274" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L275" class="blob-num js-line-number" data-line-number="275"></td>
-        <td id="LC275" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Creating &#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39; user in PostgreSQL database<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L276" class="blob-num js-line-number" data-line-number="276"></td>
-        <td id="LC276" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L277" class="blob-num js-line-number" data-line-number="277"></td>
-        <td id="LC277" class="blob-code blob-code-inner js-file-line">    USER_EXISTS=<span class="pl-s"><span class="pl-pds">$(</span>psql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT 1 FROM pg_roles WHERE rolname=&#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39;<span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L278" class="blob-num js-line-number" data-line-number="278"></td>
-        <td id="LC278" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L279" class="blob-num js-line-number" data-line-number="279"></td>
-        <td id="LC279" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-z</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$USER_EXISTS</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L280" class="blob-num js-line-number" data-line-number="280"></td>
-        <td id="LC280" class="blob-code blob-code-inner js-file-line">        psql_query <span class="pl-s"><span class="pl-pds">&quot;</span>CREATE USER <span class="pl-smi">${DB_SERVER_ZBX_USER}</span> WITH PASSWORD &#39;<span class="pl-smi">${DB_SERVER_ZBX_PASS}</span>&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L281" class="blob-num js-line-number" data-line-number="281"></td>
-        <td id="LC281" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L282" class="blob-num js-line-number" data-line-number="282"></td>
-        <td id="LC282" class="blob-code blob-code-inner js-file-line">        psql_query <span class="pl-s"><span class="pl-pds">&quot;</span>ALTER USER <span class="pl-smi">${DB_SERVER_ZBX_USER}</span> WITH ENCRYPTED PASSWORD &#39;<span class="pl-smi">${DB_SERVER_ZBX_PASS}</span>&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L283" class="blob-num js-line-number" data-line-number="283"></td>
-        <td id="LC283" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L284" class="blob-num js-line-number" data-line-number="284"></td>
-        <td id="LC284" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L285" class="blob-num js-line-number" data-line-number="285"></td>
-        <td id="LC285" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L286" class="blob-num js-line-number" data-line-number="286"></td>
-        <td id="LC286" class="blob-code blob-code-inner js-file-line"><span class="pl-en">create_db_database_mysql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L287" class="blob-num js-line-number" data-line-number="287"></td>
-        <td id="LC287" class="blob-code blob-code-inner js-file-line">    DB_EXISTS=<span class="pl-s"><span class="pl-pds">$(</span>mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT SCHEMA_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME=&#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39;<span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L288" class="blob-num js-line-number" data-line-number="288"></td>
-        <td id="LC288" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L289" class="blob-num js-line-number" data-line-number="289"></td>
-        <td id="LC289" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-z</span> <span class="pl-smi">${DB_EXISTS}</span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L290" class="blob-num js-line-number" data-line-number="290"></td>
-        <td id="LC290" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Database &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39; does not exist. Creating...<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L291" class="blob-num js-line-number" data-line-number="291"></td>
-        <td id="LC291" class="blob-code blob-code-inner js-file-line">        mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>CREATE DATABASE <span class="pl-smi">${DB_SERVER_DBNAME}</span> CHARACTER SET utf8 COLLATE utf8_bin<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L292" class="blob-num js-line-number" data-line-number="292"></td>
-        <td id="LC292" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> better solution?</span></td>
-      </tr>
-      <tr>
-        <td id="L293" class="blob-num js-line-number" data-line-number="293"></td>
-        <td id="LC293" class="blob-code blob-code-inner js-file-line">        mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>GRANT ALL PRIVILEGES ON <span class="pl-smi">$DB_SERVER_DBNAME</span>. * TO &#39;<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>&#39;@&#39;%&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L294" class="blob-num js-line-number" data-line-number="294"></td>
-        <td id="LC294" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L295" class="blob-num js-line-number" data-line-number="295"></td>
-        <td id="LC295" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Database &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39; already exists. Please be careful with database COLLATE!<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L296" class="blob-num js-line-number" data-line-number="296"></td>
-        <td id="LC296" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L297" class="blob-num js-line-number" data-line-number="297"></td>
-        <td id="LC297" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L298" class="blob-num js-line-number" data-line-number="298"></td>
-        <td id="LC298" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L299" class="blob-num js-line-number" data-line-number="299"></td>
-        <td id="LC299" class="blob-code blob-code-inner js-file-line"><span class="pl-en">create_db_database_postgresql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L300" class="blob-num js-line-number" data-line-number="300"></td>
-        <td id="LC300" class="blob-code blob-code-inner js-file-line">    DB_EXISTS=<span class="pl-s"><span class="pl-pds">$(</span>psql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT 1 AS result FROM pg_database WHERE datname=&#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39;<span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L301" class="blob-num js-line-number" data-line-number="301"></td>
-        <td id="LC301" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L302" class="blob-num js-line-number" data-line-number="302"></td>
-        <td id="LC302" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-z</span> <span class="pl-smi">${DB_EXISTS}</span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L303" class="blob-num js-line-number" data-line-number="303"></td>
-        <td id="LC303" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Database &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39; does not exist. Creating...<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L304" class="blob-num js-line-number" data-line-number="304"></td>
-        <td id="LC304" class="blob-code blob-code-inner js-file-line">        psql_query <span class="pl-s"><span class="pl-pds">&quot;</span>CREATE DATABASE <span class="pl-smi">${DB_SERVER_DBNAME}</span> WITH OWNER <span class="pl-smi">${DB_SERVER_ZBX_USER}</span> ENCODING=&#39;UTF8&#39; LC_CTYPE=&#39;en_US.utf8&#39; LC_COLLATE=&#39;en_US.utf8&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L305" class="blob-num js-line-number" data-line-number="305"></td>
-        <td id="LC305" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L306" class="blob-num js-line-number" data-line-number="306"></td>
-        <td id="LC306" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Database &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39; already exists. Please be careful with database owner!<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L307" class="blob-num js-line-number" data-line-number="307"></td>
-        <td id="LC307" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L308" class="blob-num js-line-number" data-line-number="308"></td>
-        <td id="LC308" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L309" class="blob-num js-line-number" data-line-number="309"></td>
-        <td id="LC309" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L310" class="blob-num js-line-number" data-line-number="310"></td>
-        <td id="LC310" class="blob-code blob-code-inner js-file-line"><span class="pl-en">create_db_schema_mysql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L311" class="blob-num js-line-number" data-line-number="311"></td>
-        <td id="LC311" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L312" class="blob-num js-line-number" data-line-number="312"></td>
-        <td id="LC312" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L313" class="blob-num js-line-number" data-line-number="313"></td>
-        <td id="LC313" class="blob-code blob-code-inner js-file-line">    DBVERSION_TABLE_EXISTS=<span class="pl-s"><span class="pl-pds">$(</span>mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT 1 FROM information_schema.tables WHERE table_schema=&#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39; and table_name = &#39;dbversion&#39;<span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L314" class="blob-num js-line-number" data-line-number="314"></td>
-        <td id="LC314" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L315" class="blob-num js-line-number" data-line-number="315"></td>
-        <td id="LC315" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DBVERSION_TABLE_EXISTS}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L316" class="blob-num js-line-number" data-line-number="316"></td>
-        <td id="LC316" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Table &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>.dbversion&#39; already exists.<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L317" class="blob-num js-line-number" data-line-number="317"></td>
-        <td id="LC317" class="blob-code blob-code-inner js-file-line">        ZBX_DB_VERSION=<span class="pl-s"><span class="pl-pds">$(</span>mysql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT mandatory FROM <span class="pl-smi">${DB_SERVER_DBNAME}</span>.dbversion<span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L318" class="blob-num js-line-number" data-line-number="318"></td>
-        <td id="LC318" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L319" class="blob-num js-line-number" data-line-number="319"></td>
-        <td id="LC319" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L320" class="blob-num js-line-number" data-line-number="320"></td>
-        <td id="LC320" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-z</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_DB_VERSION}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L321" class="blob-num js-line-number" data-line-number="321"></td>
-        <td id="LC321" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Creating &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39; schema in MySQL<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L322" class="blob-num js-line-number" data-line-number="322"></td>
-        <td id="LC322" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L323" class="blob-num js-line-number" data-line-number="323"></td>
-        <td id="LC323" class="blob-code blob-code-inner js-file-line">        cat /usr/share/doc/zabbix-<span class="pl-smi">$type</span>-mysql/schema.sql <span class="pl-k">|</span> mysql --silent --skip-column-names \</td>
-      </tr>
-      <tr>
-        <td id="L324" class="blob-num js-line-number" data-line-number="324"></td>
-        <td id="LC324" class="blob-code blob-code-inner js-file-line">                    -h <span class="pl-smi">${DB_SERVER_HOST}</span> -P <span class="pl-smi">${DB_SERVER_PORT}</span> \</td>
-      </tr>
-      <tr>
-        <td id="L325" class="blob-num js-line-number" data-line-number="325"></td>
-        <td id="LC325" class="blob-code blob-code-inner js-file-line">                    -u <span class="pl-smi">${DB_SERVER_ROOT_USER}</span> --password=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ROOT_PASS}</span><span class="pl-pds">&quot;</span></span>  \</td>
-      </tr>
-      <tr>
-        <td id="L326" class="blob-num js-line-number" data-line-number="326"></td>
-        <td id="LC326" class="blob-code blob-code-inner js-file-line">                    <span class="pl-smi">${DB_SERVER_DBNAME}</span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L327" class="blob-num js-line-number" data-line-number="327"></td>
-        <td id="LC327" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L328" class="blob-num js-line-number" data-line-number="328"></td>
-        <td id="LC328" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Fill the schema with initial data<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L329" class="blob-num js-line-number" data-line-number="329"></td>
-        <td id="LC329" class="blob-code blob-code-inner js-file-line">            cat /usr/share/doc/zabbix-<span class="pl-smi">$type</span>-mysql/images.sql <span class="pl-k">|</span> mysql --silent --skip-column-names \</td>
-      </tr>
-      <tr>
-        <td id="L330" class="blob-num js-line-number" data-line-number="330"></td>
-        <td id="LC330" class="blob-code blob-code-inner js-file-line">                    -h <span class="pl-smi">${DB_SERVER_HOST}</span> -P <span class="pl-smi">${DB_SERVER_PORT}</span> \</td>
-      </tr>
-      <tr>
-        <td id="L331" class="blob-num js-line-number" data-line-number="331"></td>
-        <td id="LC331" class="blob-code blob-code-inner js-file-line">                    -u <span class="pl-smi">${DB_SERVER_ROOT_USER}</span> --password=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ROOT_PASS}</span><span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L332" class="blob-num js-line-number" data-line-number="332"></td>
-        <td id="LC332" class="blob-code blob-code-inner js-file-line">                    <span class="pl-smi">${DB_SERVER_DBNAME}</span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L333" class="blob-num js-line-number" data-line-number="333"></td>
-        <td id="LC333" class="blob-code blob-code-inner js-file-line">            cat /usr/share/doc/zabbix-<span class="pl-smi">$type</span>-mysql/data.sql <span class="pl-k">|</span> mysql --silent --skip-column-names \</td>
-      </tr>
-      <tr>
-        <td id="L334" class="blob-num js-line-number" data-line-number="334"></td>
-        <td id="LC334" class="blob-code blob-code-inner js-file-line">                    -h <span class="pl-smi">${DB_SERVER_HOST}</span> -P <span class="pl-smi">${DB_SERVER_PORT}</span> \</td>
-      </tr>
-      <tr>
-        <td id="L335" class="blob-num js-line-number" data-line-number="335"></td>
-        <td id="LC335" class="blob-code blob-code-inner js-file-line">                    -u <span class="pl-smi">${DB_SERVER_ROOT_USER}</span> --password=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ROOT_PASS}</span><span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L336" class="blob-num js-line-number" data-line-number="336"></td>
-        <td id="LC336" class="blob-code blob-code-inner js-file-line">                    <span class="pl-smi">${DB_SERVER_DBNAME}</span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L337" class="blob-num js-line-number" data-line-number="337"></td>
-        <td id="LC337" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L338" class="blob-num js-line-number" data-line-number="338"></td>
-        <td id="LC338" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L339" class="blob-num js-line-number" data-line-number="339"></td>
-        <td id="LC339" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L340" class="blob-num js-line-number" data-line-number="340"></td>
-        <td id="LC340" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L341" class="blob-num js-line-number" data-line-number="341"></td>
-        <td id="LC341" class="blob-code blob-code-inner js-file-line"><span class="pl-en">create_db_schema_postgresql</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L342" class="blob-num js-line-number" data-line-number="342"></td>
-        <td id="LC342" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L343" class="blob-num js-line-number" data-line-number="343"></td>
-        <td id="LC343" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L344" class="blob-num js-line-number" data-line-number="344"></td>
-        <td id="LC344" class="blob-code blob-code-inner js-file-line">    DBVERSION_TABLE_EXISTS=<span class="pl-s"><span class="pl-pds">$(</span>psql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid = </span></span></td>
-      </tr>
-      <tr>
-        <td id="L345" class="blob-num js-line-number" data-line-number="345"></td>
-        <td id="LC345" class="blob-code blob-code-inner js-file-line"><span class="pl-s"><span class="pl-s">                                         c.relnamespace WHERE  n.nspname = &#39;public&#39; AND c.relname = &#39;dbversion&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_DBNAME}</span><span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L346" class="blob-num js-line-number" data-line-number="346"></td>
-        <td id="LC346" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L347" class="blob-num js-line-number" data-line-number="347"></td>
-        <td id="LC347" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DBVERSION_TABLE_EXISTS}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L348" class="blob-num js-line-number" data-line-number="348"></td>
-        <td id="LC348" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Table &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>.dbversion&#39; already exists.<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L349" class="blob-num js-line-number" data-line-number="349"></td>
-        <td id="LC349" class="blob-code blob-code-inner js-file-line">        ZBX_DB_VERSION=<span class="pl-s"><span class="pl-pds">$(</span>psql_query <span class="pl-s"><span class="pl-pds">&quot;</span>SELECT mandatory FROM public.dbversion<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_DBNAME}</span><span class="pl-pds">&quot;</span></span><span class="pl-pds">)</span></span></td>
-      </tr>
-      <tr>
-        <td id="L350" class="blob-num js-line-number" data-line-number="350"></td>
-        <td id="LC350" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L351" class="blob-num js-line-number" data-line-number="351"></td>
-        <td id="LC351" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L352" class="blob-num js-line-number" data-line-number="352"></td>
-        <td id="LC352" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-z</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_DB_VERSION}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L353" class="blob-num js-line-number" data-line-number="353"></td>
-        <td id="LC353" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Creating &#39;<span class="pl-smi">${DB_SERVER_DBNAME}</span>&#39; schema in PostgreSQL<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L354" class="blob-num js-line-number" data-line-number="354"></td>
-        <td id="LC354" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L355" class="blob-num js-line-number" data-line-number="355"></td>
-        <td id="LC355" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L356" class="blob-num js-line-number" data-line-number="356"></td>
-        <td id="LC356" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">export</span> PGPASSWORD=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L357" class="blob-num js-line-number" data-line-number="357"></td>
-        <td id="LC357" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L358" class="blob-num js-line-number" data-line-number="358"></td>
-        <td id="LC358" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L359" class="blob-num js-line-number" data-line-number="359"></td>
-        <td id="LC359" class="blob-code blob-code-inner js-file-line">        cat /usr/share/doc/zabbix-<span class="pl-smi">$type</span>-postgresql/schema.sql <span class="pl-k">|</span> psql -q \</td>
-      </tr>
-      <tr>
-        <td id="L360" class="blob-num js-line-number" data-line-number="360"></td>
-        <td id="LC360" class="blob-code blob-code-inner js-file-line">                -h <span class="pl-smi">${DB_SERVER_HOST}</span> -p <span class="pl-smi">${DB_SERVER_PORT}</span> \</td>
-      </tr>
-      <tr>
-        <td id="L361" class="blob-num js-line-number" data-line-number="361"></td>
-        <td id="LC361" class="blob-code blob-code-inner js-file-line">                -U <span class="pl-smi">${DB_SERVER_ZBX_USER}</span> <span class="pl-smi">${DB_SERVER_DBNAME}</span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L362" class="blob-num js-line-number" data-line-number="362"></td>
-        <td id="LC362" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L363" class="blob-num js-line-number" data-line-number="363"></td>
-        <td id="LC363" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Fill the schema with initial data<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L364" class="blob-num js-line-number" data-line-number="364"></td>
-        <td id="LC364" class="blob-code blob-code-inner js-file-line">            cat /usr/share/doc/zabbix-<span class="pl-smi">$type</span>-postgresql/images.sql <span class="pl-k">|</span> psql -q \</td>
-      </tr>
-      <tr>
-        <td id="L365" class="blob-num js-line-number" data-line-number="365"></td>
-        <td id="LC365" class="blob-code blob-code-inner js-file-line">                -h <span class="pl-smi">${DB_SERVER_HOST}</span> -p <span class="pl-smi">${DB_SERVER_PORT}</span> \</td>
-      </tr>
-      <tr>
-        <td id="L366" class="blob-num js-line-number" data-line-number="366"></td>
-        <td id="LC366" class="blob-code blob-code-inner js-file-line">                -U <span class="pl-smi">${DB_SERVER_ZBX_USER}</span> <span class="pl-smi">${DB_SERVER_DBNAME}</span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L367" class="blob-num js-line-number" data-line-number="367"></td>
-        <td id="LC367" class="blob-code blob-code-inner js-file-line">            cat /usr/share/doc/zabbix-<span class="pl-smi">$type</span>-postgresql/data.sql <span class="pl-k">|</span> psql -q \</td>
-      </tr>
-      <tr>
-        <td id="L368" class="blob-num js-line-number" data-line-number="368"></td>
-        <td id="LC368" class="blob-code blob-code-inner js-file-line">                -h <span class="pl-smi">${DB_SERVER_HOST}</span> -p <span class="pl-smi">${DB_SERVER_PORT}</span> \</td>
-      </tr>
-      <tr>
-        <td id="L369" class="blob-num js-line-number" data-line-number="369"></td>
-        <td id="LC369" class="blob-code blob-code-inner js-file-line">                -U <span class="pl-smi">${DB_SERVER_ZBX_USER}</span> <span class="pl-smi">${DB_SERVER_DBNAME}</span> <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L370" class="blob-num js-line-number" data-line-number="370"></td>
-        <td id="LC370" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L371" class="blob-num js-line-number" data-line-number="371"></td>
-        <td id="LC371" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L372" class="blob-num js-line-number" data-line-number="372"></td>
-        <td id="LC372" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">unset</span> PGPASSWORD</td>
-      </tr>
-      <tr>
-        <td id="L373" class="blob-num js-line-number" data-line-number="373"></td>
-        <td id="LC373" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L374" class="blob-num js-line-number" data-line-number="374"></td>
-        <td id="LC374" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L375" class="blob-num js-line-number" data-line-number="375"></td>
-        <td id="LC375" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L376" class="blob-num js-line-number" data-line-number="376"></td>
-        <td id="LC376" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_web_server_apache</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L377" class="blob-num js-line-number" data-line-number="377"></td>
-        <td id="LC377" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-d</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/sites-available<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L378" class="blob-num js-line-number" data-line-number="378"></td>
-        <td id="LC378" class="blob-code blob-code-inner js-file-line">        APACHE_SITES_DIR=/etc/apache2/sites-available</td>
-      </tr>
-      <tr>
-        <td id="L379" class="blob-num js-line-number" data-line-number="379"></td>
-        <td id="LC379" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">elif</span> [ <span class="pl-k">-d</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf.d<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L380" class="blob-num js-line-number" data-line-number="380"></td>
-        <td id="LC380" class="blob-code blob-code-inner js-file-line">        APACHE_SITES_DIR=/etc/apache2/conf.d</td>
-      </tr>
-      <tr>
-        <td id="L381" class="blob-num js-line-number" data-line-number="381"></td>
-        <td id="LC381" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L382" class="blob-num js-line-number" data-line-number="382"></td>
-        <td id="LC382" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Apache is not available<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L383" class="blob-num js-line-number" data-line-number="383"></td>
-        <td id="LC383" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">exit</span> 1</td>
-      </tr>
-      <tr>
-        <td id="L384" class="blob-num js-line-number" data-line-number="384"></td>
-        <td id="LC384" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L385" class="blob-num js-line-number" data-line-number="385"></td>
-        <td id="LC385" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L386" class="blob-num js-line-number" data-line-number="386"></td>
-        <td id="LC386" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/sbin/a2dissite<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L387" class="blob-num js-line-number" data-line-number="387"></td>
-        <td id="LC387" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Disable default site<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L388" class="blob-num js-line-number" data-line-number="388"></td>
-        <td id="LC388" class="blob-code blob-code-inner js-file-line">        /usr/sbin/a2dissite 000-default <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L389" class="blob-num js-line-number" data-line-number="389"></td>
-        <td id="LC389" class="blob-code blob-code-inner js-file-line">        rm -rf <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$APACHE_SITES_DIR</span>/*<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L390" class="blob-num js-line-number" data-line-number="390"></td>
-        <td id="LC390" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">elif</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf.d/default.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L391" class="blob-num js-line-number" data-line-number="391"></td>
-        <td id="LC391" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Disable default site<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L392" class="blob-num js-line-number" data-line-number="392"></td>
-        <td id="LC392" class="blob-code blob-code-inner js-file-line">        rm -f <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf.d/default.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L393" class="blob-num js-line-number" data-line-number="393"></td>
-        <td id="LC393" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L394" class="blob-num js-line-number" data-line-number="394"></td>
-        <td id="LC394" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L395" class="blob-num js-line-number" data-line-number="395"></td>
-        <td id="LC395" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Adding Zabbix virtual host (HTTP)<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L396" class="blob-num js-line-number" data-line-number="396"></td>
-        <td id="LC396" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/apache.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L397" class="blob-num js-line-number" data-line-number="397"></td>
-        <td id="LC397" class="blob-code blob-code-inner js-file-line">        ln -s <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/apache.conf<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$APACHE_SITES_DIR</span>/zabbix.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L398" class="blob-num js-line-number" data-line-number="398"></td>
-        <td id="LC398" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/sbin/a2dissite<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L399" class="blob-num js-line-number" data-line-number="399"></td>
-        <td id="LC399" class="blob-code blob-code-inner js-file-line">            /usr/sbin/a2ensite zabbix.conf <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L400" class="blob-num js-line-number" data-line-number="400"></td>
-        <td id="LC400" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L401" class="blob-num js-line-number" data-line-number="401"></td>
-        <td id="LC401" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L402" class="blob-num js-line-number" data-line-number="402"></td>
-        <td id="LC402" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Impossible to enable HTTP virtual host<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L403" class="blob-num js-line-number" data-line-number="403"></td>
-        <td id="LC403" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L404" class="blob-num js-line-number" data-line-number="404"></td>
-        <td id="LC404" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L405" class="blob-num js-line-number" data-line-number="405"></td>
-        <td id="LC405" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf.d/ssl.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L406" class="blob-num js-line-number" data-line-number="406"></td>
-        <td id="LC406" class="blob-code blob-code-inner js-file-line">        rm -f <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf.d/ssl.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L407" class="blob-num js-line-number" data-line-number="407"></td>
-        <td id="LC407" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L408" class="blob-num js-line-number" data-line-number="408"></td>
-        <td id="LC408" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L409" class="blob-num js-line-number" data-line-number="409"></td>
-        <td id="LC409" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/ssl/apache2/ssl.crt<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/ssl/apache2/ssl.key<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L410" class="blob-num js-line-number" data-line-number="410"></td>
-        <td id="LC410" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Enable SSL support for Apache2<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L411" class="blob-num js-line-number" data-line-number="411"></td>
-        <td id="LC411" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/sbin/a2enmod<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L412" class="blob-num js-line-number" data-line-number="412"></td>
-        <td id="LC412" class="blob-code blob-code-inner js-file-line">            /usr/sbin/a2enmod ssl <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L413" class="blob-num js-line-number" data-line-number="413"></td>
-        <td id="LC413" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L414" class="blob-num js-line-number" data-line-number="414"></td>
-        <td id="LC414" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L415" class="blob-num js-line-number" data-line-number="415"></td>
-        <td id="LC415" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Adding Zabbix virtual host (HTTPS)<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L416" class="blob-num js-line-number" data-line-number="416"></td>
-        <td id="LC416" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/apache_ssl.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L417" class="blob-num js-line-number" data-line-number="417"></td>
-        <td id="LC417" class="blob-code blob-code-inner js-file-line">            ln -s <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/apache_ssl.conf<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$APACHE_SITES_DIR</span>/zabbix_ssl.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L418" class="blob-num js-line-number" data-line-number="418"></td>
-        <td id="LC418" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/sbin/a2dissite<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L419" class="blob-num js-line-number" data-line-number="419"></td>
-        <td id="LC419" class="blob-code blob-code-inner js-file-line">                /usr/sbin/a2ensite zabbix_ssl.conf <span class="pl-k">1&gt;</span>/dev/null</td>
-      </tr>
-      <tr>
-        <td id="L420" class="blob-num js-line-number" data-line-number="420"></td>
-        <td id="LC420" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L421" class="blob-num js-line-number" data-line-number="421"></td>
-        <td id="LC421" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L422" class="blob-num js-line-number" data-line-number="422"></td>
-        <td id="LC422" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Impossible to enable HTTPS virtual host<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L423" class="blob-num js-line-number" data-line-number="423"></td>
-        <td id="LC423" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L424" class="blob-num js-line-number" data-line-number="424"></td>
-        <td id="LC424" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L425" class="blob-num js-line-number" data-line-number="425"></td>
-        <td id="LC425" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Impossible to enable SSL support for Apache2. Certificates are missed.<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L426" class="blob-num js-line-number" data-line-number="426"></td>
-        <td id="LC426" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L427" class="blob-num js-line-number" data-line-number="427"></td>
-        <td id="LC427" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L428" class="blob-num js-line-number" data-line-number="428"></td>
-        <td id="LC428" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Change Apache2 logging to stdout and stderr</span></td>
-      </tr>
-      <tr>
-        <td id="L429" class="blob-num js-line-number" data-line-number="429"></td>
-        <td id="LC429" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/apache2.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L430" class="blob-num js-line-number" data-line-number="430"></td>
-        <td id="LC430" class="blob-code blob-code-inner js-file-line">        sed -ri \</td>
-      </tr>
-      <tr>
-        <td id="L431" class="blob-num js-line-number" data-line-number="431"></td>
-        <td id="LC431" class="blob-code blob-code-inner js-file-line">            -e <span class="pl-s"><span class="pl-pds">&#39;</span>s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g<span class="pl-pds">&#39;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L432" class="blob-num js-line-number" data-line-number="432"></td>
-        <td id="LC432" class="blob-code blob-code-inner js-file-line">            -e <span class="pl-s"><span class="pl-pds">&#39;</span>s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g<span class="pl-pds">&#39;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L433" class="blob-num js-line-number" data-line-number="433"></td>
-        <td id="LC433" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/apache2.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L434" class="blob-num js-line-number" data-line-number="434"></td>
-        <td id="LC434" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L435" class="blob-num js-line-number" data-line-number="435"></td>
-        <td id="LC435" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L436" class="blob-num js-line-number" data-line-number="436"></td>
-        <td id="LC436" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/httpd.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L437" class="blob-num js-line-number" data-line-number="437"></td>
-        <td id="LC437" class="blob-code blob-code-inner js-file-line">        sed -ri \</td>
-      </tr>
-      <tr>
-        <td id="L438" class="blob-num js-line-number" data-line-number="438"></td>
-        <td id="LC438" class="blob-code blob-code-inner js-file-line">            -e <span class="pl-s"><span class="pl-pds">&#39;</span>s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g<span class="pl-pds">&#39;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L439" class="blob-num js-line-number" data-line-number="439"></td>
-        <td id="LC439" class="blob-code blob-code-inner js-file-line">            -e <span class="pl-s"><span class="pl-pds">&#39;</span>s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g<span class="pl-pds">&#39;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L440" class="blob-num js-line-number" data-line-number="440"></td>
-        <td id="LC440" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/httpd.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L441" class="blob-num js-line-number" data-line-number="441"></td>
-        <td id="LC441" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L442" class="blob-num js-line-number" data-line-number="442"></td>
-        <td id="LC442" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L443" class="blob-num js-line-number" data-line-number="443"></td>
-        <td id="LC443" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf-available/other-vhosts-access-log.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L444" class="blob-num js-line-number" data-line-number="444"></td>
-        <td id="LC444" class="blob-code blob-code-inner js-file-line">        sed -ri \</td>
-      </tr>
-      <tr>
-        <td id="L445" class="blob-num js-line-number" data-line-number="445"></td>
-        <td id="LC445" class="blob-code blob-code-inner js-file-line">            -e <span class="pl-s"><span class="pl-pds">&#39;</span>s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g<span class="pl-pds">&#39;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L446" class="blob-num js-line-number" data-line-number="446"></td>
-        <td id="LC446" class="blob-code blob-code-inner js-file-line">            -e <span class="pl-s"><span class="pl-pds">&#39;</span>s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g<span class="pl-pds">&#39;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L447" class="blob-num js-line-number" data-line-number="447"></td>
-        <td id="LC447" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf-available/other-vhosts-access-log.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L448" class="blob-num js-line-number" data-line-number="448"></td>
-        <td id="LC448" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L449" class="blob-num js-line-number" data-line-number="449"></td>
-        <td id="LC449" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L450" class="blob-num js-line-number" data-line-number="450"></td>
-        <td id="LC450" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf.d/mpm.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L451" class="blob-num js-line-number" data-line-number="451"></td>
-        <td id="LC451" class="blob-code blob-code-inner js-file-line">        sed -ri \</td>
-      </tr>
-      <tr>
-        <td id="L452" class="blob-num js-line-number" data-line-number="452"></td>
-        <td id="LC452" class="blob-code blob-code-inner js-file-line">            -e <span class="pl-s"><span class="pl-pds">&#39;</span>s!^(\s*PidFile)\s+\S+!\1 &quot;/var/run/httpd.pid&quot;!g<span class="pl-pds">&#39;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L453" class="blob-num js-line-number" data-line-number="453"></td>
-        <td id="LC453" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/apache2/conf.d/mpm.conf<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L454" class="blob-num js-line-number" data-line-number="454"></td>
-        <td id="LC454" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L455" class="blob-num js-line-number" data-line-number="455"></td>
-        <td id="LC455" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L456" class="blob-num js-line-number" data-line-number="456"></td>
-        <td id="LC456" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/var/run/apache2/apache2.pid<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L457" class="blob-num js-line-number" data-line-number="457"></td>
-        <td id="LC457" class="blob-code blob-code-inner js-file-line">        rm -f <span class="pl-s"><span class="pl-pds">&quot;</span>/var/run/apache2/apache2.pid<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L458" class="blob-num js-line-number" data-line-number="458"></td>
-        <td id="LC458" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L459" class="blob-num js-line-number" data-line-number="459"></td>
-        <td id="LC459" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L460" class="blob-num js-line-number" data-line-number="460"></td>
-        <td id="LC460" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L461" class="blob-num js-line-number" data-line-number="461"></td>
-        <td id="LC461" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_web_server_nginx</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L462" class="blob-num js-line-number" data-line-number="462"></td>
-        <td id="LC462" class="blob-code blob-code-inner js-file-line">    NGINX_CONFD_DIR=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/nginx/conf.d<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L463" class="blob-num js-line-number" data-line-number="463"></td>
-        <td id="LC463" class="blob-code blob-code-inner js-file-line">    NGINX_SSL_CONFIG=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/ssl/nginx<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L464" class="blob-num js-line-number" data-line-number="464"></td>
-        <td id="LC464" class="blob-code blob-code-inner js-file-line">    PHP_SESSIONS_DIR=<span class="pl-s"><span class="pl-pds">&quot;</span>/var/lib/php5<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L465" class="blob-num js-line-number" data-line-number="465"></td>
-        <td id="LC465" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L466" class="blob-num js-line-number" data-line-number="466"></td>
-        <td id="LC466" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Disable default vhosts<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L467" class="blob-num js-line-number" data-line-number="467"></td>
-        <td id="LC467" class="blob-code blob-code-inner js-file-line">    rm -f <span class="pl-smi">$NGINX_CONFD_DIR</span>/<span class="pl-k">*</span>.conf</td>
-      </tr>
-      <tr>
-        <td id="L468" class="blob-num js-line-number" data-line-number="468"></td>
-        <td id="LC468" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L469" class="blob-num js-line-number" data-line-number="469"></td>
-        <td id="LC469" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Adding Zabbix virtual host (HTTP)<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L470" class="blob-num js-line-number" data-line-number="470"></td>
-        <td id="LC470" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/nginx.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L471" class="blob-num js-line-number" data-line-number="471"></td>
-        <td id="LC471" class="blob-code blob-code-inner js-file-line">        ln -s <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/nginx.conf<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$NGINX_CONFD_DIR</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L472" class="blob-num js-line-number" data-line-number="472"></td>
-        <td id="LC472" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L473" class="blob-num js-line-number" data-line-number="473"></td>
-        <td id="LC473" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Impossible to enable HTTP virtual host<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L474" class="blob-num js-line-number" data-line-number="474"></td>
-        <td id="LC474" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L475" class="blob-num js-line-number" data-line-number="475"></td>
-        <td id="LC475" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L476" class="blob-num js-line-number" data-line-number="476"></td>
-        <td id="LC476" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$NGINX_SSL_CONFIG</span>/ssl.crt<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$NGINX_SSL_CONFIG</span>/ssl.key<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$NGINX_SSL_CONFIG</span>/dhparam.pem<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L477" class="blob-num js-line-number" data-line-number="477"></td>
-        <td id="LC477" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Enable SSL support for Nginx<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L478" class="blob-num js-line-number" data-line-number="478"></td>
-        <td id="LC478" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/nginx_ssl.conf<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L479" class="blob-num js-line-number" data-line-number="479"></td>
-        <td id="LC479" class="blob-code blob-code-inner js-file-line">            ln -s <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/nginx_ssl.conf<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$NGINX_CONFD_DIR</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L480" class="blob-num js-line-number" data-line-number="480"></td>
-        <td id="LC480" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L481" class="blob-num js-line-number" data-line-number="481"></td>
-        <td id="LC481" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Impossible to enable HTTPS virtual host<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L482" class="blob-num js-line-number" data-line-number="482"></td>
-        <td id="LC482" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L483" class="blob-num js-line-number" data-line-number="483"></td>
-        <td id="LC483" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L484" class="blob-num js-line-number" data-line-number="484"></td>
-        <td id="LC484" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Impossible to enable SSL support for Nginx. Certificates are missed.<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L485" class="blob-num js-line-number" data-line-number="485"></td>
-        <td id="LC485" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L486" class="blob-num js-line-number" data-line-number="486"></td>
-        <td id="LC486" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L487" class="blob-num js-line-number" data-line-number="487"></td>
-        <td id="LC487" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-d</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/var/log/nginx/<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L488" class="blob-num js-line-number" data-line-number="488"></td>
-        <td id="LC488" class="blob-code blob-code-inner js-file-line">        ln -sf /dev/fd/2 /var/log/nginx/error.log</td>
-      </tr>
-      <tr>
-        <td id="L489" class="blob-num js-line-number" data-line-number="489"></td>
-        <td id="LC489" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L490" class="blob-num js-line-number" data-line-number="490"></td>
-        <td id="LC490" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L491" class="blob-num js-line-number" data-line-number="491"></td>
-        <td id="LC491" class="blob-code blob-code-inner js-file-line">    ln -sf /dev/fd/2 /var/log/php5-fpm.log</td>
-      </tr>
-      <tr>
-        <td id="L492" class="blob-num js-line-number" data-line-number="492"></td>
-        <td id="LC492" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L493" class="blob-num js-line-number" data-line-number="493"></td>
-        <td id="LC493" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L494" class="blob-num js-line-number" data-line-number="494"></td>
-        <td id="LC494" class="blob-code blob-code-inner js-file-line"><span class="pl-en">clear_deploy</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L495" class="blob-num js-line-number" data-line-number="495"></td>
-        <td id="LC495" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L496" class="blob-num js-line-number" data-line-number="496"></td>
-        <td id="LC496" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Cleaning the system<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L497" class="blob-num js-line-number" data-line-number="497"></td>
-        <td id="LC497" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L498" class="blob-num js-line-number" data-line-number="498"></td>
-        <td id="LC498" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">!=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>dev<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> <span class="pl-k">return</span></td>
-      </tr>
-      <tr>
-        <td id="L499" class="blob-num js-line-number" data-line-number="499"></td>
-        <td id="LC499" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L500" class="blob-num js-line-number" data-line-number="500"></td>
-        <td id="LC500" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L501" class="blob-num js-line-number" data-line-number="501"></td>
-        <td id="LC501" class="blob-code blob-code-inner js-file-line"><span class="pl-en">update_zbx_config</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L502" class="blob-num js-line-number" data-line-number="502"></td>
-        <td id="LC502" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L503" class="blob-num js-line-number" data-line-number="503"></td>
-        <td id="LC503" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> db_type=<span class="pl-smi">$2</span></td>
-      </tr>
-      <tr>
-        <td id="L504" class="blob-num js-line-number" data-line-number="504"></td>
-        <td id="LC504" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L505" class="blob-num js-line-number" data-line-number="505"></td>
-        <td id="LC505" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix <span class="pl-smi">$type</span> configuration file<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L506" class="blob-num js-line-number" data-line-number="506"></td>
-        <td id="LC506" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L507" class="blob-num js-line-number" data-line-number="507"></td>
-        <td id="LC507" class="blob-code blob-code-inner js-file-line">    ZBX_CONFIG=<span class="pl-smi">$ZABBIX_ETC_DIR</span>/zabbix_<span class="pl-smi">$type</span>.conf</td>
-      </tr>
-      <tr>
-        <td id="L508" class="blob-num js-line-number" data-line-number="508"></td>
-        <td id="LC508" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L509" class="blob-num js-line-number" data-line-number="509"></td>
-        <td id="LC509" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L510" class="blob-num js-line-number" data-line-number="510"></td>
-        <td id="LC510" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ProxyMode<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_PROXYMODE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L511" class="blob-num js-line-number" data-line-number="511"></td>
-        <td id="LC511" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Server<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_SERVER_HOST}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L512" class="blob-num js-line-number" data-line-number="512"></td>
-        <td id="LC512" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ServerPort<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_SERVER_PORT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L513" class="blob-num js-line-number" data-line-number="513"></td>
-        <td id="LC513" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Hostname<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_HOSTNAME<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix-proxy-<span class="pl-pds">&quot;</span></span><span class="pl-smi">$db_type</span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L514" class="blob-num js-line-number" data-line-number="514"></td>
-        <td id="LC514" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HostnameItem<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_HOSTNAMEITEM}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L515" class="blob-num js-line-number" data-line-number="515"></td>
-        <td id="LC515" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L516" class="blob-num js-line-number" data-line-number="516"></td>
-        <td id="LC516" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L517" class="blob-num js-line-number" data-line-number="517"></td>
-        <td id="LC517" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-smi">$type</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ADD_SERVER}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L518" class="blob-num js-line-number" data-line-number="518"></td>
-        <td id="LC518" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ListenPort<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>10061<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L519" class="blob-num js-line-number" data-line-number="519"></td>
-        <td id="LC519" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L520" class="blob-num js-line-number" data-line-number="520"></td>
-        <td id="LC520" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ListenPort<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L521" class="blob-num js-line-number" data-line-number="521"></td>
-        <td id="LC521" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L522" class="blob-num js-line-number" data-line-number="522"></td>
-        <td id="LC522" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SourceIP<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_SOURCEIP}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L523" class="blob-num js-line-number" data-line-number="523"></td>
-        <td id="LC523" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogType<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>console<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L524" class="blob-num js-line-number" data-line-number="524"></td>
-        <td id="LC524" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogFile<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L525" class="blob-num js-line-number" data-line-number="525"></td>
-        <td id="LC525" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogFileSize<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L526" class="blob-num js-line-number" data-line-number="526"></td>
-        <td id="LC526" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>PidFile<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L527" class="blob-num js-line-number" data-line-number="527"></td>
-        <td id="LC527" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L528" class="blob-num js-line-number" data-line-number="528"></td>
-        <td id="LC528" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DebugLevel<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_DEBUGLEVEL}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L529" class="blob-num js-line-number" data-line-number="529"></td>
-        <td id="LC529" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L530" class="blob-num js-line-number" data-line-number="530"></td>
-        <td id="LC530" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$db_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>sqlite3<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L531" class="blob-num js-line-number" data-line-number="531"></td>
-        <td id="LC531" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBHost<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L532" class="blob-num js-line-number" data-line-number="532"></td>
-        <td id="LC532" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBName<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/var/lib/zabbix/zabbix_proxy_db<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L533" class="blob-num js-line-number" data-line-number="533"></td>
-        <td id="LC533" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBUser<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L534" class="blob-num js-line-number" data-line-number="534"></td>
-        <td id="LC534" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBPort<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L535" class="blob-num js-line-number" data-line-number="535"></td>
-        <td id="LC535" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBPassword<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L536" class="blob-num js-line-number" data-line-number="536"></td>
-        <td id="LC536" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L537" class="blob-num js-line-number" data-line-number="537"></td>
-        <td id="LC537" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBHost<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_HOST}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L538" class="blob-num js-line-number" data-line-number="538"></td>
-        <td id="LC538" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBName<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_DBNAME}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L539" class="blob-num js-line-number" data-line-number="539"></td>
-        <td id="LC539" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBUser<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_USER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L540" class="blob-num js-line-number" data-line-number="540"></td>
-        <td id="LC540" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBPort<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_PORT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L541" class="blob-num js-line-number" data-line-number="541"></td>
-        <td id="LC541" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DBPassword<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${DB_SERVER_ZBX_PASS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L542" class="blob-num js-line-number" data-line-number="542"></td>
-        <td id="LC542" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L543" class="blob-num js-line-number" data-line-number="543"></td>
-        <td id="LC543" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L544" class="blob-num js-line-number" data-line-number="544"></td>
-        <td id="LC544" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L545" class="blob-num js-line-number" data-line-number="545"></td>
-        <td id="LC545" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ProxyLocalBuffer<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_PROXYLOCALBUFFER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L546" class="blob-num js-line-number" data-line-number="546"></td>
-        <td id="LC546" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ProxyOfflineBuffer<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_PROXYOFFLINEBUFFER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L547" class="blob-num js-line-number" data-line-number="547"></td>
-        <td id="LC547" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HeartbeatFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_PROXYHEARTBEATFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L548" class="blob-num js-line-number" data-line-number="548"></td>
-        <td id="LC548" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ConfigFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_CONFIGFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L549" class="blob-num js-line-number" data-line-number="549"></td>
-        <td id="LC549" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DataSenderFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_DATASENDERFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L550" class="blob-num js-line-number" data-line-number="550"></td>
-        <td id="LC550" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L551" class="blob-num js-line-number" data-line-number="551"></td>
-        <td id="LC551" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L552" class="blob-num js-line-number" data-line-number="552"></td>
-        <td id="LC552" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartPollers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTPOLLERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L553" class="blob-num js-line-number" data-line-number="553"></td>
-        <td id="LC553" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartIPMIPollers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_IPMIPOLLERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L554" class="blob-num js-line-number" data-line-number="554"></td>
-        <td id="LC554" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartPollersUnreachable<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTPOLLERSUNREACHABLE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L555" class="blob-num js-line-number" data-line-number="555"></td>
-        <td id="LC555" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartTrappers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTTRAPPERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L556" class="blob-num js-line-number" data-line-number="556"></td>
-        <td id="LC556" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartPingers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTPINGERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L557" class="blob-num js-line-number" data-line-number="557"></td>
-        <td id="LC557" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartDiscoverers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTDISCOVERERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L558" class="blob-num js-line-number" data-line-number="558"></td>
-        <td id="LC558" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartHTTPPollers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTHTTPPOLLERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L559" class="blob-num js-line-number" data-line-number="559"></td>
-        <td id="LC559" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L560" class="blob-num js-line-number" data-line-number="560"></td>
-        <td id="LC560" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L561" class="blob-num js-line-number" data-line-number="561"></td>
-        <td id="LC561" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartTimers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTTIMERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L562" class="blob-num js-line-number" data-line-number="562"></td>
-        <td id="LC562" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartEscalators<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTESCALATORS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L563" class="blob-num js-line-number" data-line-number="563"></td>
-        <td id="LC563" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L564" class="blob-num js-line-number" data-line-number="564"></td>
-        <td id="LC564" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L565" class="blob-num js-line-number" data-line-number="565"></td>
-        <td id="LC565" class="blob-code blob-code-inner js-file-line">    ZBX_JAVAGATEWAY_ENABLE=<span class="pl-smi">${ZBX_JAVAGATEWAY_ENABLE<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>false<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L566" class="blob-num js-line-number" data-line-number="566"></td>
-        <td id="LC566" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_JAVAGATEWAY_ENABLE}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L567" class="blob-num js-line-number" data-line-number="567"></td>
-        <td id="LC567" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JavaGateway<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_JAVAGATEWAY<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>zabbix-java-gateway<span class="pl-pds">&quot;</span></span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L568" class="blob-num js-line-number" data-line-number="568"></td>
-        <td id="LC568" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JavaGatewayPort<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_JAVAGATEWAYPORT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L569" class="blob-num js-line-number" data-line-number="569"></td>
-        <td id="LC569" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartJavaPollers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTJAVAPOLLERS<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>5<span class="pl-pds">&quot;</span></span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L570" class="blob-num js-line-number" data-line-number="570"></td>
-        <td id="LC570" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L571" class="blob-num js-line-number" data-line-number="571"></td>
-        <td id="LC571" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JavaGateway<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L572" class="blob-num js-line-number" data-line-number="572"></td>
-        <td id="LC572" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JavaGatewayPort<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L573" class="blob-num js-line-number" data-line-number="573"></td>
-        <td id="LC573" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartJavaPollers<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L574" class="blob-num js-line-number" data-line-number="574"></td>
-        <td id="LC574" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L575" class="blob-num js-line-number" data-line-number="575"></td>
-        <td id="LC575" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L576" class="blob-num js-line-number" data-line-number="576"></td>
-        <td id="LC576" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartVMwareCollectors<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTVMWARECOLLECTORS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L577" class="blob-num js-line-number" data-line-number="577"></td>
-        <td id="LC577" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>VMwareFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_VMWAREFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L578" class="blob-num js-line-number" data-line-number="578"></td>
-        <td id="LC578" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>VMwarePerfFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_VMWAREPERFFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L579" class="blob-num js-line-number" data-line-number="579"></td>
-        <td id="LC579" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>VMwareCacheSize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_VMWARECACHESIZE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L580" class="blob-num js-line-number" data-line-number="580"></td>
-        <td id="LC580" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>VMwareTimeout<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_VMWARETIMEOUT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L581" class="blob-num js-line-number" data-line-number="581"></td>
-        <td id="LC581" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L582" class="blob-num js-line-number" data-line-number="582"></td>
-        <td id="LC582" class="blob-code blob-code-inner js-file-line">    ZBX_ENABLE_SNMP_TRAPS=<span class="pl-smi">${ZBX_ENABLE_SNMP_TRAPS<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>false<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L583" class="blob-num js-line-number" data-line-number="583"></td>
-        <td id="LC583" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ENABLE_SNMP_TRAPS}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L584" class="blob-num js-line-number" data-line-number="584"></td>
-        <td id="LC584" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SNMPTrapperFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZABBIX_USER_HOME_DIR}</span>/snmptraps/snmptraps.log<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L585" class="blob-num js-line-number" data-line-number="585"></td>
-        <td id="LC585" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartSNMPTrapper<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>1<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L586" class="blob-num js-line-number" data-line-number="586"></td>
-        <td id="LC586" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L587" class="blob-num js-line-number" data-line-number="587"></td>
-        <td id="LC587" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SNMPTrapperFile<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L588" class="blob-num js-line-number" data-line-number="588"></td>
-        <td id="LC588" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartSNMPTrapper<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L589" class="blob-num js-line-number" data-line-number="589"></td>
-        <td id="LC589" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L590" class="blob-num js-line-number" data-line-number="590"></td>
-        <td id="LC590" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L591" class="blob-num js-line-number" data-line-number="591"></td>
-        <td id="LC591" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HousekeepingFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_HOUSEKEEPINGFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L592" class="blob-num js-line-number" data-line-number="592"></td>
-        <td id="LC592" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L593" class="blob-num js-line-number" data-line-number="593"></td>
-        <td id="LC593" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>MaxHousekeeperDelete<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_MAXHOUSEKEEPERDELETE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L594" class="blob-num js-line-number" data-line-number="594"></td>
-        <td id="LC594" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SenderFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_SENDERFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L595" class="blob-num js-line-number" data-line-number="595"></td>
-        <td id="LC595" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L596" class="blob-num js-line-number" data-line-number="596"></td>
-        <td id="LC596" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L597" class="blob-num js-line-number" data-line-number="597"></td>
-        <td id="LC597" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>CacheSize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_CACHESIZE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L598" class="blob-num js-line-number" data-line-number="598"></td>
-        <td id="LC598" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L599" class="blob-num js-line-number" data-line-number="599"></td>
-        <td id="LC599" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L600" class="blob-num js-line-number" data-line-number="600"></td>
-        <td id="LC600" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>CacheUpdateFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_CACHEUPDATEFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L601" class="blob-num js-line-number" data-line-number="601"></td>
-        <td id="LC601" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L602" class="blob-num js-line-number" data-line-number="602"></td>
-        <td id="LC602" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L603" class="blob-num js-line-number" data-line-number="603"></td>
-        <td id="LC603" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartDBSyncers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTDBSYNCERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L604" class="blob-num js-line-number" data-line-number="604"></td>
-        <td id="LC604" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HistoryCacheSize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_HISTORYCACHESIZE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L605" class="blob-num js-line-number" data-line-number="605"></td>
-        <td id="LC605" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HistoryIndexCacheSize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_HISTORYINDEXCACHESIZE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L606" class="blob-num js-line-number" data-line-number="606"></td>
-        <td id="LC606" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L607" class="blob-num js-line-number" data-line-number="607"></td>
-        <td id="LC607" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span> </td>
-      </tr>
-      <tr>
-        <td id="L608" class="blob-num js-line-number" data-line-number="608"></td>
-        <td id="LC608" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TrendCacheSize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TRENDCACHESIZE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L609" class="blob-num js-line-number" data-line-number="609"></td>
-        <td id="LC609" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ValueCacheSize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_VALUECACHESIZE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L610" class="blob-num js-line-number" data-line-number="610"></td>
-        <td id="LC610" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L611" class="blob-num js-line-number" data-line-number="611"></td>
-        <td id="LC611" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L612" class="blob-num js-line-number" data-line-number="612"></td>
-        <td id="LC612" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Timeout<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TIMEOUT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L613" class="blob-num js-line-number" data-line-number="613"></td>
-        <td id="LC613" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TrapperTimeout<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TRAPPERIMEOUT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L614" class="blob-num js-line-number" data-line-number="614"></td>
-        <td id="LC614" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>UnreachablePeriod<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_UNREACHABLEPERIOD}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L615" class="blob-num js-line-number" data-line-number="615"></td>
-        <td id="LC615" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>UnavailableDelay<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_UNAVAILABLEDELAY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L616" class="blob-num js-line-number" data-line-number="616"></td>
-        <td id="LC616" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>UnreachableDelay<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_UNREACHABLEDELAY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L617" class="blob-num js-line-number" data-line-number="617"></td>
-        <td id="LC617" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L618" class="blob-num js-line-number" data-line-number="618"></td>
-        <td id="LC618" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>AlertScriptsPath<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/lib/zabbix/alertscripts<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L619" class="blob-num js-line-number" data-line-number="619"></td>
-        <td id="LC619" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ExternalScripts<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/lib/zabbix/externalscripts<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L620" class="blob-num js-line-number" data-line-number="620"></td>
-        <td id="LC620" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L621" class="blob-num js-line-number" data-line-number="621"></td>
-        <td id="LC621" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Possible few fping locations</span></td>
-      </tr>
-      <tr>
-        <td id="L622" class="blob-num js-line-number" data-line-number="622"></td>
-        <td id="LC622" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/bin/fping<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L623" class="blob-num js-line-number" data-line-number="623"></td>
-        <td id="LC623" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>FpingLocation<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/bin/fping<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L624" class="blob-num js-line-number" data-line-number="624"></td>
-        <td id="LC624" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L625" class="blob-num js-line-number" data-line-number="625"></td>
-        <td id="LC625" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>FpingLocation<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/sbin/fping<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L626" class="blob-num js-line-number" data-line-number="626"></td>
-        <td id="LC626" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L627" class="blob-num js-line-number" data-line-number="627"></td>
-        <td id="LC627" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/bin/fping6<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L628" class="blob-num js-line-number" data-line-number="628"></td>
-        <td id="LC628" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Fping6Location<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/bin/fping6<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L629" class="blob-num js-line-number" data-line-number="629"></td>
-        <td id="LC629" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L630" class="blob-num js-line-number" data-line-number="630"></td>
-        <td id="LC630" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Fping6Location<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/sbin/fping6<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L631" class="blob-num js-line-number" data-line-number="631"></td>
-        <td id="LC631" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L632" class="blob-num js-line-number" data-line-number="632"></td>
-        <td id="LC632" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L633" class="blob-num js-line-number" data-line-number="633"></td>
-        <td id="LC633" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SSHKeyLocation<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_USER_HOME_DIR</span>/ssh_keys<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L634" class="blob-num js-line-number" data-line-number="634"></td>
-        <td id="LC634" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogSlowQueries<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_LOGSLOWQUERIES}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L635" class="blob-num js-line-number" data-line-number="635"></td>
-        <td id="LC635" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L636" class="blob-num js-line-number" data-line-number="636"></td>
-        <td id="LC636" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span> </td>
-      </tr>
-      <tr>
-        <td id="L637" class="blob-num js-line-number" data-line-number="637"></td>
-        <td id="LC637" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartProxyPollers<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTPROXYPOLLERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L638" class="blob-num js-line-number" data-line-number="638"></td>
-        <td id="LC638" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ProxyConfigFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_PROXYCONFIGFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L639" class="blob-num js-line-number" data-line-number="639"></td>
-        <td id="LC639" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ProxyDataFrequency<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_PROXYDATAFREQUENCY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L640" class="blob-num js-line-number" data-line-number="640"></td>
-        <td id="LC640" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L641" class="blob-num js-line-number" data-line-number="641"></td>
-        <td id="LC641" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L642" class="blob-num js-line-number" data-line-number="642"></td>
-        <td id="LC642" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SSLCertLocation<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_USER_HOME_DIR</span>/ssl/certs/<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L643" class="blob-num js-line-number" data-line-number="643"></td>
-        <td id="LC643" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SSLKeyLocation<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_USER_HOME_DIR</span>/ssl/keys/<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L644" class="blob-num js-line-number" data-line-number="644"></td>
-        <td id="LC644" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SSLCALocation<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_USER_HOME_DIR</span>/ssl/ssl_ca/<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L645" class="blob-num js-line-number" data-line-number="645"></td>
-        <td id="LC645" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LoadModulePath<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_USER_HOME_DIR</span>/modules/<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L646" class="blob-num js-line-number" data-line-number="646"></td>
-        <td id="LC646" class="blob-code blob-code-inner js-file-line">    update_config_multiple_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LoadModule<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_LOADMODULE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L647" class="blob-num js-line-number" data-line-number="647"></td>
-        <td id="LC647" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L648" class="blob-num js-line-number" data-line-number="648"></td>
-        <td id="LC648" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L649" class="blob-num js-line-number" data-line-number="649"></td>
-        <td id="LC649" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSConnect<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCONNECT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L650" class="blob-num js-line-number" data-line-number="650"></td>
-        <td id="LC650" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSAccept<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSACCEPT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L651" class="blob-num js-line-number" data-line-number="651"></td>
-        <td id="LC651" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L652" class="blob-num js-line-number" data-line-number="652"></td>
-        <td id="LC652" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSCAFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCAFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L653" class="blob-num js-line-number" data-line-number="653"></td>
-        <td id="LC653" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSCRLFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCRLFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L654" class="blob-num js-line-number" data-line-number="654"></td>
-        <td id="LC654" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L655" class="blob-num js-line-number" data-line-number="655"></td>
-        <td id="LC655" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L656" class="blob-num js-line-number" data-line-number="656"></td>
-        <td id="LC656" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSServerCertIssuer<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSSERVERCERTISSUER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L657" class="blob-num js-line-number" data-line-number="657"></td>
-        <td id="LC657" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSServerCertSubject<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSSERVERCERTSUBJECT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L658" class="blob-num js-line-number" data-line-number="658"></td>
-        <td id="LC658" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L659" class="blob-num js-line-number" data-line-number="659"></td>
-        <td id="LC659" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L660" class="blob-num js-line-number" data-line-number="660"></td>
-        <td id="LC660" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSCertFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCERTFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L661" class="blob-num js-line-number" data-line-number="661"></td>
-        <td id="LC661" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSKeyFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSKEYFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L662" class="blob-num js-line-number" data-line-number="662"></td>
-        <td id="LC662" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L663" class="blob-num js-line-number" data-line-number="663"></td>
-        <td id="LC663" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L664" class="blob-num js-line-number" data-line-number="664"></td>
-        <td id="LC664" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSPSKIdentity<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSPSKIDENTITY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L665" class="blob-num js-line-number" data-line-number="665"></td>
-        <td id="LC665" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSPSKFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSPSKFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L666" class="blob-num js-line-number" data-line-number="666"></td>
-        <td id="LC666" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L667" class="blob-num js-line-number" data-line-number="667"></td>
-        <td id="LC667" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L668" class="blob-num js-line-number" data-line-number="668"></td>
-        <td id="LC668" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L669" class="blob-num js-line-number" data-line-number="669"></td>
-        <td id="LC669" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L670" class="blob-num js-line-number" data-line-number="670"></td>
-        <td id="LC670" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_zbx_web_config</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L671" class="blob-num js-line-number" data-line-number="671"></td>
-        <td id="LC671" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> db_type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L672" class="blob-num js-line-number" data-line-number="672"></td>
-        <td id="LC672" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> server_name=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L673" class="blob-num js-line-number" data-line-number="673"></td>
-        <td id="LC673" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L674" class="blob-num js-line-number" data-line-number="674"></td>
-        <td id="LC674" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix frontend configuration file<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L675" class="blob-num js-line-number" data-line-number="675"></td>
-        <td id="LC675" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L676" class="blob-num js-line-number" data-line-number="676"></td>
-        <td id="LC676" class="blob-code blob-code-inner js-file-line">    ZBX_WEB_CONFIG=<span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_ETC_DIR</span>/web/zabbix.conf.php<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L677" class="blob-num js-line-number" data-line-number="677"></td>
-        <td id="LC677" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L678" class="blob-num js-line-number" data-line-number="678"></td>
-        <td id="LC678" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/share/zabbix/conf/zabbix.conf.php<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L679" class="blob-num js-line-number" data-line-number="679"></td>
-        <td id="LC679" class="blob-code blob-code-inner js-file-line">        rm -f <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/share/zabbix/conf/zabbix.conf.php<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L680" class="blob-num js-line-number" data-line-number="680"></td>
-        <td id="LC680" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L681" class="blob-num js-line-number" data-line-number="681"></td>
-        <td id="LC681" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L682" class="blob-num js-line-number" data-line-number="682"></td>
-        <td id="LC682" class="blob-code blob-code-inner js-file-line">    ln -s <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_WEB_CONFIG</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/usr/share/zabbix/conf/zabbix.conf.php<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L683" class="blob-num js-line-number" data-line-number="683"></td>
-        <td id="LC683" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L684" class="blob-num js-line-number" data-line-number="684"></td>
-        <td id="LC684" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Different places of PHP configuration file</span></td>
-      </tr>
-      <tr>
-        <td id="L685" class="blob-num js-line-number" data-line-number="685"></td>
-        <td id="LC685" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php5/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L686" class="blob-num js-line-number" data-line-number="686"></td>
-        <td id="LC686" class="blob-code blob-code-inner js-file-line">        PHP_CONFIG_FILE=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php5/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L687" class="blob-num js-line-number" data-line-number="687"></td>
-        <td id="LC687" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">elif</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php5/fpm/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L688" class="blob-num js-line-number" data-line-number="688"></td>
-        <td id="LC688" class="blob-code blob-code-inner js-file-line">        PHP_CONFIG_FILE=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php5/fpm/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L689" class="blob-num js-line-number" data-line-number="689"></td>
-        <td id="LC689" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">elif</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php5/apache2/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L690" class="blob-num js-line-number" data-line-number="690"></td>
-        <td id="LC690" class="blob-code blob-code-inner js-file-line">        PHP_CONFIG_FILE=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php5/apache2/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L691" class="blob-num js-line-number" data-line-number="691"></td>
-        <td id="LC691" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">elif</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php/7.0/apache2/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L692" class="blob-num js-line-number" data-line-number="692"></td>
-        <td id="LC692" class="blob-code blob-code-inner js-file-line">        PHP_CONFIG_FILE=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php/7.0/apache2/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L693" class="blob-num js-line-number" data-line-number="693"></td>
-        <td id="LC693" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">elif</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php/7.0/fpm/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L694" class="blob-num js-line-number" data-line-number="694"></td>
-        <td id="LC694" class="blob-code blob-code-inner js-file-line">        PHP_CONFIG_FILE=<span class="pl-s"><span class="pl-pds">&quot;</span>/etc/php/7.0/fpm/conf.d/99-zabbix.ini<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L695" class="blob-num js-line-number" data-line-number="695"></td>
-        <td id="LC695" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L696" class="blob-num js-line-number" data-line-number="696"></td>
-        <td id="LC696" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L697" class="blob-num js-line-number" data-line-number="697"></td>
-        <td id="LC697" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$PHP_CONFIG_FILE</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L698" class="blob-num js-line-number" data-line-number="698"></td>
-        <td id="LC698" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$PHP_CONFIG_FILE</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>max_execution_time<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_MAXEXECUTIONTIME<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>600<span class="pl-pds">&quot;</span></span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L699" class="blob-num js-line-number" data-line-number="699"></td>
-        <td id="LC699" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$PHP_CONFIG_FILE</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>memory_limit<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_MEMORYLIMIT<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>128M<span class="pl-pds">&quot;</span></span>}</span><span class="pl-pds">&quot;</span></span> </td>
-      </tr>
-      <tr>
-        <td id="L700" class="blob-num js-line-number" data-line-number="700"></td>
-        <td id="LC700" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$PHP_CONFIG_FILE</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>post_max_size<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_POSTMAXSIZE<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>16M<span class="pl-pds">&quot;</span></span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L701" class="blob-num js-line-number" data-line-number="701"></td>
-        <td id="LC701" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$PHP_CONFIG_FILE</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>upload_max_filesize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_UPLOADMAXFILESIZE<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>2M<span class="pl-pds">&quot;</span></span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L702" class="blob-num js-line-number" data-line-number="702"></td>
-        <td id="LC702" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$PHP_CONFIG_FILE</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>max_input_time<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_MAXINPUTTIME<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>300<span class="pl-pds">&quot;</span></span>}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L703" class="blob-num js-line-number" data-line-number="703"></td>
-        <td id="LC703" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$PHP_CONFIG_FILE</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>date.timezone<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${PHP_TZ}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L704" class="blob-num js-line-number" data-line-number="704"></td>
-        <td id="LC704" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L705" class="blob-num js-line-number" data-line-number="705"></td>
-        <td id="LC705" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Zabbix related PHP configuration file not found<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L706" class="blob-num js-line-number" data-line-number="706"></td>
-        <td id="LC706" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L707" class="blob-num js-line-number" data-line-number="707"></td>
-        <td id="LC707" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L708" class="blob-num js-line-number" data-line-number="708"></td>
-        <td id="LC708" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Escaping &quot;/&quot; character in parameter value</span></td>
-      </tr>
-      <tr>
-        <td id="L709" class="blob-num js-line-number" data-line-number="709"></td>
-        <td id="LC709" class="blob-code blob-code-inner js-file-line">    server_name=<span class="pl-smi">${ZBX_SERVER_NAME<span class="pl-k">//</span><span class="pl-cce">\/</span><span class="pl-k">/</span><span class="pl-cce">\\</span><span class="pl-k">/</span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L710" class="blob-num js-line-number" data-line-number="710"></td>
-        <td id="LC710" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L711" class="blob-num js-line-number" data-line-number="711"></td>
-        <td id="LC711" class="blob-code blob-code-inner js-file-line">    sed -i \</td>
-      </tr>
-      <tr>
-        <td id="L712" class="blob-num js-line-number" data-line-number="712"></td>
-        <td id="LC712" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{DB_SERVER_HOST}/<span class="pl-smi">${DB_SERVER_HOST}</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L713" class="blob-num js-line-number" data-line-number="713"></td>
-        <td id="LC713" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{DB_SERVER_PORT}/<span class="pl-smi">${DB_SERVER_PORT}</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L714" class="blob-num js-line-number" data-line-number="714"></td>
-        <td id="LC714" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{DB_SERVER_DBNAME}/<span class="pl-smi">${DB_SERVER_DBNAME}</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L715" class="blob-num js-line-number" data-line-number="715"></td>
-        <td id="LC715" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{DB_SERVER_USER}/<span class="pl-smi">${DB_SERVER_ZBX_USER}</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L716" class="blob-num js-line-number" data-line-number="716"></td>
-        <td id="LC716" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{DB_SERVER_PASS}/<span class="pl-smi">${DB_SERVER_ZBX_PASS}</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L717" class="blob-num js-line-number" data-line-number="717"></td>
-        <td id="LC717" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{ZBX_SERVER_HOST}/<span class="pl-smi">${ZBX_SERVER_HOST}</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L718" class="blob-num js-line-number" data-line-number="718"></td>
-        <td id="LC718" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{ZBX_SERVER_PORT}/<span class="pl-smi">${ZBX_SERVER_PORT}</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L719" class="blob-num js-line-number" data-line-number="719"></td>
-        <td id="LC719" class="blob-code blob-code-inner js-file-line">        -e <span class="pl-s"><span class="pl-pds">&quot;</span>s/{ZBX_SERVER_NAME}/<span class="pl-smi">$server_name</span>/g<span class="pl-pds">&quot;</span></span> \</td>
-      </tr>
-      <tr>
-        <td id="L720" class="blob-num js-line-number" data-line-number="720"></td>
-        <td id="LC720" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_WEB_CONFIG</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L721" class="blob-num js-line-number" data-line-number="721"></td>
-        <td id="LC721" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L722" class="blob-num js-line-number" data-line-number="722"></td>
-        <td id="LC722" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$db_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>postgresql<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> sed -i <span class="pl-s"><span class="pl-pds">&quot;</span>s/MYSQL/POSTGRESQL/g<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_WEB_CONFIG</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L723" class="blob-num js-line-number" data-line-number="723"></td>
-        <td id="LC723" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L724" class="blob-num js-line-number" data-line-number="724"></td>
-        <td id="LC724" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L725" class="blob-num js-line-number" data-line-number="725"></td>
-        <td id="LC725" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_zbx_agent_config</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L726" class="blob-num js-line-number" data-line-number="726"></td>
-        <td id="LC726" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix agent configuration file<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L727" class="blob-num js-line-number" data-line-number="727"></td>
-        <td id="LC727" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L728" class="blob-num js-line-number" data-line-number="728"></td>
-        <td id="LC728" class="blob-code blob-code-inner js-file-line">    ZBX_AGENT_CONFIG=<span class="pl-smi">$ZABBIX_ETC_DIR</span>/zabbix_agentd.conf</td>
-      </tr>
-      <tr>
-        <td id="L729" class="blob-num js-line-number" data-line-number="729"></td>
-        <td id="LC729" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L730" class="blob-num js-line-number" data-line-number="730"></td>
-        <td id="LC730" class="blob-code blob-code-inner js-file-line">    ZBX_PASSIVESERVERS=<span class="pl-smi">${ZBX_PASSIVESERVERS<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L731" class="blob-num js-line-number" data-line-number="731"></td>
-        <td id="LC731" class="blob-code blob-code-inner js-file-line">    ZBX_ACTIVESERVERS=<span class="pl-smi">${ZBX_ACTIVESERVERS<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L732" class="blob-num js-line-number" data-line-number="732"></td>
-        <td id="LC732" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L733" class="blob-num js-line-number" data-line-number="733"></td>
-        <td id="LC733" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_PASSIVESERVERS</span><span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> ZBX_PASSIVESERVERS=<span class="pl-s"><span class="pl-pds">&quot;</span>,<span class="pl-pds">&quot;</span></span><span class="pl-smi">$ZBX_PASSIVESERVERS</span></td>
-      </tr>
-      <tr>
-        <td id="L734" class="blob-num js-line-number" data-line-number="734"></td>
-        <td id="LC734" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L735" class="blob-num js-line-number" data-line-number="735"></td>
-        <td id="LC735" class="blob-code blob-code-inner js-file-line">    ZBX_PASSIVESERVERS=<span class="pl-smi">$ZBX_SERVER_HOST$ZBX_PASSIVESERVERS</span></td>
-      </tr>
-      <tr>
-        <td id="L736" class="blob-num js-line-number" data-line-number="736"></td>
-        <td id="LC736" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L737" class="blob-num js-line-number" data-line-number="737"></td>
-        <td id="LC737" class="blob-code blob-code-inner js-file-line">    [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_ACTIVESERVERS</span><span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> ZBX_ACTIVESERVERS=<span class="pl-s"><span class="pl-pds">&quot;</span>,<span class="pl-pds">&quot;</span></span><span class="pl-smi">$ZBX_ACTIVESERVERS</span></td>
-      </tr>
-      <tr>
-        <td id="L738" class="blob-num js-line-number" data-line-number="738"></td>
-        <td id="LC738" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L739" class="blob-num js-line-number" data-line-number="739"></td>
-        <td id="LC739" class="blob-code blob-code-inner js-file-line">    ZBX_ACTIVESERVERS=<span class="pl-smi">$ZBX_SERVER_HOST</span><span class="pl-s"><span class="pl-pds">&quot;</span>:<span class="pl-pds">&quot;</span></span><span class="pl-smi">$ZBX_SERVER_PORT$ZBX_ACTIVESERVERS</span></td>
-      </tr>
-      <tr>
-        <td id="L740" class="blob-num js-line-number" data-line-number="740"></td>
-        <td id="LC740" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L741" class="blob-num js-line-number" data-line-number="741"></td>
-        <td id="LC741" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>PidFile<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L742" class="blob-num js-line-number" data-line-number="742"></td>
-        <td id="LC742" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogType<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>console<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L743" class="blob-num js-line-number" data-line-number="743"></td>
-        <td id="LC743" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogFile<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L744" class="blob-num js-line-number" data-line-number="744"></td>
-        <td id="LC744" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogFileSize<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L745" class="blob-num js-line-number" data-line-number="745"></td>
-        <td id="LC745" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>DebugLevel<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_DEBUGLEVEL}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L746" class="blob-num js-line-number" data-line-number="746"></td>
-        <td id="LC746" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>SourceIP<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L747" class="blob-num js-line-number" data-line-number="747"></td>
-        <td id="LC747" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>EnableRemoteCommands<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ENABLEREMOTECOMMANDS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L748" class="blob-num js-line-number" data-line-number="748"></td>
-        <td id="LC748" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LogRemoteCommands<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_LOGREMOTECOMMANDS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L749" class="blob-num js-line-number" data-line-number="749"></td>
-        <td id="LC749" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L750" class="blob-num js-line-number" data-line-number="750"></td>
-        <td id="LC750" class="blob-code blob-code-inner js-file-line">    ZBX_PASSIVE_ALLOW=<span class="pl-smi">${ZBX_PASSIVE_ALLOW<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L751" class="blob-num js-line-number" data-line-number="751"></td>
-        <td id="LC751" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_PASSIVE_ALLOW</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L752" class="blob-num js-line-number" data-line-number="752"></td>
-        <td id="LC752" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Using &#39;<span class="pl-smi">$ZBX_PASSIVESERVERS</span>&#39; servers for passive checks<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L753" class="blob-num js-line-number" data-line-number="753"></td>
-        <td id="LC753" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Server<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_PASSIVESERVERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L754" class="blob-num js-line-number" data-line-number="754"></td>
-        <td id="LC754" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L755" class="blob-num js-line-number" data-line-number="755"></td>
-        <td id="LC755" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Server<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L756" class="blob-num js-line-number" data-line-number="756"></td>
-        <td id="LC756" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L757" class="blob-num js-line-number" data-line-number="757"></td>
-        <td id="LC757" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L758" class="blob-num js-line-number" data-line-number="758"></td>
-        <td id="LC758" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ListenPort<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L759" class="blob-num js-line-number" data-line-number="759"></td>
-        <td id="LC759" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ListenIP<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_LISTENIP}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L760" class="blob-num js-line-number" data-line-number="760"></td>
-        <td id="LC760" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>StartAgents<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_STARTAGENTS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L761" class="blob-num js-line-number" data-line-number="761"></td>
-        <td id="LC761" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L762" class="blob-num js-line-number" data-line-number="762"></td>
-        <td id="LC762" class="blob-code blob-code-inner js-file-line">    ZBX_ACTIVE_ALLOW=<span class="pl-smi">${ZBX_ACTIVE_ALLOW<span class="pl-k">:-</span><span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span>}</span></td>
-      </tr>
-      <tr>
-        <td id="L763" class="blob-num js-line-number" data-line-number="763"></td>
-        <td id="LC763" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_ACTIVE_ALLOW</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L764" class="blob-num js-line-number" data-line-number="764"></td>
-        <td id="LC764" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Using &#39;<span class="pl-smi">$ZBX_ACTIVESERVERS</span>&#39; servers for active checks<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L765" class="blob-num js-line-number" data-line-number="765"></td>
-        <td id="LC765" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ServerActive<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ACTIVESERVERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L766" class="blob-num js-line-number" data-line-number="766"></td>
-        <td id="LC766" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L767" class="blob-num js-line-number" data-line-number="767"></td>
-        <td id="LC767" class="blob-code blob-code-inner js-file-line">        update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>ServerActive<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L768" class="blob-num js-line-number" data-line-number="768"></td>
-        <td id="LC768" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L769" class="blob-num js-line-number" data-line-number="769"></td>
-        <td id="LC769" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L770" class="blob-num js-line-number" data-line-number="770"></td>
-        <td id="LC770" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Hostname<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_HOSTNAME}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L771" class="blob-num js-line-number" data-line-number="771"></td>
-        <td id="LC771" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HostnameItem<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_HOSTNAMEITEM}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L772" class="blob-num js-line-number" data-line-number="772"></td>
-        <td id="LC772" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HostMetadata<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_METADATA}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L773" class="blob-num js-line-number" data-line-number="773"></td>
-        <td id="LC773" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>HostMetadataItem<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_METADATAITEM}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L774" class="blob-num js-line-number" data-line-number="774"></td>
-        <td id="LC774" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>RefreshActiveChecks<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_REFRESHACTIVECHECKS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L775" class="blob-num js-line-number" data-line-number="775"></td>
-        <td id="LC775" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>BufferSend<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_BUFFERSEND}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L776" class="blob-num js-line-number" data-line-number="776"></td>
-        <td id="LC776" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>BufferSize<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_BUFFERSIZE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L777" class="blob-num js-line-number" data-line-number="777"></td>
-        <td id="LC777" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>MaxLinesPerSecond<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_MAXLINESPERSECOND}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L778" class="blob-num js-line-number" data-line-number="778"></td>
-        <td id="LC778" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>    update_config_multiple_var $ZBX_AGENT_CONFIG &quot;Alias&quot; ${ZBX_ALIAS}</span></td>
-      </tr>
-      <tr>
-        <td id="L779" class="blob-num js-line-number" data-line-number="779"></td>
-        <td id="LC779" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Timeout<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TIMEOUT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L780" class="blob-num js-line-number" data-line-number="780"></td>
-        <td id="LC780" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Include<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span>/etc/zabbix/zabbix_agentd.d/<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L781" class="blob-num js-line-number" data-line-number="781"></td>
-        <td id="LC781" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>UnsafeUserParameters<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_UNSAFEUSERPARAMETERS}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L782" class="blob-num js-line-number" data-line-number="782"></td>
-        <td id="LC782" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LoadModulePath<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZABBIX_USER_HOME_DIR</span>/modules/<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L783" class="blob-num js-line-number" data-line-number="783"></td>
-        <td id="LC783" class="blob-code blob-code-inner js-file-line">    update_config_multiple_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>LoadModule<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_LOADMODULE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L784" class="blob-num js-line-number" data-line-number="784"></td>
-        <td id="LC784" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSConnect<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCONNECT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L785" class="blob-num js-line-number" data-line-number="785"></td>
-        <td id="LC785" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSAccept<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSACCEPT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L786" class="blob-num js-line-number" data-line-number="786"></td>
-        <td id="LC786" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSCAFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCAFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L787" class="blob-num js-line-number" data-line-number="787"></td>
-        <td id="LC787" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSCRLFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCRLFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L788" class="blob-num js-line-number" data-line-number="788"></td>
-        <td id="LC788" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSServerCertIssuer<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSSERVERCERTISSUER}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L789" class="blob-num js-line-number" data-line-number="789"></td>
-        <td id="LC789" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSServerCertSubject<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSSERVERCERTSUBJECT}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L790" class="blob-num js-line-number" data-line-number="790"></td>
-        <td id="LC790" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSCertFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSCERTFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L791" class="blob-num js-line-number" data-line-number="791"></td>
-        <td id="LC791" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSKeyFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSKEYFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L792" class="blob-num js-line-number" data-line-number="792"></td>
-        <td id="LC792" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSPSKIdentity<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSPSKIDENTITY}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L793" class="blob-num js-line-number" data-line-number="793"></td>
-        <td id="LC793" class="blob-code blob-code-inner js-file-line">    update_config_var <span class="pl-smi">$ZBX_AGENT_CONFIG</span> <span class="pl-s"><span class="pl-pds">&quot;</span>TLSPSKFile<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_TLSPSKFILE}</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L794" class="blob-num js-line-number" data-line-number="794"></td>
-        <td id="LC794" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L795" class="blob-num js-line-number" data-line-number="795"></td>
-        <td id="LC795" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L796" class="blob-num js-line-number" data-line-number="796"></td>
-        <td id="LC796" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_java_gateway_config</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L797" class="blob-num js-line-number" data-line-number="797"></td>
-        <td id="LC797" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix Java Gateway log configuration file<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L798" class="blob-num js-line-number" data-line-number="798"></td>
-        <td id="LC798" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L799" class="blob-num js-line-number" data-line-number="799"></td>
-        <td id="LC799" class="blob-code blob-code-inner js-file-line">    ZBX_GATEWAY_CONFIG=<span class="pl-smi">$ZABBIX_ETC_DIR</span>/zabbix_java_gateway_logback.xml</td>
-      </tr>
-      <tr>
-        <td id="L800" class="blob-num js-line-number" data-line-number="800"></td>
-        <td id="LC800" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L801" class="blob-num js-line-number" data-line-number="801"></td>
-        <td id="LC801" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_DEBUGLEVEL}</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L802" class="blob-num js-line-number" data-line-number="802"></td>
-        <td id="LC802" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Updating <span class="pl-smi">$ZBX_GATEWAY_CONFIG</span> &#39;DebugLevel&#39; parameter: &#39;<span class="pl-smi">${ZBX_DEBUGLEVEL}</span>&#39;... updated<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L803" class="blob-num js-line-number" data-line-number="803"></td>
-        <td id="LC803" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-k">-f</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_GATEWAY_CONFIG</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L804" class="blob-num js-line-number" data-line-number="804"></td>
-        <td id="LC804" class="blob-code blob-code-inner js-file-line">            sed -i -e <span class="pl-s"><span class="pl-pds">&quot;</span>/^.*&lt;root level=/s/=.*/=<span class="pl-cce">\&quot;</span><span class="pl-smi">${ZBX_DEBUGLEVEL}</span><span class="pl-cce">\&quot;</span>&gt;/<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$ZBX_GATEWAY_CONFIG</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L805" class="blob-num js-line-number" data-line-number="805"></td>
-        <td id="LC805" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L806" class="blob-num js-line-number" data-line-number="806"></td>
-        <td id="LC806" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Zabbix Java Gateway log configuration file &#39;<span class="pl-smi">$ZBX_GATEWAY_CONFIG</span>&#39; not found<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L807" class="blob-num js-line-number" data-line-number="807"></td>
-        <td id="LC807" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L808" class="blob-num js-line-number" data-line-number="808"></td>
-        <td id="LC808" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L809" class="blob-num js-line-number" data-line-number="809"></td>
-        <td id="LC809" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L810" class="blob-num js-line-number" data-line-number="810"></td>
-        <td id="LC810" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L811" class="blob-num js-line-number" data-line-number="811"></td>
-        <td id="LC811" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_agent</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L812" class="blob-num js-line-number" data-line-number="812"></td>
-        <td id="LC812" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix agent<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L813" class="blob-num js-line-number" data-line-number="813"></td>
-        <td id="LC813" class="blob-code blob-code-inner js-file-line">    prepare_zbx_agent_config</td>
-      </tr>
-      <tr>
-        <td id="L814" class="blob-num js-line-number" data-line-number="814"></td>
-        <td id="LC814" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L815" class="blob-num js-line-number" data-line-number="815"></td>
-        <td id="LC815" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L816" class="blob-num js-line-number" data-line-number="816"></td>
-        <td id="LC816" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_server</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L817" class="blob-num js-line-number" data-line-number="817"></td>
-        <td id="LC817" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> db_type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L818" class="blob-num js-line-number" data-line-number="818"></td>
-        <td id="LC818" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L819" class="blob-num js-line-number" data-line-number="819"></td>
-        <td id="LC819" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix server<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L820" class="blob-num js-line-number" data-line-number="820"></td>
-        <td id="LC820" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L821" class="blob-num js-line-number" data-line-number="821"></td>
-        <td id="LC821" class="blob-code blob-code-inner js-file-line">    check_variables_<span class="pl-smi">$db_type</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L822" class="blob-num js-line-number" data-line-number="822"></td>
-        <td id="LC822" class="blob-code blob-code-inner js-file-line">    check_db_connect_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L823" class="blob-num js-line-number" data-line-number="823"></td>
-        <td id="LC823" class="blob-code blob-code-inner js-file-line">    create_db_user_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L824" class="blob-num js-line-number" data-line-number="824"></td>
-        <td id="LC824" class="blob-code blob-code-inner js-file-line">    create_db_database_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L825" class="blob-num js-line-number" data-line-number="825"></td>
-        <td id="LC825" class="blob-code blob-code-inner js-file-line">    create_db_schema_<span class="pl-smi">$db_type</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L826" class="blob-num js-line-number" data-line-number="826"></td>
-        <td id="LC826" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L827" class="blob-num js-line-number" data-line-number="827"></td>
-        <td id="LC827" class="blob-code blob-code-inner js-file-line">    update_zbx_config <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$db_type</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L828" class="blob-num js-line-number" data-line-number="828"></td>
-        <td id="LC828" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L829" class="blob-num js-line-number" data-line-number="829"></td>
-        <td id="LC829" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L830" class="blob-num js-line-number" data-line-number="830"></td>
-        <td id="LC830" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_proxy</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L831" class="blob-num js-line-number" data-line-number="831"></td>
-        <td id="LC831" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> db_type=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L832" class="blob-num js-line-number" data-line-number="832"></td>
-        <td id="LC832" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L833" class="blob-num js-line-number" data-line-number="833"></td>
-        <td id="LC833" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>Preparing Zabbix proxy<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L834" class="blob-num js-line-number" data-line-number="834"></td>
-        <td id="LC834" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L835" class="blob-num js-line-number" data-line-number="835"></td>
-        <td id="LC835" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$db_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">!=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>sqlite3<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L836" class="blob-num js-line-number" data-line-number="836"></td>
-        <td id="LC836" class="blob-code blob-code-inner js-file-line">        check_variables_<span class="pl-smi">$db_type</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L837" class="blob-num js-line-number" data-line-number="837"></td>
-        <td id="LC837" class="blob-code blob-code-inner js-file-line">        check_db_connect_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L838" class="blob-num js-line-number" data-line-number="838"></td>
-        <td id="LC838" class="blob-code blob-code-inner js-file-line">        create_db_user_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L839" class="blob-num js-line-number" data-line-number="839"></td>
-        <td id="LC839" class="blob-code blob-code-inner js-file-line">        create_db_database_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L840" class="blob-num js-line-number" data-line-number="840"></td>
-        <td id="LC840" class="blob-code blob-code-inner js-file-line">        create_db_schema_<span class="pl-smi">$db_type</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L841" class="blob-num js-line-number" data-line-number="841"></td>
-        <td id="LC841" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L842" class="blob-num js-line-number" data-line-number="842"></td>
-        <td id="LC842" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L843" class="blob-num js-line-number" data-line-number="843"></td>
-        <td id="LC843" class="blob-code blob-code-inner js-file-line">    update_zbx_config <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> <span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L844" class="blob-num js-line-number" data-line-number="844"></td>
-        <td id="LC844" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L845" class="blob-num js-line-number" data-line-number="845"></td>
-        <td id="LC845" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L846" class="blob-num js-line-number" data-line-number="846"></td>
-        <td id="LC846" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_web</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L847" class="blob-num js-line-number" data-line-number="847"></td>
-        <td id="LC847" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> web_server=<span class="pl-smi">$1</span></td>
-      </tr>
-      <tr>
-        <td id="L848" class="blob-num js-line-number" data-line-number="848"></td>
-        <td id="LC848" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">local</span> db_type=<span class="pl-smi">$2</span></td>
-      </tr>
-      <tr>
-        <td id="L849" class="blob-num js-line-number" data-line-number="849"></td>
-        <td id="LC849" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L850" class="blob-num js-line-number" data-line-number="850"></td>
-        <td id="LC850" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix web-interface<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L851" class="blob-num js-line-number" data-line-number="851"></td>
-        <td id="LC851" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L852" class="blob-num js-line-number" data-line-number="852"></td>
-        <td id="LC852" class="blob-code blob-code-inner js-file-line">    check_variables_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L853" class="blob-num js-line-number" data-line-number="853"></td>
-        <td id="LC853" class="blob-code blob-code-inner js-file-line">    check_db_connect_<span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L854" class="blob-num js-line-number" data-line-number="854"></td>
-        <td id="LC854" class="blob-code blob-code-inner js-file-line">    prepare_web_server_<span class="pl-smi">$web_server</span></td>
-      </tr>
-      <tr>
-        <td id="L855" class="blob-num js-line-number" data-line-number="855"></td>
-        <td id="LC855" class="blob-code blob-code-inner js-file-line">    prepare_zbx_web_config <span class="pl-smi">$db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L856" class="blob-num js-line-number" data-line-number="856"></td>
-        <td id="LC856" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L857" class="blob-num js-line-number" data-line-number="857"></td>
-        <td id="LC857" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L858" class="blob-num js-line-number" data-line-number="858"></td>
-        <td id="LC858" class="blob-code blob-code-inner js-file-line"><span class="pl-en">prepare_java_gateway</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L859" class="blob-num js-line-number" data-line-number="859"></td>
-        <td id="LC859" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Preparing Zabbix Java Gateway<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L860" class="blob-num js-line-number" data-line-number="860"></td>
-        <td id="LC860" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L861" class="blob-num js-line-number" data-line-number="861"></td>
-        <td id="LC861" class="blob-code blob-code-inner js-file-line">    prepare_java_gateway_config</td>
-      </tr>
-      <tr>
-        <td id="L862" class="blob-num js-line-number" data-line-number="862"></td>
-        <td id="LC862" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="L863" class="blob-num js-line-number" data-line-number="863"></td>
-        <td id="LC863" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L864" class="blob-num js-line-number" data-line-number="864"></td>
-        <td id="LC864" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>################################################</span></td>
-      </tr>
-      <tr>
-        <td id="L865" class="blob-num js-line-number" data-line-number="865"></td>
-        <td id="LC865" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L866" class="blob-num js-line-number" data-line-number="866"></td>
-        <td id="LC866" class="blob-code blob-code-inner js-file-line"><span class="pl-k">if</span> [ <span class="pl-k">!</span> <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L867" class="blob-num js-line-number" data-line-number="867"></td>
-        <td id="LC867" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Type of Zabbix component is not specified<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L868" class="blob-num js-line-number" data-line-number="868"></td>
-        <td id="LC868" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">exit</span> 1</td>
-      </tr>
-      <tr>
-        <td id="L869" class="blob-num js-line-number" data-line-number="869"></td>
-        <td id="LC869" class="blob-code blob-code-inner js-file-line"><span class="pl-k">elif</span> [ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>dev<span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L870" class="blob-num js-line-number" data-line-number="870"></td>
-        <td id="LC870" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Deploying Zabbix installation from SVN<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L871" class="blob-num js-line-number" data-line-number="871"></td>
-        <td id="LC871" class="blob-code blob-code-inner js-file-line"><span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L872" class="blob-num js-line-number" data-line-number="872"></td>
-        <td id="LC872" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">!</span> <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_db_type</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L873" class="blob-num js-line-number" data-line-number="873"></td>
-        <td id="LC873" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>**** Database type of Zabbix <span class="pl-smi">$zbx_type</span> is not specified<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L874" class="blob-num js-line-number" data-line-number="874"></td>
-        <td id="LC874" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">exit</span> 1</td>
-      </tr>
-      <tr>
-        <td id="L875" class="blob-num js-line-number" data-line-number="875"></td>
-        <td id="LC875" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L876" class="blob-num js-line-number" data-line-number="876"></td>
-        <td id="LC876" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L877" class="blob-num js-line-number" data-line-number="877"></td>
-        <td id="LC877" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_db_type</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L878" class="blob-num js-line-number" data-line-number="878"></td>
-        <td id="LC878" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> [ <span class="pl-k">-n</span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_opt_type</span><span class="pl-pds">&quot;</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span></td>
-      </tr>
-      <tr>
-        <td id="L879" class="blob-num js-line-number" data-line-number="879"></td>
-        <td id="LC879" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Deploying Zabbix <span class="pl-smi">$zbx_type</span> (<span class="pl-smi">$zbx_opt_type</span>) with <span class="pl-smi">$zbx_db_type</span> database<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L880" class="blob-num js-line-number" data-line-number="880"></td>
-        <td id="LC880" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L881" class="blob-num js-line-number" data-line-number="881"></td>
-        <td id="LC881" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Deploying Zabbix <span class="pl-smi">$zbx_type</span> with <span class="pl-smi">$zbx_db_type</span> database<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L882" class="blob-num js-line-number" data-line-number="882"></td>
-        <td id="LC882" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L883" class="blob-num js-line-number" data-line-number="883"></td>
-        <td id="LC883" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">else</span></td>
-      </tr>
-      <tr>
-        <td id="L884" class="blob-num js-line-number" data-line-number="884"></td>
-        <td id="LC884" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Deploying Zabbix <span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L885" class="blob-num js-line-number" data-line-number="885"></td>
-        <td id="LC885" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L886" class="blob-num js-line-number" data-line-number="886"></td>
-        <td id="LC886" class="blob-code blob-code-inner js-file-line"><span class="pl-k">fi</span></td>
-      </tr>
-      <tr>
-        <td id="L887" class="blob-num js-line-number" data-line-number="887"></td>
-        <td id="LC887" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L888" class="blob-num js-line-number" data-line-number="888"></td>
-        <td id="LC888" class="blob-code blob-code-inner js-file-line">prepare_system <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_opt_type</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L889" class="blob-num js-line-number" data-line-number="889"></td>
-        <td id="LC889" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L890" class="blob-num js-line-number" data-line-number="890"></td>
-        <td id="LC890" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>server<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_server <span class="pl-smi">$zbx_db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L891" class="blob-num js-line-number" data-line-number="891"></td>
-        <td id="LC891" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ADD_SERVER}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_server <span class="pl-smi">${ZBX_MAIN_DB}</span></td>
-      </tr>
-      <tr>
-        <td id="L892" class="blob-num js-line-number" data-line-number="892"></td>
-        <td id="LC892" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L893" class="blob-num js-line-number" data-line-number="893"></td>
-        <td id="LC893" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>proxy<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_proxy <span class="pl-smi">$zbx_db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L894" class="blob-num js-line-number" data-line-number="894"></td>
-        <td id="LC894" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ADD_PROXY}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_proxy <span class="pl-smi">${ZBX_PROXY_DB}</span></td>
-      </tr>
-      <tr>
-        <td id="L895" class="blob-num js-line-number" data-line-number="895"></td>
-        <td id="LC895" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L896" class="blob-num js-line-number" data-line-number="896"></td>
-        <td id="LC896" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>frontend<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_web <span class="pl-smi">$zbx_opt_type</span> <span class="pl-smi">$zbx_db_type</span></td>
-      </tr>
-      <tr>
-        <td id="L897" class="blob-num js-line-number" data-line-number="897"></td>
-        <td id="LC897" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ADD_WEB}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_web <span class="pl-smi">${ZBX_WEB_SERVER}</span> <span class="pl-smi">${ZBX_MAIN_DB}</span></td>
-      </tr>
-      <tr>
-        <td id="L898" class="blob-num js-line-number" data-line-number="898"></td>
-        <td id="LC898" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L899" class="blob-num js-line-number" data-line-number="899"></td>
-        <td id="LC899" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>agentd<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_agent</td>
-      </tr>
-      <tr>
-        <td id="L900" class="blob-num js-line-number" data-line-number="900"></td>
-        <td id="LC900" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ADD_AGENT}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_agent</td>
-      </tr>
-      <tr>
-        <td id="L901" class="blob-num js-line-number" data-line-number="901"></td>
-        <td id="LC901" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L902" class="blob-num js-line-number" data-line-number="902"></td>
-        <td id="LC902" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>java-gateway<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_java_gateway</td>
-      </tr>
-      <tr>
-        <td id="L903" class="blob-num js-line-number" data-line-number="903"></td>
-        <td id="LC903" class="blob-code blob-code-inner js-file-line">[ <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">${ZBX_ADD_JAVA_GATEWAY}</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>true<span class="pl-pds">&quot;</span></span> ] <span class="pl-k">&amp;&amp;</span> prepare_java_gateway</td>
-      </tr>
-      <tr>
-        <td id="L904" class="blob-num js-line-number" data-line-number="904"></td>
-        <td id="LC904" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L905" class="blob-num js-line-number" data-line-number="905"></td>
-        <td id="LC905" class="blob-code blob-code-inner js-file-line">clear_deploy <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-smi">$zbx_type</span><span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L906" class="blob-num js-line-number" data-line-number="906"></td>
-        <td id="LC906" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L907" class="blob-num js-line-number" data-line-number="907"></td>
-        <td id="LC907" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>########################################################<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L908" class="blob-num js-line-number" data-line-number="908"></td>
-        <td id="LC908" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L909" class="blob-num js-line-number" data-line-number="909"></td>
-        <td id="LC909" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">&quot;</span>** Executing supervisord<span class="pl-pds">&quot;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L910" class="blob-num js-line-number" data-line-number="910"></td>
-        <td id="LC910" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">exec</span> /usr/bin/supervisord -c /etc/supervisor/supervisord.conf</td>
-      </tr>
-      <tr>
-        <td id="L911" class="blob-num js-line-number" data-line-number="911"></td>
-        <td id="LC911" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L912" class="blob-num js-line-number" data-line-number="912"></td>
-        <td id="LC912" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>################################################</span></td>
-      </tr>
-</table>
-
-  <div class="BlobToolbar position-absolute js-file-line-actions dropdown js-menu-container js-select-menu d-none" aria-hidden="true">
-    <button class="btn-octicon ml-0 px-2 p-0 bg-white border border-gray-dark rounded-1 dropdown-toggle js-menu-target" id="js-file-line-action-button" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Inline file action toolbar" aria-controls="inline-file-actions">
-      <svg aria-hidden="true" class="octicon" height="16" version="1.1" viewBox="0 0 13 4" width="14">
-        <g stroke="none" stroke-width="1" fill-rule="evenodd">
-            <g transform="translate(-1.000000, -6.000000)">
-                <path d="M2.5,9.5 C1.67157288,9.5 1,8.82842712 1,8 C1,7.17157288 1.67157288,6.5 2.5,6.5 C3.32842712,6.5 4,7.17157288 4,8 C4,8.82842712 3.32842712,9.5 2.5,9.5 Z M7.5,9.5 C6.67157288,9.5 6,8.82842712 6,8 C6,7.17157288 6.67157288,6.5 7.5,6.5 C8.32842712,6.5 9,7.17157288 9,8 C9,8.82842712 8.32842712,9.5 7.5,9.5 Z M12.5,9.5 C11.6715729,9.5 11,8.82842712 11,8 C11,7.17157288 11.6715729,6.5 12.5,6.5 C13.3284271,6.5 14,7.17157288 14,8 C14,8.82842712 13.3284271,9.5 12.5,9.5 Z"></path>
-            </g>
-        </g>
-      </svg>
-    </button>
-    <div class="dropdown-menu-content js-menu-content" id="inline-file-actions">
-      <ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2">
-        <li><a class="js-zeroclipboard dropdown-item" style="cursor:pointer;" id="js-copy-lines" data-original-text="Copy lines">Copy lines</a></li>
-        <li><a class="js-zeroclipboard dropdown-item" id= "js-copy-permalink" style="cursor:pointer;" data-original-text="Copy permalink">Copy permalink</a></li>
-      </ul>
-    </div>
-  </div>
-
-  </div>
-
-  </div>
-
-  <button type="button" data-facebox="#jump-to-line" data-facebox-class="linejump" data-hotkey="l" class="d-none">Jump to Line</button>
-  <div id="jump-to-line" style="display:none">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="" class="js-jump-to-line-form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-      <input class="form-control linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
-      <button type="submit" class="btn">Go</button>
-</form>  </div>
-
-  </div>
-  <div class="modal-backdrop js-touch-events"></div>
-</div>
-
-    </div>
-  </div>
-
-  </div>
-
-      
-<div class="footer container-lg px-3" role="contentinfo">
-  <div class="position-relative d-flex flex-justify-between py-6 mt-6 f6 text-gray border-top border-gray-light ">
-    <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2017 <span title="0.11772s from unicorn-1169127658-q9gg9">GitHub</span>, Inc.</li>
-        <li class="mr-3"><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
-        <li class="mr-3"><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
-        <li class="mr-3"><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
-        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
-        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
-    </ul>
-
-    <a href="https://github.com" aria-label="Homepage" class="footer-octicon" title="GitHub">
-      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-</a>
-    <ul class="list-style-none d-flex flex-wrap ">
-        <li class="mr-3"><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
-      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
-      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
-      <li class="mr-3"><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
-        <li class="mr-3"><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
-        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
-
-    </ul>
-  </div>
-</div>
-
-
-
-  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
-    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
-    <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
-      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
-    </button>
-    You can't perform that action at this time.
-  </div>
-
-
-    <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/compat-91f98c37fc84eac24836eec2567e9912742094369a04c4eba6e3cd1fa18902d9.js"></script>
-    <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-45273a0ef5972dc44bf2be3423f94af39640500abcbb2c35f11d2621913ef70f.js"></script>
-    
-    <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-f38268493cdd5fff2f7769c291386812f6d5167a88b7dd8e6414c1e717e90165.js"></script>
-    
-    
-    
-    
-  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
-    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
-    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
-    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
-  </div>
-  <div class="facebox" id="facebox" style="display:none;">
-  <div class="facebox-popup">
-    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
-    </div>
-    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
-      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
-    </button>
-  </div>
-</div>
-
-
-  </body>
-</html>
-
+#!/bin/bash
+
+set +e
+
+# Script trace mode
+if [ "${DEBUG_MODE}" == "true" ]; then
+    set -o xtrace
+fi
+
+# Type of Zabbix component
+# Possible values: [server, proxy, agent, web, dev]
+zbx_type="$1"
+# Type of Zabbix database
+# Possible values: [mysql, postgresql]
+zbx_db_type="$2"
+# Type of web-server. Valid only with zbx_type = web
+# Possible values: [apache, nginx]
+zbx_opt_type="$3"
+
+# Default Zabbix installation name
+# Used only by Zabbix web-interface
+ZBX_SERVER_NAME=${ZBX_SERVER_NAME:-"Zabbix docker"}
+# Default Zabbix server host
+ZBX_SERVER_HOST=${ZBX_SERVER_HOST:-"zabbix-server"}
+# Default Zabbix server port number
+ZBX_SERVER_PORT=${ZBX_SERVER_PORT:-"10051"}
+
+# Default timezone for web interface
+PHP_TZ=${PHP_TZ:-"Europe/Riga"}
+
+# Default directories
+# User 'zabbix' home directory
+ZABBIX_USER_HOME_DIR="/var/lib/zabbix"
+# Configuration files directory
+ZABBIX_ETC_DIR="/etc/zabbix"
+# Web interface www-root directory
+ZBX_FRONTEND_PATH="/usr/share/zabbix"
+
+prepare_system() {
+    local type=$1
+    local web_server=$2
+
+    echo "** Preparing the system"
+
+    if [ "$type" != "dev" ]; then
+        return
+    fi
+}
+
+update_config_var() {
+    local config_path=$1
+    local var_name=$2
+    local var_value=$3
+    local is_multiple=$4
+
+    if [ ! -f "$config_path" ]; then
+        echo "**** Configuration file '$config_path' does not exist"
+        return
+    fi
+
+    echo -n "** Updating '$config_path' parameter \"$var_name\": '$var_value'... "
+
+    # Remove configuration parameter definition in case of unset parameter value
+    if [ -z "$var_value" ]; then
+        sed -i -e "/$var_name=/d" "$config_path"
+        echo "removed"
+        return
+    fi
+
+    # Remove value from configuration parameter in case of double quoted parameter value
+    if [ "$var_value" == '""' ]; then
+        sed -i -e "/^$var_name=/s/=.*/=/" "$config_path"
+        echo "undefined"
+        return
+    fi
+
+    # Use full path to a file for TLS related configuration parameters
+    if [[ $var_name =~ ^TLS.*File$ ]]; then
+        var_value=$ZABBIX_USER_HOME_DIR/enc/$var_value
+    fi
+
+    # Escaping "/" character in parameter value
+    var_value=${var_value//\//\\/}
+
+    if [ "$(grep -E "^$var_name=" $config_path)" ] && [ "$is_multiple" != "true" ]; then
+        sed -i -e "/^$var_name=/s/=.*/=$var_value/" "$config_path"
+        echo "updated"
+    elif [ "$(grep -Ec "^# $var_name=" $config_path)" -gt 1 ]; then
+        sed -i -e  "/^[#;] $var_name=$/i\\$var_name=$var_value" "$config_path"
+        echo "added first occurrence"
+    else
+        sed -i -e "/^[#;] $var_name=/s/.*/&\n$var_name=$var_value/" "$config_path"
+        echo "added"
+    fi
+
+}
+
+update_config_multiple_var() {
+    local config_path=$1
+    local var_name=$2
+    local var_value=$3
+
+    var_value="${var_value%\"}"
+    var_value="${var_value#\"}"
+
+    local IFS=,
+    local OPT_LIST=($var_value)
+
+    for value in "${OPT_LIST[@]}"; do
+        update_config_var $config_path $var_name $value true
+    done
+}
+
+# Check prerequisites for MySQL database
+check_variables_mysql() {
+    local type=$1
+
+    DB_SERVER_HOST=${DB_SERVER_HOST:-"mysql-server"}
+    DB_SERVER_PORT=${DB_SERVER_PORT:-"3306"}
+    USE_DB_ROOT_USER=false
+    CREATE_ZBX_DB_USER=false
+
+    if [ ! -n "${MYSQL_USER}" ] && [ "${MYSQL_RANDOM_ROOT_PASSWORD}" == "true" ]; then
+        echo "**** Impossible to use MySQL server because of unknown Zabbix user and random 'root' password"
+        exit 1
+    fi
+
+    if [ ! -n "${MYSQL_USER}" ] && [ ! -n "${MYSQL_ROOT_PASSWORD}" ] && [ "${MYSQL_ALLOW_EMPTY_PASSWORD}" != "true" ]; then
+        echo "*** Impossible to use MySQL server because 'root' password is not defined and not empty"
+        exit 1
+    fi
+
+    if [ "${MYSQL_ALLOW_EMPTY_PASSWORD}" == "true" ] || [ -n "${MYSQL_ROOT_PASSWORD}" ]; then
+        USE_DB_ROOT_USER=true
+        DB_SERVER_ROOT_USER="root"
+        DB_SERVER_ROOT_PASS=${MYSQL_ROOT_PASSWORD:-""}
+    fi
+
+    [ -n "${MYSQL_USER}" ] || CREATE_ZBX_DB_USER=true
+
+    # If root password is not specified use provided credentials
+    DB_SERVER_ROOT_USER=${DB_SERVER_ROOT_USER:-${MYSQL_USER}}
+    [ "${MYSQL_ALLOW_EMPTY_PASSWORD}" == "true" ] || DB_SERVER_ROOT_PASS=${DB_SERVER_ROOT_PASS:-${MYSQL_PASSWORD}}
+    DB_SERVER_ZBX_USER=${MYSQL_USER:-"zabbix"}
+    DB_SERVER_ZBX_PASS=${MYSQL_PASSWORD:-"zabbix"}
+
+    if [ "$type" == "proxy" ]; then
+        DB_SERVER_DBNAME=${MYSQL_DATABASE:-"zabbix_proxy"}
+    else
+        DB_SERVER_DBNAME=${MYSQL_DATABASE:-"zabbix"}
+    fi
+}
+
+# Check prerequisites for PostgreSQL database
+check_variables_postgresql() {
+    local type=$1
+
+    DB_SERVER_HOST=${DB_SERVER_HOST:-"postgres-server"}
+    DB_SERVER_PORT=${DB_SERVER_PORT:-"5432"}
+    CREATE_ZBX_DB_USER=${CREATE_ZBX_DB_USER:-"false"}
+
+    DB_SERVER_ROOT_USER=${POSTGRES_USER:-"postgres"}
+    DB_SERVER_ROOT_PASS=${POSTGRES_PASSWORD:-""}
+
+    DB_SERVER_ZBX_USER=${POSTGRES_USER:-"zabbix"}
+    DB_SERVER_ZBX_PASS=${POSTGRES_PASSWORD:-"zabbix"}
+
+    if [ "$type" == "proxy" ]; then
+        DB_SERVER_DBNAME=${POSTGRES_DB:-"zabbix_proxy"}
+    else
+        DB_SERVER_DBNAME=${POSTGRES_DB:-"zabbix"}
+    fi
+}
+
+check_db_connect_mysql() {
+    echo "********************"
+    echo "* DB_SERVER_HOST: ${DB_SERVER_HOST}"
+    echo "* DB_SERVER_PORT: ${DB_SERVER_PORT}"
+    echo "* DB_SERVER_DBNAME: ${DB_SERVER_DBNAME}"
+    if [ "${USE_DB_ROOT_USER}" == "true" ]; then
+        echo "* DB_SERVER_ROOT_USER: ${DB_SERVER_ROOT_USER}"
+        echo "* DB_SERVER_ROOT_PASS: ${DB_SERVER_ROOT_PASS}"
+    fi
+    echo "* DB_SERVER_ZBX_USER: ${DB_SERVER_ZBX_USER}"
+    echo "* DB_SERVER_ZBX_PASS: ${DB_SERVER_ZBX_PASS}"
+    echo "********************"
+
+    WAIT_TIMEOUT=5
+
+    while [ ! "$(mysqladmin ping -h ${DB_SERVER_HOST} -P ${DB_SERVER_PORT} -u ${DB_SERVER_ROOT_USER} \
+                --password="${DB_SERVER_ROOT_PASS}" --silent --connect_timeout=10)" ]; do
+        echo "**** MySQL server is not available. Waiting $WAIT_TIMEOUT seconds..."
+        sleep $WAIT_TIMEOUT
+    done
+}
+
+check_db_connect_postgresql() {
+    echo "********************"
+    echo "* DB_SERVER_HOST: ${DB_SERVER_HOST}"
+    echo "* DB_SERVER_PORT: ${DB_SERVER_PORT}"
+    echo "* DB_SERVER_DBNAME: ${DB_SERVER_DBNAME}"
+    if [ "${USE_DB_ROOT_USER}" == "true" ]; then
+        echo "* DB_SERVER_ROOT_USER: ${DB_SERVER_ROOT_USER}"
+        echo "* DB_SERVER_ROOT_PASS: ${DB_SERVER_ROOT_PASS}"
+    else
+        DB_SERVER_ROOT_USER=${DB_SERVER_ZBX_USER}
+        DB_SERVER_ROOT_PASS=${DB_SERVER_ZBX_PASS}
+    fi
+    echo "* DB_SERVER_ZBX_USER: ${DB_SERVER_ZBX_USER}"
+    echo "* DB_SERVER_ZBX_PASS: ${DB_SERVER_ZBX_PASS}"
+    echo "********************"
+
+    if [ -n "${DB_SERVER_ZBX_PASS}" ]; then
+        export PGPASSWORD="${DB_SERVER_ZBX_PASS}"
+    fi
+
+    WAIT_TIMEOUT=5
+
+    while [ ! "$(psql -h ${DB_SERVER_HOST} -p ${DB_SERVER_PORT} -U ${DB_SERVER_ROOT_USER} -l -q 2>/dev/null)" ]; do
+        echo "**** PostgreSQL server is not available. Waiting $WAIT_TIMEOUT seconds..."
+        sleep $WAIT_TIMEOUT
+    done
+
+    unset PGPASSWORD
+}
+
+
+mysql_query() {
+    query=$1
+    local result=""
+
+    result=$(mysql --silent --skip-column-names -h ${DB_SERVER_HOST} -P ${DB_SERVER_PORT} \
+             -u ${DB_SERVER_ROOT_USER} --password="${DB_SERVER_ROOT_PASS}" -e "$query")
+
+    echo $result
+}
+
+psql_query() {
+    query=$1
+    db=$2
+
+    local result=""
+
+    if [ -n "${DB_SERVER_ZBX_PASS}" ]; then
+        export PGPASSWORD="${DB_SERVER_ZBX_PASS}"
+    fi
+
+    result=$(psql -A -q -t  -h ${DB_SERVER_HOST} -p ${DB_SERVER_PORT} \
+             -U ${DB_SERVER_ROOT_USER} -c "$query" $db 2>/dev/null);
+
+    unset PGPASSWORD
+
+    echo $result
+}
+
+create_db_user_mysql() {
+    [ "${CREATE_ZBX_DB_USER}" == "true" ] || return
+
+    echo "** Creating '${DB_SERVER_ZBX_USER}' user in MySQL database"
+
+    USER_EXISTS=$(mysql_query "SELECT 1 FROM mysql.user WHERE user = '${DB_SERVER_ZBX_USER}' AND host = '%'")
+
+    if [ -z "$USER_EXISTS" ]; then
+        mysql_query "CREATE USER '${DB_SERVER_ZBX_USER}'@'%' IDENTIFIED BY '${DB_SERVER_ZBX_PASS}'" 1>/dev/null
+    else
+        mysql_query "SET PASSWORD FOR '${DB_SERVER_ZBX_USER}'@'%' = PASSWORD('${DB_SERVER_ZBX_PASS}');" 1>/dev/null
+    fi
+
+    mysql_query "GRANT ALL PRIVILEGES ON $DB_SERVER_DBNAME. * TO '${DB_SERVER_ZBX_USER}'@'%'" 1>/dev/null
+}
+
+create_db_user_postgresql() {
+    [ "${CREATE_ZBX_DB_USER}" == "true" ] || return
+
+    echo "** Creating '${DB_SERVER_ZBX_USER}' user in PostgreSQL database"
+
+    USER_EXISTS=$(psql_query "SELECT 1 FROM pg_roles WHERE rolname='${DB_SERVER_ZBX_USER}'")
+
+    if [ -z "$USER_EXISTS" ]; then
+        psql_query "CREATE USER ${DB_SERVER_ZBX_USER} WITH PASSWORD '${DB_SERVER_ZBX_PASS}'" 1>/dev/null
+    else
+        psql_query "ALTER USER ${DB_SERVER_ZBX_USER} WITH ENCRYPTED PASSWORD '${DB_SERVER_ZBX_PASS}'" 1>/dev/null
+    fi
+}
+
+create_db_database_mysql() {
+    DB_EXISTS=$(mysql_query "SELECT SCHEMA_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME='${DB_SERVER_DBNAME}'")
+
+    if [ -z ${DB_EXISTS} ]; then
+        echo "** Database '${DB_SERVER_DBNAME}' does not exist. Creating..."
+        mysql_query "CREATE DATABASE ${DB_SERVER_DBNAME} CHARACTER SET utf8 COLLATE utf8_bin" 1>/dev/null
+        # better solution?
+        mysql_query "GRANT ALL PRIVILEGES ON $DB_SERVER_DBNAME. * TO '${DB_SERVER_ZBX_USER}'@'%'" 1>/dev/null
+    else
+        echo "** Database '${DB_SERVER_DBNAME}' already exists. Please be careful with database COLLATE!"
+    fi
+}
+
+create_db_database_postgresql() {
+    DB_EXISTS=$(psql_query "SELECT 1 AS result FROM pg_database WHERE datname='${DB_SERVER_DBNAME}'")
+
+    if [ -z ${DB_EXISTS} ]; then
+        echo "** Database '${DB_SERVER_DBNAME}' does not exist. Creating..."
+        psql_query "CREATE DATABASE ${DB_SERVER_DBNAME} WITH OWNER ${DB_SERVER_ZBX_USER} ENCODING='UTF8' LC_CTYPE='en_US.utf8' LC_COLLATE='en_US.utf8'" 1>/dev/null
+    else
+        echo "** Database '${DB_SERVER_DBNAME}' already exists. Please be careful with database owner!"
+    fi
+}
+
+create_db_schema_mysql() {
+    local type=$1
+
+    DBVERSION_TABLE_EXISTS=$(mysql_query "SELECT 1 FROM information_schema.tables WHERE table_schema='${DB_SERVER_DBNAME}' and table_name = 'dbversion'")
+
+    if [ -n "${DBVERSION_TABLE_EXISTS}" ]; then
+        echo "** Table '${DB_SERVER_DBNAME}.dbversion' already exists."
+        ZBX_DB_VERSION=$(mysql_query "SELECT mandatory FROM ${DB_SERVER_DBNAME}.dbversion")
+    fi
+
+    if [ -z "${ZBX_DB_VERSION}" ]; then
+        echo "** Creating '${DB_SERVER_DBNAME}' schema in MySQL"
+
+        cat /usr/share/doc/zabbix-$type-mysql/schema.sql | mysql --silent --skip-column-names \
+                    -h ${DB_SERVER_HOST} -P ${DB_SERVER_PORT} \
+                    -u ${DB_SERVER_ROOT_USER} --password="${DB_SERVER_ROOT_PASS}"  \
+                    ${DB_SERVER_DBNAME} 1>/dev/null
+        if [ "$type" == "server" ]; then
+            echo "** Fill the schema with initial data"
+            cat /usr/share/doc/zabbix-$type-mysql/images.sql | mysql --silent --skip-column-names \
+                    -h ${DB_SERVER_HOST} -P ${DB_SERVER_PORT} \
+                    -u ${DB_SERVER_ROOT_USER} --password="${DB_SERVER_ROOT_PASS}" \
+                    ${DB_SERVER_DBNAME} 1>/dev/null
+            cat /usr/share/doc/zabbix-$type-mysql/data.sql | mysql --silent --skip-column-names \
+                    -h ${DB_SERVER_HOST} -P ${DB_SERVER_PORT} \
+                    -u ${DB_SERVER_ROOT_USER} --password="${DB_SERVER_ROOT_PASS}" \
+                    ${DB_SERVER_DBNAME} 1>/dev/null
+        fi
+    fi
+}
+
+create_db_schema_postgresql() {
+    local type=$1
+
+    DBVERSION_TABLE_EXISTS=$(psql_query "SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid = 
+                                         c.relnamespace WHERE  n.nspname = 'public' AND c.relname = 'dbversion'" "${DB_SERVER_DBNAME}")
+
+    if [ -n "${DBVERSION_TABLE_EXISTS}" ]; then
+        echo "** Table '${DB_SERVER_DBNAME}.dbversion' already exists."
+        ZBX_DB_VERSION=$(psql_query "SELECT mandatory FROM public.dbversion" "${DB_SERVER_DBNAME}")
+    fi
+
+    if [ -z "${ZBX_DB_VERSION}" ]; then
+        echo "** Creating '${DB_SERVER_DBNAME}' schema in PostgreSQL"
+
+        if [ -n "${DB_SERVER_ZBX_PASS}" ]; then
+            export PGPASSWORD="${DB_SERVER_ZBX_PASS}"
+        fi
+
+        cat /usr/share/doc/zabbix-$type-postgresql/schema.sql | psql -q \
+                -h ${DB_SERVER_HOST} -p ${DB_SERVER_PORT} \
+                -U ${DB_SERVER_ZBX_USER} ${DB_SERVER_DBNAME} 1>/dev/null
+        if [ "$type" == "server" ]; then
+            echo "** Fill the schema with initial data"
+            cat /usr/share/doc/zabbix-$type-postgresql/images.sql | psql -q \
+                -h ${DB_SERVER_HOST} -p ${DB_SERVER_PORT} \
+                -U ${DB_SERVER_ZBX_USER} ${DB_SERVER_DBNAME} 1>/dev/null
+            cat /usr/share/doc/zabbix-$type-postgresql/data.sql | psql -q \
+                -h ${DB_SERVER_HOST} -p ${DB_SERVER_PORT} \
+                -U ${DB_SERVER_ZBX_USER} ${DB_SERVER_DBNAME} 1>/dev/null
+        fi
+
+        unset PGPASSWORD
+    fi
+}
+
+prepare_web_server_apache() {
+    if [ -d "/etc/apache2/sites-available" ]; then
+        APACHE_SITES_DIR=/etc/apache2/sites-available
+    elif [ -d "/etc/apache2/conf.d" ]; then
+        APACHE_SITES_DIR=/etc/apache2/conf.d
+    else
+        echo "**** Apache is not available"
+        exit 1
+    fi
+
+    if [ -f "/usr/sbin/a2dissite" ]; then
+        echo "** Disable default site"
+        /usr/sbin/a2dissite 000-default 1>/dev/null
+        rm -rf "$APACHE_SITES_DIR/*"
+    elif [ -f "/etc/apache2/conf.d/default.conf" ]; then
+        echo "** Disable default site"
+        rm -f "/etc/apache2/conf.d/default.conf"
+    fi
+
+    echo "** Adding Zabbix virtual host (HTTP)"
+    if [ -f "$ZABBIX_ETC_DIR/apache.conf" ]; then
+        ln -s "$ZABBIX_ETC_DIR/apache.conf" "$APACHE_SITES_DIR/zabbix.conf"
+        if [ -f "/usr/sbin/a2dissite" ]; then
+            /usr/sbin/a2ensite zabbix.conf 1>/dev/null
+        fi
+    else
+        echo "**** Impossible to enable HTTP virtual host"
+    fi
+
+    if [ -f "/etc/apache2/conf.d/ssl.conf" ]; then
+        rm -f "/etc/apache2/conf.d/ssl.conf"
+    fi
+
+    if [ -f "/etc/ssl/apache2/ssl.crt" ] && [ -f "/etc/ssl/apache2/ssl.key" ]; then
+        echo "** Enable SSL support for Apache2"
+        if [ -f "/usr/sbin/a2enmod" ]; then
+            /usr/sbin/a2enmod ssl 1>/dev/null
+        fi
+
+        echo "** Adding Zabbix virtual host (HTTPS)"
+        if [ -f "$ZABBIX_ETC_DIR/apache_ssl.conf" ]; then
+            ln -s "$ZABBIX_ETC_DIR/apache_ssl.conf" "$APACHE_SITES_DIR/zabbix_ssl.conf"
+            if [ -f "/usr/sbin/a2dissite" ]; then
+                /usr/sbin/a2ensite zabbix_ssl.conf 1>/dev/null
+            fi
+        else
+            echo "**** Impossible to enable HTTPS virtual host"
+        fi
+    else
+        echo "**** Impossible to enable SSL support for Apache2. Certificates are missed."
+    fi
+
+    # Change Apache2 logging to stdout and stderr
+    if [ -f "/etc/apache2/apache2.conf" ]; then
+        sed -ri \
+            -e 's!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g' \
+            -e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
+            "/etc/apache2/apache2.conf"
+    fi
+
+    if [ -f "/etc/apache2/httpd.conf" ]; then
+        sed -ri \
+            -e 's!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g' \
+            -e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
+            "/etc/apache2/httpd.conf"
+    fi
+
+    if [ -f "/etc/apache2/conf-available/other-vhosts-access-log.conf" ]; then
+        sed -ri \
+            -e 's!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g' \
+            -e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
+            "/etc/apache2/conf-available/other-vhosts-access-log.conf"
+    fi
+
+    if [ -f "/etc/apache2/conf.d/mpm.conf" ]; then
+        sed -ri \
+            -e 's!^(\s*PidFile)\s+\S+!\1 "/var/run/httpd.pid"!g' \
+            "/etc/apache2/conf.d/mpm.conf"
+    fi
+
+    if [ -f "/var/run/apache2/apache2.pid" ]; then
+        rm -f "/var/run/apache2/apache2.pid"
+    fi
+}
+
+prepare_web_server_nginx() {
+    NGINX_CONFD_DIR="/etc/nginx/conf.d"
+    NGINX_SSL_CONFIG="/etc/ssl/nginx"
+    PHP_SESSIONS_DIR="/var/lib/php5"
+
+    echo "** Disable default vhosts"
+    rm -f $NGINX_CONFD_DIR/*.conf
+
+    echo "** Adding Zabbix virtual host (HTTP)"
+    if [ -f "$ZABBIX_ETC_DIR/nginx.conf" ]; then
+        ln -s "$ZABBIX_ETC_DIR/nginx.conf" "$NGINX_CONFD_DIR"
+    else
+        echo "**** Impossible to enable HTTP virtual host"
+    fi
+
+    if [ -f "$NGINX_SSL_CONFIG/ssl.crt" ] && [ -f "$NGINX_SSL_CONFIG/ssl.key" ] && [ -f "$NGINX_SSL_CONFIG/dhparam.pem" ]; then
+        echo "** Enable SSL support for Nginx"
+        if [ -f "$ZABBIX_ETC_DIR/nginx_ssl.conf" ]; then
+            ln -s "$ZABBIX_ETC_DIR/nginx_ssl.conf" "$NGINX_CONFD_DIR"
+        else
+            echo "**** Impossible to enable HTTPS virtual host"
+        fi
+    else
+        echo "**** Impossible to enable SSL support for Nginx. Certificates are missed."
+    fi
+
+    if [ -d "/var/log/nginx/" ]; then
+        ln -sf /dev/fd/2 /var/log/nginx/error.log
+    fi
+
+    ln -sf /dev/fd/2 /var/log/php5-fpm.log
+}
+
+clear_deploy() {
+    local type=$1
+    echo "** Cleaning the system"
+
+    [ "$type" != "dev" ] && return
+}
+
+update_zbx_config() {
+    local type=$1
+    local db_type=$2
+
+    echo "** Preparing Zabbix $type configuration file"
+
+    ZBX_CONFIG=$ZABBIX_ETC_DIR/zabbix_$type.conf
+
+    if [ "$type" == "proxy" ]; then
+        update_config_var $ZBX_CONFIG "ProxyMode" "${ZBX_PROXYMODE}"
+        update_config_var $ZBX_CONFIG "Server" "${ZBX_SERVER_HOST}"
+        update_config_var $ZBX_CONFIG "ServerPort" "${ZBX_SERVER_PORT}"
+        update_config_var $ZBX_CONFIG "Hostname" "${ZBX_HOSTNAME:-"zabbix-proxy-"$db_type}"
+        update_config_var $ZBX_CONFIG "HostnameItem" "${ZBX_HOSTNAMEITEM}"
+    fi
+
+    if [ $type == "proxy" ] && [ "${ZBX_ADD_SERVER}" = "true" ]; then
+        update_config_var $ZBX_CONFIG "ListenPort" "10061"
+    else
+        update_config_var $ZBX_CONFIG "ListenPort"
+    fi
+    update_config_var $ZBX_CONFIG "SourceIP" "${ZBX_SOURCEIP}"
+    update_config_var $ZBX_CONFIG "LogType" "console"
+    update_config_var $ZBX_CONFIG "LogFile"
+    update_config_var $ZBX_CONFIG "LogFileSize"
+    update_config_var $ZBX_CONFIG "PidFile"
+
+    update_config_var $ZBX_CONFIG "DebugLevel" "${ZBX_DEBUGLEVEL}"
+
+    if [ "$db_type" == "sqlite3" ]; then
+        update_config_var $ZBX_CONFIG "DBHost"
+        update_config_var $ZBX_CONFIG "DBName" "/var/lib/zabbix/zabbix_proxy_db"
+        update_config_var $ZBX_CONFIG "DBUser"
+        update_config_var $ZBX_CONFIG "DBPort"
+        update_config_var $ZBX_CONFIG "DBPassword"
+    else
+        update_config_var $ZBX_CONFIG "DBHost" "${DB_SERVER_HOST}"
+        update_config_var $ZBX_CONFIG "DBName" "${DB_SERVER_DBNAME}"
+        update_config_var $ZBX_CONFIG "DBUser" "${DB_SERVER_ZBX_USER}"
+        update_config_var $ZBX_CONFIG "DBPort" "${DB_SERVER_PORT}"
+        update_config_var $ZBX_CONFIG "DBPassword" "${DB_SERVER_ZBX_PASS}"
+    fi
+
+    if [ "$type" == "proxy" ]; then
+        update_config_var $ZBX_CONFIG "ProxyLocalBuffer" "${ZBX_PROXYLOCALBUFFER}"
+        update_config_var $ZBX_CONFIG "ProxyOfflineBuffer" "${ZBX_PROXYOFFLINEBUFFER}"
+        update_config_var $ZBX_CONFIG "HeartbeatFrequency" "${ZBX_PROXYHEARTBEATFREQUENCY}"
+        update_config_var $ZBX_CONFIG "ConfigFrequency" "${ZBX_CONFIGFREQUENCY}"
+        update_config_var $ZBX_CONFIG "DataSenderFrequency" "${ZBX_DATASENDERFREQUENCY}"
+    fi
+
+    update_config_var $ZBX_CONFIG "StartPollers" "${ZBX_STARTPOLLERS}"
+    update_config_var $ZBX_CONFIG "StartIPMIPollers" "${ZBX_IPMIPOLLERS}"
+    update_config_var $ZBX_CONFIG "StartPollersUnreachable" "${ZBX_STARTPOLLERSUNREACHABLE}"
+    update_config_var $ZBX_CONFIG "StartTrappers" "${ZBX_STARTTRAPPERS}"
+    update_config_var $ZBX_CONFIG "StartPingers" "${ZBX_STARTPINGERS}"
+    update_config_var $ZBX_CONFIG "StartDiscoverers" "${ZBX_STARTDISCOVERERS}"
+    update_config_var $ZBX_CONFIG "StartHTTPPollers" "${ZBX_STARTHTTPPOLLERS}"
+
+    if [ "$type" == "server" ]; then
+        update_config_var $ZBX_CONFIG "StartTimers" "${ZBX_STARTTIMERS}"
+        update_config_var $ZBX_CONFIG "StartEscalators" "${ZBX_STARTESCALATORS}"
+    fi
+
+    ZBX_JAVAGATEWAY_ENABLE=${ZBX_JAVAGATEWAY_ENABLE:-"false"}
+    if [ "${ZBX_JAVAGATEWAY_ENABLE}" == "true" ]; then
+        update_config_var $ZBX_CONFIG "JavaGateway" "${ZBX_JAVAGATEWAY:-"zabbix-java-gateway"}"
+        update_config_var $ZBX_CONFIG "JavaGatewayPort" "${ZBX_JAVAGATEWAYPORT}"
+        update_config_var $ZBX_CONFIG "StartJavaPollers" "${ZBX_STARTJAVAPOLLERS:-"5"}"
+    else
+        update_config_var $ZBX_CONFIG "JavaGateway"
+        update_config_var $ZBX_CONFIG "JavaGatewayPort"
+        update_config_var $ZBX_CONFIG "StartJavaPollers"
+    fi
+
+    update_config_var $ZBX_CONFIG "StartVMwareCollectors" "${ZBX_STARTVMWARECOLLECTORS}"
+    update_config_var $ZBX_CONFIG "VMwareFrequency" "${ZBX_VMWAREFREQUENCY}"
+    update_config_var $ZBX_CONFIG "VMwarePerfFrequency" "${ZBX_VMWAREPERFFREQUENCY}"
+    update_config_var $ZBX_CONFIG "VMwareCacheSize" "${ZBX_VMWARECACHESIZE}"
+    update_config_var $ZBX_CONFIG "VMwareTimeout" "${ZBX_VMWARETIMEOUT}"
+
+    ZBX_ENABLE_SNMP_TRAPS=${ZBX_ENABLE_SNMP_TRAPS:-"false"}
+    if [ "${ZBX_ENABLE_SNMP_TRAPS}" == "true" ]; then
+        update_config_var $ZBX_CONFIG "SNMPTrapperFile" "${ZABBIX_USER_HOME_DIR}/snmptraps/snmptraps.log"
+        update_config_var $ZBX_CONFIG "StartSNMPTrapper" "1"
+    else
+        update_config_var $ZBX_CONFIG "SNMPTrapperFile"
+        update_config_var $ZBX_CONFIG "StartSNMPTrapper"
+    fi
+
+    update_config_var $ZBX_CONFIG "HousekeepingFrequency" "${ZBX_HOUSEKEEPINGFREQUENCY}"
+    if [ "$type" == "server" ]; then
+        update_config_var $ZBX_CONFIG "MaxHousekeeperDelete" "${ZBX_MAXHOUSEKEEPERDELETE}"
+        update_config_var $ZBX_CONFIG "SenderFrequency" "${ZBX_SENDERFREQUENCY}"
+    fi
+
+    update_config_var $ZBX_CONFIG "CacheSize" "${ZBX_CACHESIZE}"
+
+    if [ "$type" == "server" ]; then
+        update_config_var $ZBX_CONFIG "CacheUpdateFrequency" "${ZBX_CACHEUPDATEFREQUENCY}"
+    fi
+
+    update_config_var $ZBX_CONFIG "StartDBSyncers" "${ZBX_STARTDBSYNCERS}"
+    update_config_var $ZBX_CONFIG "HistoryCacheSize" "${ZBX_HISTORYCACHESIZE}"
+    update_config_var $ZBX_CONFIG "HistoryIndexCacheSize" "${ZBX_HISTORYINDEXCACHESIZE}"
+
+    if [ "$type" == "server" ]; then 
+        update_config_var $ZBX_CONFIG "TrendCacheSize" "${ZBX_TRENDCACHESIZE}"
+        update_config_var $ZBX_CONFIG "ValueCacheSize" "${ZBX_VALUECACHESIZE}"
+    fi
+
+    update_config_var $ZBX_CONFIG "Timeout" "${ZBX_TIMEOUT}"
+    update_config_var $ZBX_CONFIG "TrapperTimeout" "${ZBX_TRAPPERIMEOUT}"
+    update_config_var $ZBX_CONFIG "UnreachablePeriod" "${ZBX_UNREACHABLEPERIOD}"
+    update_config_var $ZBX_CONFIG "UnavailableDelay" "${ZBX_UNAVAILABLEDELAY}"
+    update_config_var $ZBX_CONFIG "UnreachableDelay" "${ZBX_UNREACHABLEDELAY}"
+
+    update_config_var $ZBX_CONFIG "AlertScriptsPath" "/usr/lib/zabbix/alertscripts"
+    update_config_var $ZBX_CONFIG "ExternalScripts" "/usr/lib/zabbix/externalscripts"
+
+    # Possible few fping locations
+    if [ -f "/usr/bin/fping" ]; then
+        update_config_var $ZBX_CONFIG "FpingLocation" "/usr/bin/fping"
+    else
+        update_config_var $ZBX_CONFIG "FpingLocation" "/usr/sbin/fping"
+    fi
+    if [ -f "/usr/bin/fping6" ]; then
+        update_config_var $ZBX_CONFIG "Fping6Location" "/usr/bin/fping6"
+    else
+        update_config_var $ZBX_CONFIG "Fping6Location" "/usr/sbin/fping6"
+    fi
+
+    update_config_var $ZBX_CONFIG "SSHKeyLocation" "$ZABBIX_USER_HOME_DIR/ssh_keys"
+    update_config_var $ZBX_CONFIG "LogSlowQueries" "${ZBX_LOGSLOWQUERIES}"
+
+    if [ "$type" == "server" ]; then 
+        update_config_var $ZBX_CONFIG "StartProxyPollers" "${ZBX_STARTPROXYPOLLERS}"
+        update_config_var $ZBX_CONFIG "ProxyConfigFrequency" "${ZBX_PROXYCONFIGFREQUENCY}"
+        update_config_var $ZBX_CONFIG "ProxyDataFrequency" "${ZBX_PROXYDATAFREQUENCY}"
+    fi
+
+    update_config_var $ZBX_CONFIG "SSLCertLocation" "$ZABBIX_USER_HOME_DIR/ssl/certs/"
+    update_config_var $ZBX_CONFIG "SSLKeyLocation" "$ZABBIX_USER_HOME_DIR/ssl/keys/"
+    update_config_var $ZBX_CONFIG "SSLCALocation" "$ZABBIX_USER_HOME_DIR/ssl/ssl_ca/"
+    update_config_var $ZBX_CONFIG "LoadModulePath" "$ZABBIX_USER_HOME_DIR/modules/"
+    update_config_multiple_var $ZBX_CONFIG "LoadModule" "${ZBX_LOADMODULE}"
+
+    if [ "$type" == "proxy" ]; then
+        update_config_var $ZBX_CONFIG "TLSConnect" "${ZBX_TLSCONNECT}"
+        update_config_var $ZBX_CONFIG "TLSAccept" "${ZBX_TLSACCEPT}"
+    fi
+    update_config_var $ZBX_CONFIG "TLSCAFile" "${ZBX_TLSCAFILE}"
+    update_config_var $ZBX_CONFIG "TLSCRLFile" "${ZBX_TLSCRLFILE}"
+
+    if [ "$type" == "proxy" ]; then
+        update_config_var $ZBX_CONFIG "TLSServerCertIssuer" "${ZBX_TLSSERVERCERTISSUER}"
+        update_config_var $ZBX_CONFIG "TLSServerCertSubject" "${ZBX_TLSSERVERCERTSUBJECT}"
+    fi
+
+    update_config_var $ZBX_CONFIG "TLSCertFile" "${ZBX_TLSCERTFILE}"
+    update_config_var $ZBX_CONFIG "TLSKeyFile" "${ZBX_TLSKEYFILE}"
+
+    if [ "$type" == "proxy" ]; then
+        update_config_var $ZBX_CONFIG "TLSPSKIdentity" "${ZBX_TLSPSKIDENTITY}"
+        update_config_var $ZBX_CONFIG "TLSPSKFile" "${ZBX_TLSPSKFILE}"
+    fi
+}
+
+
+prepare_zbx_web_config() {
+    local db_type=$1
+    local server_name=""
+
+    echo "** Preparing Zabbix frontend configuration file"
+
+    ZBX_WEB_CONFIG="$ZABBIX_ETC_DIR/web/zabbix.conf.php"
+
+    if [ -f "/usr/share/zabbix/conf/zabbix.conf.php" ]; then
+        rm -f "/usr/share/zabbix/conf/zabbix.conf.php"
+    fi
+
+    ln -s "$ZBX_WEB_CONFIG" "/usr/share/zabbix/conf/zabbix.conf.php"
+
+    # Different places of PHP configuration file
+    if [ -f "/etc/php5/conf.d/99-zabbix.ini" ]; then
+        PHP_CONFIG_FILE="/etc/php5/conf.d/99-zabbix.ini"
+    elif [ -f "/etc/php5/fpm/conf.d/99-zabbix.ini" ]; then
+        PHP_CONFIG_FILE="/etc/php5/fpm/conf.d/99-zabbix.ini"
+    elif [ -f "/etc/php5/apache2/conf.d/99-zabbix.ini" ]; then
+        PHP_CONFIG_FILE="/etc/php5/apache2/conf.d/99-zabbix.ini"
+    elif [ -f "/etc/php/7.0/apache2/conf.d/99-zabbix.ini" ]; then
+        PHP_CONFIG_FILE="/etc/php/7.0/apache2/conf.d/99-zabbix.ini"
+    elif [ -f "/etc/php/7.0/fpm/conf.d/99-zabbix.ini" ]; then
+        PHP_CONFIG_FILE="/etc/php/7.0/fpm/conf.d/99-zabbix.ini"
+    fi
+
+    if [ -n "$PHP_CONFIG_FILE" ]; then
+        update_config_var "$PHP_CONFIG_FILE" "max_execution_time" "${ZBX_MAXEXECUTIONTIME:-"600"}"
+        update_config_var "$PHP_CONFIG_FILE" "memory_limit" "${ZBX_MEMORYLIMIT:-"128M"}" 
+        update_config_var "$PHP_CONFIG_FILE" "post_max_size" "${ZBX_POSTMAXSIZE:-"16M"}"
+        update_config_var "$PHP_CONFIG_FILE" "upload_max_filesize" "${ZBX_UPLOADMAXFILESIZE:-"2M"}"
+        update_config_var "$PHP_CONFIG_FILE" "max_input_time" "${ZBX_MAXINPUTTIME:-"300"}"
+        update_config_var "$PHP_CONFIG_FILE" "date.timezone" "${PHP_TZ}"
+    else
+        echo "**** Zabbix related PHP configuration file not found"
+    fi
+
+    # Escaping "/" character in parameter value
+    server_name=${ZBX_SERVER_NAME//\//\\/}
+
+    sed -i \
+        -e "s/{DB_SERVER_HOST}/${DB_SERVER_HOST}/g" \
+        -e "s/{DB_SERVER_PORT}/${DB_SERVER_PORT}/g" \
+        -e "s/{DB_SERVER_DBNAME}/${DB_SERVER_DBNAME}/g" \
+        -e "s/{DB_SERVER_USER}/${DB_SERVER_ZBX_USER}/g" \
+        -e "s/{DB_SERVER_PASS}/${DB_SERVER_ZBX_PASS}/g" \
+        -e "s/{ZBX_SERVER_HOST}/${ZBX_SERVER_HOST}/g" \
+        -e "s/{ZBX_SERVER_PORT}/${ZBX_SERVER_PORT}/g" \
+        -e "s/{ZBX_SERVER_NAME}/$server_name/g" \
+    "$ZBX_WEB_CONFIG"
+
+    [ "$db_type" = "postgresql" ] && sed -i "s/MYSQL/POSTGRESQL/g" "$ZBX_WEB_CONFIG"
+}
+
+prepare_zbx_agent_config() {
+    echo "** Preparing Zabbix agent configuration file"
+
+    ZBX_AGENT_CONFIG=$ZABBIX_ETC_DIR/zabbix_agentd.conf
+
+    ZBX_PASSIVESERVERS=${ZBX_PASSIVESERVERS:-""}
+    ZBX_ACTIVESERVERS=${ZBX_ACTIVESERVERS:-""}
+
+    [ -n "$ZBX_PASSIVESERVERS" ] && ZBX_PASSIVESERVERS=","$ZBX_PASSIVESERVERS
+
+    ZBX_PASSIVESERVERS=$ZBX_SERVER_HOST$ZBX_PASSIVESERVERS
+
+    [ -n "$ZBX_ACTIVESERVERS" ] && ZBX_ACTIVESERVERS=","$ZBX_ACTIVESERVERS
+
+    ZBX_ACTIVESERVERS=$ZBX_SERVER_HOST":"$ZBX_SERVER_PORT$ZBX_ACTIVESERVERS
+
+    update_config_var $ZBX_AGENT_CONFIG "PidFile"
+    update_config_var $ZBX_AGENT_CONFIG "LogType" "console"
+    update_config_var $ZBX_AGENT_CONFIG "LogFile"
+    update_config_var $ZBX_AGENT_CONFIG "LogFileSize"
+    update_config_var $ZBX_AGENT_CONFIG "DebugLevel" "${ZBX_DEBUGLEVEL}"
+    update_config_var $ZBX_AGENT_CONFIG "SourceIP"
+    update_config_var $ZBX_AGENT_CONFIG "EnableRemoteCommands" "${ZBX_ENABLEREMOTECOMMANDS}"
+    update_config_var $ZBX_AGENT_CONFIG "LogRemoteCommands" "${ZBX_LOGREMOTECOMMANDS}"
+
+    ZBX_PASSIVE_ALLOW=${ZBX_PASSIVE_ALLOW:-"true"}
+    if [ "$ZBX_PASSIVE_ALLOW" == "true" ]; then
+        echo "** Using '$ZBX_PASSIVESERVERS' servers for passive checks"
+        update_config_var $ZBX_AGENT_CONFIG "Server" "${ZBX_PASSIVESERVERS}"
+    else
+        update_config_var $ZBX_AGENT_CONFIG "Server"
+    fi
+
+    update_config_var $ZBX_AGENT_CONFIG "ListenPort"
+    update_config_var $ZBX_AGENT_CONFIG "ListenIP" "${ZBX_LISTENIP}"
+    update_config_var $ZBX_AGENT_CONFIG "StartAgents" "${ZBX_STARTAGENTS}"
+
+    ZBX_ACTIVE_ALLOW=${ZBX_ACTIVE_ALLOW:-"true"}
+    if [ "$ZBX_ACTIVE_ALLOW" == "true" ]; then
+        echo "** Using '$ZBX_ACTIVESERVERS' servers for active checks"
+        update_config_var $ZBX_AGENT_CONFIG "ServerActive" "${ZBX_ACTIVESERVERS}"
+    else
+        update_config_var $ZBX_AGENT_CONFIG "ServerActive"
+    fi
+
+    update_config_var $ZBX_AGENT_CONFIG "Hostname" "${ZBX_HOSTNAME}"
+    update_config_var $ZBX_AGENT_CONFIG "HostnameItem" "${ZBX_HOSTNAMEITEM}"
+    update_config_var $ZBX_AGENT_CONFIG "HostMetadata" "${ZBX_METADATA}"
+    update_config_var $ZBX_AGENT_CONFIG "HostMetadataItem" "${ZBX_METADATAITEM}"
+    update_config_var $ZBX_AGENT_CONFIG "RefreshActiveChecks" "${ZBX_REFRESHACTIVECHECKS}"
+    update_config_var $ZBX_AGENT_CONFIG "BufferSend" "${ZBX_BUFFERSEND}"
+    update_config_var $ZBX_AGENT_CONFIG "BufferSize" "${ZBX_BUFFERSIZE}"
+    update_config_var $ZBX_AGENT_CONFIG "MaxLinesPerSecond" "${ZBX_MAXLINESPERSECOND}"
+#    update_config_multiple_var $ZBX_AGENT_CONFIG "Alias" ${ZBX_ALIAS}
+    update_config_var $ZBX_AGENT_CONFIG "Timeout" "${ZBX_TIMEOUT}"
+    update_config_var $ZBX_AGENT_CONFIG "Include" "/etc/zabbix/zabbix_agentd.d/"
+    update_config_var $ZBX_AGENT_CONFIG "UnsafeUserParameters" "${ZBX_UNSAFEUSERPARAMETERS}"
+    update_config_var $ZBX_AGENT_CONFIG "LoadModulePath" "$ZABBIX_USER_HOME_DIR/modules/"
+    update_config_multiple_var $ZBX_AGENT_CONFIG "LoadModule" "${ZBX_LOADMODULE}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSConnect" "${ZBX_TLSCONNECT}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSAccept" "${ZBX_TLSACCEPT}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSCAFile" "${ZBX_TLSCAFILE}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSCRLFile" "${ZBX_TLSCRLFILE}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSServerCertIssuer" "${ZBX_TLSSERVERCERTISSUER}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSServerCertSubject" "${ZBX_TLSSERVERCERTSUBJECT}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSCertFile" "${ZBX_TLSCERTFILE}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSKeyFile" "${ZBX_TLSKEYFILE}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSPSKIdentity" "${ZBX_TLSPSKIDENTITY}"
+    update_config_var $ZBX_AGENT_CONFIG "TLSPSKFile" "${ZBX_TLSPSKFILE}"
+}
+
+prepare_java_gateway_config() {
+    echo "** Preparing Zabbix Java Gateway log configuration file"
+
+    ZBX_GATEWAY_CONFIG=$ZABBIX_ETC_DIR/zabbix_java_gateway_logback.xml
+
+    if [ -n "${ZBX_DEBUGLEVEL}" ]; then
+        echo "Updating $ZBX_GATEWAY_CONFIG 'DebugLevel' parameter: '${ZBX_DEBUGLEVEL}'... updated"
+        if [ -f "$ZBX_GATEWAY_CONFIG" ]; then
+            sed -i -e "/^.*<root level=/s/=.*/=\"${ZBX_DEBUGLEVEL}\">/" "$ZBX_GATEWAY_CONFIG"
+        else
+            echo "**** Zabbix Java Gateway log configuration file '$ZBX_GATEWAY_CONFIG' not found"
+        fi
+    fi
+}
+
+prepare_agent() {
+    echo "** Preparing Zabbix agent"
+    prepare_zbx_agent_config
+}
+
+prepare_server() {
+    local db_type=$1
+
+    echo "** Preparing Zabbix server"
+
+    check_variables_$db_type "server"
+    check_db_connect_$db_type
+    create_db_user_$db_type
+    create_db_database_$db_type
+    create_db_schema_$db_type "server"
+
+    update_zbx_config "server" "$db_type"
+}
+
+prepare_proxy() {
+    local db_type=$1
+
+    echo "Preparing Zabbix proxy"
+
+    if [ "$db_type" != "sqlite3" ]; then
+        check_variables_$db_type "proxy"
+        check_db_connect_$db_type
+        create_db_user_$db_type
+        create_db_database_$db_type
+        create_db_schema_$db_type "proxy"
+    fi
+
+    update_zbx_config "proxy" $db_type
+}
+
+prepare_web() {
+    local web_server=$1
+    local db_type=$2
+
+    echo "** Preparing Zabbix web-interface"
+
+    check_variables_$db_type
+    check_db_connect_$db_type
+    prepare_web_server_$web_server
+    prepare_zbx_web_config $db_type
+}
+
+prepare_java_gateway() {
+    echo "** Preparing Zabbix Java Gateway"
+
+    prepare_java_gateway_config
+}
+
+#################################################
+
+if [ ! -n "$zbx_type" ]; then
+    echo "**** Type of Zabbix component is not specified"
+    exit 1
+elif [ "$zbx_type" == "dev" ]; then
+    echo "** Deploying Zabbix installation from SVN"
+else
+    if [ ! -n "$zbx_db_type" ]; then
+        echo "**** Database type of Zabbix $zbx_type is not specified"
+        exit 1
+    fi
+
+    if [ -n "$zbx_db_type" ]; then
+        if [ -n "$zbx_opt_type" ]; then
+            echo "** Deploying Zabbix $zbx_type ($zbx_opt_type) with $zbx_db_type database"
+        else
+            echo "** Deploying Zabbix $zbx_type with $zbx_db_type database"
+        fi
+    else
+        echo "** Deploying Zabbix $zbx_type"
+    fi
+fi
+
+prepare_system "$zbx_type" "$zbx_opt_type"
+
+[ "$zbx_type" == "server" ] && prepare_server $zbx_db_type
+[ "${ZBX_ADD_SERVER}" == "true" ] && prepare_server ${ZBX_MAIN_DB}
+
+[ "$zbx_type" == "proxy" ] && prepare_proxy $zbx_db_type
+[ "${ZBX_ADD_PROXY}" == "true" ] && prepare_proxy ${ZBX_PROXY_DB}
+
+[ "$zbx_type" == "frontend" ] && prepare_web $zbx_opt_type $zbx_db_type
+[ "${ZBX_ADD_WEB}" == "true" ] && prepare_web ${ZBX_WEB_SERVER} ${ZBX_MAIN_DB}
+
+[ "$zbx_type" == "agentd" ] && prepare_agent
+[ "${ZBX_ADD_AGENT}" == "true" ] && prepare_agent
+
+[ "$zbx_type" == "java-gateway" ] && prepare_java_gateway
+[ "${ZBX_ADD_JAVA_GATEWAY}" == "true" ] && prepare_java_gateway
+
+clear_deploy "$zbx_type"
+
+echo "########################################################"
+
+echo "** Executing supervisord"
+exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+
+#################################################
